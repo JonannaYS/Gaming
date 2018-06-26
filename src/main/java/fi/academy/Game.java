@@ -29,7 +29,7 @@ public class Game {
             System.out.println("2: Go back inside the elevator");
             choice = sc.nextLine();
 
-            if (choice.equals("1:")) {
+            if (choice.equals("1")) {
                 hallway2();
             }
 
@@ -70,7 +70,7 @@ public class Game {
         System.out.println("You arrived in the office. " +
                 "You see some desks and chairs, one laptop on the nearest desk. " +
                 "There are some papers with coffee cup stains on the papers scattered on the floor." +
-                "There is a printer in the corner." +
+                "\nThere is a printer in the corner." +
                 "What would you like to do now?");
         System.out.println("1: Go west, there is a door opening to a smaller room by a glass wall.");
         System.out.println("2: Go to north, there is a door between two glass walls opening to a large room.");
@@ -151,7 +151,7 @@ public class Game {
         System.out.println("You are in the livingroom. There are large couches and chairs around you.");
         System.out.println("1: Go back to the hallway.");
         System.out.println("2: Go to the dining room.");
-        System.out.println("3. Examine room. You might die.");
+        System.out.println("3: Examine room. You might die.");
         String choice = sc.nextLine();
         if (choice.equals("1")) {
             hallway6();
@@ -228,23 +228,24 @@ public class Game {
 
     public void kitchen13 () { //Johanna
         System.out.println("You enter the kitchen. What do you do?");
-        System.out.println("1. Make yourself some coffee. ");
-        System.out.println("2. Have a sandwich.");
-        System.out.println("3. Leave the room.");
+        System.out.println("1: Make yourself some coffee. ");
+        System.out.println("2: Have a sandwich.");
+        System.out.println("3: Leave the room.");
         String choice = sc.nextLine();
 
         if (choice.equals("1")) {
             System.out.println("You drink your coffee and feel refreshed.");
             kitchen13();
         }
-        if (choice.equals("2.")) {
+        if (choice.equals("2")) {
             System.out.println("You devour someones sandwich from the fridge... Seriously?!");
+            kitchen13();
         }
-        if (choice.equals("3.")) {
+        if (choice.equals("3")) {
             System.out.println("You decide to leave the kitchen. Where do you want to go?");
-            System.out.println("1. North");
-            System.out.println("2. Southwest.");
-            System.out.println("3. South.");
+            System.out.println("1: Go north to the hallway to other rooms.");
+            System.out.println("2: Go southwest to the hallway with exits to toilets.");
+            System.out.println("3: Go south to the dining room with large white tables surrounded by nice chairs.");
 
             choice = sc.nextLine();
 
@@ -447,22 +448,22 @@ public class Game {
 
     public void toilet25() { //Johanna
         System.out.println("You enter the toilet. As usual, there's no paper there. What do you do?");
-        System.out.println("1. Leave the toilet. Try to find Maisa to help you. ");
-        System.out.println("2. Leave the toilet. I didn't need to go anyway.");
-        System.out.println("3. Use the toilet.");
+        System.out.println("1: Leave the toilet. Try to find Maisa to help you. ");
+        System.out.println("2: Leave the toilet. I didn't need to go anyway.");
+        System.out.println("3: Use the toilet.");
         String choice = sc.nextLine();
 
         if (choice.equals("1")) {
             office3();
         }
-        if (choice.equals("2.")) {
+        if (choice.equals("2")) {
             office3();
         }
-        if (choice.equals("3.")) {
+        if (choice.equals("3")) {
             System.out.println("You flush the toilet. You hear a strange crackling sound coming from the wash basin.");
-            System.out.println("1. Leave the toilet.");
-            System.out.println("2. Check the wash basin.");
-            System.out.println("3. Check under the wash basin.");
+            System.out.println("1: Leave the toilet.");
+            System.out.println("2: Check the wash basin.");
+            System.out.println("3: Check under the wash basin.");
 
             choice = sc.nextLine();
 
