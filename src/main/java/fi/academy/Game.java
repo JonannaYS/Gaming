@@ -62,7 +62,6 @@ public class Game {
         if (choice.equals("4")) {
             hallway2();
         }
-
     }
 
     public void conference17() { //JOONAS
