@@ -42,5 +42,6 @@ public class Game {
     }
 
     private void hallway6() {
+        System.out.println("Joonaksen editti");
     }
 }
