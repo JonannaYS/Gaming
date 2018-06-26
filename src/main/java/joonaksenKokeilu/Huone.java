@@ -47,5 +47,17 @@ public class Huone {
         uloskaynnit.add(uloskaynti);
     }
 
+    public void lisaaEsine(Esine esine){
+        irtaimisto.add(esine);
+    }
+
+    public int esineidenMaara(){
+        return irtaimisto.size();
+    }
+
+    public int uloskayntienMaara(){
+        return uloskaynnit.size();
+    }
+
 
 }
