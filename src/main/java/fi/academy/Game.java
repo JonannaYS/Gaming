@@ -16,7 +16,6 @@ public class Game {
         game.elevator1();
     }
 
-
     public void elevator1() { //JOONAS
         if (!avain) {
             System.out.println("You are in an elevator. What do you want to do?");
@@ -62,7 +61,6 @@ public class Game {
         if (choice.equals("4")) {
             hallway2();
         }
-
     }
 
     public void conference17() { //JOONAS
