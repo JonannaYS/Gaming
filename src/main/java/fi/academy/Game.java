@@ -319,6 +319,15 @@ public class Game {
         }
     }
 
+    public void conference15 () { //Johanna
+        System.out.println("You are in a room. There is currently nothing interesting in this room.");
+        System.out.println("1: Go back to the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+            hallway14a();
+        }
+    }
+
     public void accenture16 () { //Johanna
         System.out.println("It's a classroom. You notice that the air in the room is thick and stale.");
         System.out.println("1: Go back to the hallway.");
@@ -384,6 +393,15 @@ public class Game {
         String choice = sc.nextLine();
         if (choice.equalsIgnoreCase("1")) {
             hallway18();
+        }
+    }
+
+    public void cSharp20() { //Johanna
+        System.out.println("You are in a classroom. There is currently nothing interesting in this room.");
+        System.out.println("1: Go back to the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+            hallway14b();
         }
     }
 
