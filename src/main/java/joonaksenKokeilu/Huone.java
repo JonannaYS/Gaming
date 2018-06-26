@@ -6,25 +6,28 @@ import java.util.List;
 public class Huone {
     private String nimi;
     private String kuvaus;
-    private List<Esine> irtaimisto;
-    private List<Huone> uloskaynnit;
+    private List<Esine> irtaimisto = new ArrayList<>();
+    private List<Huone> uloskaynnit = new ArrayList<>();
+    private boolean lukossa = false;
 
     public Huone(){
-        this.irtaimisto = new ArrayList<>();
-        this.uloskaynnit = new ArrayList<>();
+
     }
 
     public Huone(String nimi){
         this.nimi = nimi;
-        this.irtaimisto = new ArrayList<>();
-        this.uloskaynnit = new ArrayList<>();
     }
 
     public Huone(String nimi, String kuvaus) {
         this.nimi = nimi;
         this.kuvaus = kuvaus;
-        this.irtaimisto = new ArrayList<>();
-        this.uloskaynnit = new ArrayList<>();
+
+    }
+
+    public Huone(String nimi, String kuvaus, boolean lukossa) {
+        this.nimi = nimi;
+        this.kuvaus = kuvaus;
+        this.lukossa = lukossa;
     }
 
     public String getNimi() {
@@ -57,6 +60,14 @@ public class Huone {
 
     public int uloskayntienMaara(){
         return uloskaynnit.size();
+    }
+
+    public boolean onLukittu(){
+        return lukossa;
+    }
+
+    public void avaaLukitus(){
+        this.lukossa = false;
     }
 
 
