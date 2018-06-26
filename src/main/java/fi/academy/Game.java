@@ -1,5 +1,6 @@
 package fi.academy;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -45,7 +46,42 @@ public class Game {
         System.out.println("Joonaksen editti");
     }
 
-    private void toilet24() {
+    private void toilet24() { //Johanna
         System.out.println("You can't enter the loo, you fool!");
     }
+
+    private void toilet25() { //Johanna
+        System.out.println("You enter the toilet. As usual, there's no paper there. What do you do?");
+        System.out.println("1. Leave the toilet. Try to find Maisa to help you. ");
+        System.out.println("2. Leave the toilet. I didn't need to go anyway.");
+        System.out.println("3. Use the toilet.");
+        String choice = sc.nextLine();
+
+        if (choice.equals("1")) {
+            office();
+        }
+        if (choice.equals("2.")) {
+            office();
+        }
+        if (choice.equals("3.")) {
+            System.out.println("You flush the toilet. You hear a strange crackling sound coming from the wash basin.");
+            System.out.println("1. Leave the toilet.");
+            System.out.println("2. Check the wash basin.");
+            System.out.println("3. Check under the wash basin.");
+
+            if (choice.equals("1")) {
+              office();
+            }  if (choice.equals("2")) {
+                office();
+            } if (choice.equals("3")) {
+                office();
+            } else {
+                System.out.println("A troll eats you and you die. mwahaha.");
+            }
+        } else {
+            System.out.println("A troll eats you and you die. mwahaha.");
+        }
+    }
+
+
 }
