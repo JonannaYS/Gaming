@@ -405,16 +405,17 @@ public class Game {
         }
     }
 
-    public void beanbags21(){ //Jouni
+    public void beanbags21() { //Jouni
         System.out.println("There are a few large and colourful beanbag chairs omn the floors." +
                 "They look very inviting. On the south wall there is a large monitor where you see fortnite" +
                 "on a Playstation. It appears even more inviting." +
                 "What do you want to do?");
         System.out.println("1: Go to the north to a large open hallway.");
         String choice = sc.nextLine();
-        if (choice.equalsIgnoreCase("1")){
+        if (choice.equalsIgnoreCase("1")) {
             hallway14b();
         }
+    }
 
 
     public void exit22(){
