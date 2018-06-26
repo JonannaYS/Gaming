@@ -63,6 +63,10 @@ public class Game {
         }
     }
 
+    public void hallway6() { //JOONAS
+        System.out.println("Joonaksen editti");
+    }
+
     public void conference17() { //JOONAS
         System.out.println("You are in a room. There is currently nothing interesting in this room.");
         System.out.println("1: Go back to the hallway.");
@@ -85,15 +89,11 @@ public class Game {
         }
     }
 
-    public void hallway6() { //JOONAS
-        System.out.println("Joonaksen editti");
-    }
-
     public void toilet24() { //Johanna
         System.out.println("You can't enter the loo, you fool!");
     }
 
-    private void toilet25() { //Johanna
+    public void toilet25() { //Johanna
         System.out.println("You enter the toilet. As usual, there's no paper there. What do you do?");
         System.out.println("1. Leave the toilet. Try to find Maisa to help you. ");
         System.out.println("2. Leave the toilet. I didn't need to go anyway.");
