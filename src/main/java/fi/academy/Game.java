@@ -29,18 +29,25 @@ public class Game {
             System.out.println("2: Go back inside the elevator");
             choice = sc.nextLine();
 
-            if (choice.equals("1")) {
-                hallway2();
-            }
-
-            if (choice.equals("2")) {
-                elevator1();
+            switch (choice) {
+                case "1":
+                    hallway2();
+                    break;
+                case "2":
+                    elevator1();
+                    break;
+                default:
+                    System.out.println("The elevator doors close because you didn't do anything.");
+                    elevator1();
+                    break;
             }
         }
 
-        if (choice.equalsIgnoreCase("2")) {
+        else if (choice.equalsIgnoreCase("2")) {
             elevator1();
-        } else {
+        }
+
+        else {
             System.out.println("Not an option at this time.");
             elevator1();
         }
@@ -55,14 +62,19 @@ public class Game {
         System.out.println("2: Go go east continuing the hallway.");
         System.out.println("3: Press the elevator button to enter the elevator in the south.");
         String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            office3();
-        }
-        if (choice.equals("2")) {
-            hallway6();
-        }
-        if (choice.equals("3")) {
-            elevator1();
+        switch (choice) { //Joonas
+            case "1":
+                office3();
+                break;
+            case "2":
+                hallway6();
+                break;
+            case "3":
+                elevator1();
+                break;
+            default:
+                hallway2();
+                break;
         }
     }
 
@@ -78,26 +90,31 @@ public class Game {
         System.out.println("4: Go to east to a hallway in front of the elevators.");
 
         String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            conference4();
-        }
-        if (choice.equals("2")) {
-            leasegreen5();
-        }
-        if (choice.equals("3")) {
-            System.out.println("Which toilet would you like to enter?");
-            System.out.println("1: The toilet near to you.");
-            System.out.println("2: the toilet further to northeast from you.");
-            choice = sc.nextLine();
-            if (choice.equalsIgnoreCase("1")) {
-                toilet24();
-            }
-            if (choice.equalsIgnoreCase("2")) {
-                toilet25();
-            }
-            if (choice.equals("4")) {
-                hallway2();
-            }
+        switch (choice) {
+            case "1":
+                conference4();
+                break;
+            case "2":
+                leasegreen5();
+                break;
+            case "3":
+                System.out.println("Which toilet would you like to enter?");
+                System.out.println("1: The toilet near to you.");
+                System.out.println("2: the toilet further to northeast from you.");
+                choice = sc.nextLine();
+                if (choice.equalsIgnoreCase("1")) {
+                    toilet24();
+                } else if (choice.equalsIgnoreCase("2")) {
+                    toilet25();
+                } else if (choice.equals("4")) {
+                    hallway2();
+                } else { //Joonas
+                    System.out.println("You went back to the office.");
+                }
+                break;
+            default:
+                office3();
+                break;
         }
     }
 
@@ -112,6 +129,9 @@ public class Game {
         String choice = sc.nextLine();
         if (choice.equals("1")) {
             office3();
+        }
+        else {
+            conference4();
         }
     }
 
@@ -128,6 +148,9 @@ public class Game {
         if (choice.equals("1")) {
             office3();
         }
+        else {
+            leasegreen5();
+        }
 
     }
 
@@ -143,17 +166,22 @@ public class Game {
         System.out.println("4: Go north to the hallway in front of toilets with a grey " +
                 "hanging wall made of woollen material to the east of the hallway.");
         String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            hallway2();
-        }
-        if (choice.equals("2")) {
-            couch7();
-        }
-        if (choice.equals("3")) {
-            exit23();
-        }
-        if (choice.equals("4")) {
-            hallway9();
+        switch (choice) { //Joonas
+            case "1":
+                hallway2();
+                break;
+            case "2":
+                couch7();
+                break;
+            case "3":
+                exit23();
+                break;
+            case "4":
+                hallway9();
+                break;
+            default:
+                hallway6();
+                break;
         }
     }
 
@@ -164,15 +192,19 @@ public class Game {
         System.out.println("2: Go to the dining room.");
         System.out.println("3: Examine room. You might die.");
         String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            hallway6();
-        }
-        if (choice.equals("2")) {
-            diningRoom8();
-        }
-        if (choice.equals("3")) {
-            System.out.println("You find nothing here.");
-            couch7();
+        switch (choice) { //Joonas
+            case "1":
+                hallway6();
+                break;
+            case "2":
+                diningRoom8();
+                break;
+            case "3":
+                System.out.println("You find nothing here.");
+                couch7();
+                break;
+            default:
+                couch7();
         }
     }
 
@@ -211,17 +243,22 @@ public class Game {
         System.out.println("3: Go southwest to the other toilet.");
         System.out.println("4: Go north to the kitchen the aroma of coffee smells so very nice.");
         String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            toilet12();
-        }
-        if (choice.equals("2")) {
-            maintenance11();
-        }
-        if (choice.equals("3")) {
-            toilet10();
-        }
-        if (choice.equals("4")) {
-            kitchen13();
+        switch (choice) { //Joonas
+            case "1":
+                toilet12();
+                break;
+            case "2":
+                maintenance11();
+                break;
+            case "3":
+                toilet10();
+                break;
+            case "4":
+                kitchen13();
+                break;
+            default:
+                hallway9();
+                break;
         }
     }
 
@@ -247,35 +284,41 @@ public class Game {
         System.out.println("3: Leave the room.");
         String choice = sc.nextLine();
 
-        if (choice.equals("1")) {
-            System.out.println("You drink your coffee and feel refreshed.");
-            kitchen13();
-        }
-        if (choice.equals("2")) {
-            System.out.println("You devour someones sandwich from the fridge... Seriously?!");
-            kitchen13();
-        }
-        if (choice.equals("3")) {
-            System.out.println("You decide to leave the kitchen. Where do you want to go?");
-            System.out.println("1: Go north to the hallway to other rooms.");
-            System.out.println("2: Go southwest to the hallway with exits to toilets.");
-            System.out.println("3: Go south to the dining room with large white tables surrounded by nice chairs.");
+        switch (choice) {
+            case "1":
+                System.out.println("You drink your coffee and feel refreshed.");
+                kitchen13();
+                break;
+            case "2":
+                System.out.println("You devour someones sandwich from the fridge... Seriously?!");
+                kitchen13();
+                break;
+            case "3":
+                System.out.println("You decide to leave the kitchen. Where do you want to go?");
+                System.out.println("1: Go north to the hallway to other rooms.");
+                System.out.println("2: Go southwest to the hallway with exits to toilets.");
+                System.out.println("3: Go south to the dining room with large white tables surrounded by nice chairs.");
 
-            choice = sc.nextLine();
+                choice = sc.nextLine();
 
-            if (choice.equals("1")) {
-                hallway14a();
-            }
-            if (choice.equals("2")) {
-                hallway9();
-            }
-            if (choice.equals("3")) {
-                diningRoom8();
-            } else {
-                System.out.println("A troll eats you and you die. mwahaha.");
-            }
-        } else {
-            kitchen13();
+                switch (choice) {
+                    case "1":
+                        hallway14a();
+                        break;
+                    case "2":
+                        hallway9();
+                        break;
+                    case "3":
+                        diningRoom8();
+                        break;
+                    default:
+                        System.out.println("A troll eats you and you die. mwahaha.");
+                        break;
+                }
+                break;
+            default:
+                kitchen13();
+                break;
         }
     }
 
@@ -305,7 +348,6 @@ public class Game {
             default:
                 System.out.println("Not possible.");
                 hallway14a();
-
         }
     }
 
@@ -344,6 +386,9 @@ public class Game {
         if (choice.equalsIgnoreCase("1")) {
             hallway14a();
         }
+        else {
+            hallway14a();
+        }
     }
 
     public void accenture16 () { //Johanna
@@ -352,16 +397,21 @@ public class Game {
         System.out.println("2: You go to the thermostat.");
         System.out.println("3: You want to look around.");
         String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            hallway14a();
-        }
-        if (choice.equals("2")) {
-            System.out.println("The air conditioning is broken.");
-            accenture16();
-        }
-        if (choice.equals("3.")) {
-            System.out.println("There is currently nothing interesting in this room.");
-            accenture16();
+        switch (choice) {
+            case "1":
+                hallway14a();
+                break;
+            case "2":
+                System.out.println("The air conditioning is broken.");
+                accenture16();
+                break;
+            case "3.":
+                System.out.println("There is currently nothing interesting in this room.");
+                accenture16();
+                break;
+            default:
+                accenture16();
+                break;
         }
     }
 
@@ -371,6 +421,9 @@ public class Game {
         String choice = sc.nextLine();
         if (choice.equalsIgnoreCase("1")) {
             hallway18();
+        }
+        else {
+            conference17();
         }
     }
 
@@ -384,25 +437,23 @@ public class Game {
         System.out.println("4: Go south through the hallway.");
         String choice = sc.nextLine();
 
-        if (choice.equals("1")) {
-            exit22();
-        }
-
-        if (choice.equals("2")) {
-            conference19();
-        }
-
-        if (choice.equals("3")) {
-            conference17();
-        }
-
-        if (choice.equals("4")) {
-            hallway14b();
-        }
-
-        else {
-            System.out.println("That's not possible.");
-            hallway18();
+        switch (choice) {
+            case "1":
+                exit22();
+                break;
+            case "2":
+                conference19();
+                break;
+            case "3":
+                conference17();
+                break;
+            case "4":
+                hallway14b();
+                break;
+            default:
+                System.out.println("That's not possible.");
+                hallway18();
+                break;
         }
 
     }
@@ -414,6 +465,9 @@ public class Game {
         if (choice.equalsIgnoreCase("1")) {
             hallway18();
         }
+        else {
+            conference19();
+        }
     }
 
     public void cSharp20() { //Johanna
@@ -422,6 +476,9 @@ public class Game {
         String choice = sc.nextLine();
         if (choice.equalsIgnoreCase("1")) {
             hallway14b();
+        }
+        else {
+            cSharp20();
         }
     }
 
@@ -439,7 +496,7 @@ public class Game {
             hallway14b();
         }
 
-        if (choice.equals("2")) {
+        else if (choice.equals("2")) {
             if (!passKey){
                 System.out.println("The controller does not work, but you see a passkey. You take it with you. " +
                         "\nPerhaps it could be used to open some doors?");
@@ -447,10 +504,14 @@ public class Game {
                 beanbags21();
             }
 
-            if (passKey) {
+            else if (passKey) {
                 System.out.println("The controller does not work.");
                 beanbags21();
             }
+        }
+
+        else {
+            beanbags21();
         }
     }
 
@@ -488,34 +549,40 @@ public class Game {
         System.out.println("3: Use the toilet.");
         String choice = sc.nextLine();
 
-        if (choice.equals("1")) {
-            office3();
-        }
-        if (choice.equals("2")) {
-            office3();
-        }
-        if (choice.equals("3")) {
-            System.out.println("You flush the toilet. You hear a strange crackling sound\n" +
-                    " coming from the wash basin.");
-            System.out.println("1: Leave the toilet.");
-            System.out.println("2: Check the wash basin.");
-            System.out.println("3: Check under the wash basin.");
+        switch (choice) {
+            case "1":
+                office3();
+                break;
+            case "2":
+                office3();
+                break;
+            case "3":
+                System.out.println("You flush the toilet. You hear a strange crackling sound\n" +
+                        " coming from the wash basin.");
+                System.out.println("1: Leave the toilet.");
+                System.out.println("2: Check the wash basin.");
+                System.out.println("3: Check under the wash basin.");
 
-            choice = sc.nextLine();
+                choice = sc.nextLine();
 
-            if (choice.equals("1")) {
+                switch (choice) {
+                    case "1":
+                        office3();
+                        break;
+                    case "2":
+                        office3();
+                        break;
+                    case "3":
+                        office3();
+                        break;
+                    default:
+                        System.out.println("A troll eats you and you die. mwahaha.");
+                        break;
+                }
+                break;
+            default:
                 office3();
-            }
-            if (choice.equals("2")) {
-                office3();
-            }
-            if (choice.equals("3")) {
-                office3();
-            } else {
-                System.out.println("A troll eats you and you die. mwahaha.");
-            }
-        } else {
-            office3();
+                break;
         }
     }
 }
