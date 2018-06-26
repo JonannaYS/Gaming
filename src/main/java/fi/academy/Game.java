@@ -42,4 +42,8 @@ public class Game {
 
     private void hallway6() {
     }
+
+    private void toilet24() {
+        System.out.println("You can't enter the loo, you fool!");
+    }
 }
