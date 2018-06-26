@@ -147,32 +147,6 @@ public class Game {
         }
     }
 
-    public void hallway9() { //Jouni
-        System.out.println("You are in a hallway to the south there is a " +
-                "hallway leading to west around the wall to the east you see a thick grey woollen felt" +
-                "wall hanging from the roof. It looks sturdy. To the northwest there is a door to a toilet and " +
-                "to west there is a door to a maintenance room.  To southwest there is door to another toilet." +
-                "To north there is a large open kitchen, you can smell a nice aroma of coffee from the kitchen." +
-                "What do you want to do?");
-        System.out.println("1: Go northwest to the toilet.");
-        System.out.println("2: Go west to the maintenance room.");
-        System.out.println("3: Go southwest to the other toilet.");
-        System.out.println("4: Go north to the kitchen where the aroma of coffee appears to be coming from.");
-        String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            toilet12();
-        }
-        if (choice.equals("2")) {
-            maintenance11();
-        }
-        if (choice.equals("3")) {
-            toilet10();
-        }
-        if (choice.equals("4")) {
-            kitchen13();
-        }
-    }
-
     public void couch7() { //Johanna
         System.out.println("You are in the livingroom. There are large couches and chairs around you.");
         System.out.println("1: Go back to the hallway.");
@@ -208,6 +182,32 @@ public class Game {
                 System.out.println("That is not an option.");
                 diningRoom8();
                 break;
+        }
+    }
+
+    public void hallway9() { //Jouni
+        System.out.println("You are in a hallway to the south there is a " +
+                "hallway leading to west around the wall to the east you see a thick grey woollen felt" +
+                "wall hanging from the roof. It looks sturdy. To the northwest there is a door to a toilet and " +
+                "to west there is a door to a maintenance room.  To southwest there is door to another toilet." +
+                "To north there is a large open kitchen, you can smell a nice aroma of coffee from the kitchen." +
+                "What do you want to do?");
+        System.out.println("1: Go northwest to the toilet.");
+        System.out.println("2: Go west to the maintenance room.");
+        System.out.println("3: Go southwest to the other toilet.");
+        System.out.println("4: Go north to the kitchen where the aroma of coffee appears to be coming from.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            toilet12();
+        }
+        if (choice.equals("2")) {
+            maintenance11();
+        }
+        if (choice.equals("3")) {
+            toilet10();
+        }
+        if (choice.equals("4")) {
+            kitchen13();
         }
     }
 
