@@ -46,6 +46,26 @@ public class Game {
         }
     }
 
+    public void hallway2() { //Jouni
+        System.out.println("You are in a hallway in front of elevators. " +
+                "There is an open office to the west and " +
+                "the hallway continues to the east." +
+                "What would you like to do now?");
+        System.out.println("1: Go west to the office space.");
+        System.out.println("2: Go go east continuing the hallway.");
+        System.out.println("3: Press the elevator button to enter the elevator in the south.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            office3();
+        }
+        if (choice.equals("2")) {
+            hallway6();
+        }
+        if (choice.equals("3")) {
+            elevator1();
+        }
+    }
+
     public void office3() { //Jouni
         System.out.println("You arrived in the office. " +
                 "You see some desks and chairs, one laptop on the nearest desk. " +
@@ -54,7 +74,7 @@ public class Game {
                 "What would you like to do now?");
         System.out.println("1: Go west, there is a door opening to a smaller room by a glass wall.");
         System.out.println("2: Go to north, there is a door between two glass walls opening to a large room.");
-        System.out.println("3: Go to north east, there are two toilets.");
+        System.out.println("3: Go to northeast, there are doors to two toilets.");
         System.out.println("4: Go to east to a hallway in front of the elevators.");
 
         String choice = sc.nextLine();
@@ -72,8 +92,85 @@ public class Game {
         }
     }
 
-    public void hallway6() { //JOONAS
-        System.out.println("Joonaksen editti");
+    public void conference4() { //Jouni
+        System.out.println("You are in a mid-size negotiating room. " +
+                "There is a table with six chairs around it and a large monitor on the " +
+                "north wall above the table. There is a window to the east, " +
+                "the orange window shades are pulled open and some office buildings " +
+                "can be seen from the window." +
+                "You see a door to the east. What do you want to do?");
+        System.out.println("1: Go east to the office space.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            office3();
+        }
+    }
+
+    public void leasegreen5() { //Jouni
+        System.out.println("You are in a semi large classroom. There is a U-shaped table in the middle" +
+                "and some tables also by the east side of the wall. " +
+                "The windows open to the west and you can see some office buildings with white walls" +
+                "from the window across the street. " +
+                "The room may be leased; it has a greenish feeling..." +
+                "What do you want to do?");
+        System.out.println("1: Go south to the open office space.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            office3();
+        }
+
+    }
+
+    public void hallway6() { //Jouni
+        System.out.println("You are in a hallway. There are elevators to the west." +
+                "To the east is a large open space surrounded by very cozy couches." +
+                "There is a large whitescreen to the south. The space is airy and " +
+                "surrounded by windows to the south and east." +
+                "What do you want to do?");
+        System.out.println("1: Go west to the hallway in front of the elevators.");
+        System.out.println("2: Go east to the open space where the sofas are.");
+        System.out.println("3: Go southwest to the exit door.");
+        System.out.println("4: Go north to the hallway in front of toilets with a grey " +
+                "hanging wall made of woollen material to the east of the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            hallway2();
+        }
+        if (choice.equals("2")) {
+            couch7();
+        }
+        if (choice.equals("3")) {
+            exit23();
+        }
+        if (choice.equals("4")) {
+            hallway9();
+        }
+    }
+
+    public void hallway9() { //Jouni
+        System.out.println("You are in a hallway to the south there is a " +
+                "hallway leading to west around the wall to the east you see a thick grey woollen felt" +
+                "wall hanging from the roof. It looks sturdy. To the northwest there is a door to a toilet and " +
+                "to west there is a door to a maintenance room.  To southwest there is door to another toilet." +
+                "To north there is a large open kitchen, you can smell a nice aroma of coffee from the kitchen." +
+                "What do you want to do?");
+        System.out.println("1: Go northwest to the toilet.");
+        System.out.println("2: Go west to the maintenance room.");
+        System.out.println("3: Go southwest to the other toilet.");
+        System.out.println("4: Go north to the kitchen where the aroma of coffee appears to be coming from.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            toilet12();
+        }
+        if (choice.equals("2")) {
+            maintenance11();
+        }
+        if (choice.equals("3")) {
+            toilet10();
+        }
+        if (choice.equals("4")) {
+            kitchen13();
+        }
     }
 
     public void couch7() { //Johanna
@@ -195,7 +292,7 @@ public class Game {
         }
     }
 
-    public void hallway14b(){
+    public void hallway14b() {
         System.out.println("You are in a hallway. Hallway continues to the north and to the east. There is a door to the west. In the south there is a corner with a TV.");
         System.out.println("1: Go west.");
         System.out.println("2: Go north.");
@@ -219,6 +316,25 @@ public class Game {
             default:
                 System.out.println("Not possible.");
                 hallway14b();
+        }
+    }
+
+    public void accenture16 () { //Johanna
+        System.out.println("It's a classroom. You notice that the air in the room is thick and stale.");
+        System.out.println("1: Go back to the hallway.");
+        System.out.println("2: You go to the thermostat.");
+        System.out.println("3: You want to look around.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            hallway14a();
+        }
+        if (choice.equals("2")) {
+            System.out.println("The air conditioning is broken.");
+            accenture16();
+        }
+        if (choice.equals("3.")) {
+            System.out.println("There is currently nothing interesting in this room.");
+            accenture16();
         }
     }
 
