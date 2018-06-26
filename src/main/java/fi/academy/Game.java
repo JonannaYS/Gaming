@@ -8,32 +8,41 @@ import java.util.Scanner;
  */
 public class Game {
     Scanner sc = new Scanner(System.in);
-    boolean avain;
-    // Jouni kommentoi ja kokeilee
+    boolean passKey;
 
     public static void main(String[] args) {
         Game game = new Game();
         game.elevator1();
+
     }
 
     public void elevator1() { //JOONAS
-        if (!avain) {
-            System.out.println("You are in an elevator. What do you want to do?");
-            System.out.println("1: Go right");
-            System.out.println("2: Go left");
-            String choice = sc.nextLine();
+        System.out.println("You are in an elevator and the doors are shut.");
+        System.out.println("1: Open the doors");
+        System.out.println("2: Do nothing");
+        String choice = sc.nextLine();
 
 
-            if (choice.equalsIgnoreCase("1")) {
-                hallway6();
+        if (choice.equalsIgnoreCase("1")) {
+            System.out.println("Behind the doorway is a dark hallway.");
+            System.out.println("1: Go to the hallway.");
+            System.out.println("2: Go back inside the elevator");
+            choice = sc.nextLine();
+
+            if (choice.equals("1:")) {
+                hallway2();
             }
 
-            if (choice.equalsIgnoreCase("2")) {
-                office3();
-            } else {
-                System.out.println("lol");
+            if (choice.equals("2")) {
                 elevator1();
             }
+        }
+
+        if (choice.equalsIgnoreCase("2")) {
+            elevator1();
+        } else {
+            System.out.println("Not an option at this time.");
+            elevator1();
         }
     }
 
@@ -77,7 +86,34 @@ public class Game {
     }
 
     public void hallway18() { //JOONAS
-        System.out.println("You are in a hallway of some sort.");
+        System.out.println("You are in a hallway of some sort. There is an exit in the west. There is also two rooms north and north-east. The hallway continues southwards.");
+        System.out.println("1: Try the exit door.");
+        System.out.println("2: Go into the room in the north");
+        System.out.println("3: Go into the room in the north-east");
+        System.out.println("4: Go south through the hallway.");
+        String choice = sc.nextLine();
+
+        if (choice.equals("1")) {
+            exit();
+        }
+
+        if (choice.equals("2")) {
+            conference19();
+        }
+
+        if (choice.equals("3")) {
+            conference17();
+        }
+
+        if (choice.equals("4")) {
+            hallway14();
+        }
+
+        else {
+            System.out.println("That's not possible.");
+            hallway18();
+        }
+
     }
 
     public void conference19() { //JOONAS
@@ -86,6 +122,28 @@ public class Game {
         String choice = sc.nextLine();
         if (choice.equalsIgnoreCase("1")) {
             hallway18();
+        }
+    }
+
+    public void exit22(){
+        if (passKey) {
+            System.out.println("Gongratulations! You have succesfully exited the building.");
+        }
+
+        else {
+            System.out.println("The door is locked.");
+            hallway18();
+        }
+    }
+
+    public void exit23(){
+        if (passKey) {
+            System.out.println("Gongratulations! You have succesfully exited the building.");
+        }
+
+        else {
+            System.out.println("The door is locked.");
+            hallway6();
         }
     }
 
