@@ -417,7 +417,6 @@ public class Game {
         }
     }
 
-
     public void exit22(){
         if (passKey) {
             System.out.println("Gongratulations! You have succesfully exited the building.");
