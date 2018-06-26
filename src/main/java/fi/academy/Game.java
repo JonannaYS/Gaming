@@ -147,6 +147,25 @@ public class Game {
         }
     }
 
+    public void accenture16 () { //Johanna
+        System.out.println("It's a classroom. You notice that the air in the room is thick and stale.");
+        System.out.println("1: Go back to the hallway.");
+        System.out.println("2: You go to the thermostat.");
+        System.out.println("3: You want to look around.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            hallway14a();
+        }
+        if (choice.equals("2")) {
+            System.out.println("The air conditioning is broken.");
+            accenture16();
+        }
+        if (choice.equals("3.")) {
+            System.out.println("There is currently nothing interesting in this room.");
+            accenture16();
+        }
+    }
+
     public void conference17() { //JOONAS
         System.out.println("You are in a room. There is currently nothing interesting in this room.");
         System.out.println("1: Go back to the hallway.");
