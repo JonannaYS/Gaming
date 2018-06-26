@@ -147,6 +147,44 @@ public class Game {
         }
     }
 
+    public void couch7() { //Johanna
+        System.out.println("You are in the livingroom. There are large couches and chairs around you.");
+        System.out.println("1: Go back to the hallway.");
+        System.out.println("2: Go to the dining room.");
+        System.out.println("3. Examine room. You might die.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            hallway6();
+        }
+        if (choice.equals("2")) {
+            diningRoom8();
+        }
+        if (choice.equals("3")) {
+            System.out.println("You find nothing here.");
+            couch7();
+        }
+    }
+
+    public void diningRoom8(){ //Joonas
+        System.out.println("You are in a hall. In the north there appears to be a kitchen. In the south there are some couches.");
+        System.out.println("1: Go north.");
+        System.out.println("2: Go south.");
+        String choice = sc.nextLine();
+
+        switch (choice) {
+            case "1":
+                kitchen13();
+                break;
+            case "2":
+                couch7();
+                break;
+            default:
+                System.out.println("That is not an option.");
+                diningRoom8();
+                break;
+        }
+    }
+
     public void hallway9() { //Jouni
         System.out.println("You are in a hallway to the south there is a " +
                 "hallway leading to west around the wall to the east you see a thick grey woollen felt" +
@@ -170,24 +208,6 @@ public class Game {
         }
         if (choice.equals("4")) {
             kitchen13();
-        }
-    }
-
-    public void couch7() { //Johanna
-        System.out.println("You are in the livingroom. There are large couches and chairs around you.");
-        System.out.println("1: Go back to the hallway.");
-        System.out.println("2: Go to the dining room.");
-        System.out.println("3. Examine room. You might die.");
-        String choice = sc.nextLine();
-        if (choice.equals("1")) {
-            hallway6();
-        }
-        if (choice.equals("2")) {
-            diningRoom8();
-        }
-        if (choice.equals("3")) {
-            System.out.println("You find nothing here.");
-            couch7();
         }
     }
 
@@ -244,6 +264,89 @@ public class Game {
         }
     }
 
+    public void hallway14a(){
+        System.out.println("You are in a hallway. Hallway continues to the west. There are two doors: one to the north and another to the east. In the south there is a kitchen.");
+        System.out.println("1: Go west.");
+        System.out.println("2: Go north.");
+        System.out.println("3: Go east.");
+        System.out.println("4: Go south.");
+        String choice = sc.nextLine();
+
+        switch (choice) {
+            case "1":
+                hallway14b();
+                break;
+            case "2":
+                accenture16();
+                break;
+            case "3":
+                conference15();
+                break;
+            case "4":
+                kitchen13();
+                break;
+            default:
+                System.out.println("Not possible.");
+                hallway14a();
+
+        }
+    }
+
+    public void hallway14b() {
+        System.out.println("You are in a hallway. Hallway continues to the north and to the east. There is a door to the west. In the south there is a corner with a TV.");
+        System.out.println("1: Go west.");
+        System.out.println("2: Go north.");
+        System.out.println("3: Go east.");
+        System.out.println("4: Go south.");
+        String choice = sc.nextLine();
+
+        switch (choice) {
+            case "1":
+                cSharp20();
+                break;
+            case "2":
+                hallway18();
+                break;
+            case "3":
+                hallway14a();
+                break;
+            case "4":
+                beanbags21();
+                break;
+            default:
+                System.out.println("Not possible.");
+                hallway14b();
+        }
+    }
+
+    public void conference15 () { //Johanna
+        System.out.println("You are in a room. There is currently nothing interesting in this room.");
+        System.out.println("1: Go back to the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+            hallway14a();
+        }
+    }
+
+    public void accenture16 () { //Johanna
+        System.out.println("It's a classroom. You notice that the air in the room is thick and stale.");
+        System.out.println("1: Go back to the hallway.");
+        System.out.println("2: You go to the thermostat.");
+        System.out.println("3: You want to look around.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            hallway14a();
+        }
+        if (choice.equals("2")) {
+            System.out.println("The air conditioning is broken.");
+            accenture16();
+        }
+        if (choice.equals("3.")) {
+            System.out.println("There is currently nothing interesting in this room.");
+            accenture16();
+        }
+    }
+
     public void conference17() { //JOONAS
         System.out.println("You are in a room. There is currently nothing interesting in this room.");
         System.out.println("1: Go back to the hallway.");
@@ -262,7 +365,7 @@ public class Game {
         String choice = sc.nextLine();
 
         if (choice.equals("1")) {
-            exit();
+            exit22();
         }
 
         if (choice.equals("2")) {
@@ -274,7 +377,7 @@ public class Game {
         }
 
         if (choice.equals("4")) {
-            hallway14();
+            hallway14b();
         }
 
         else {
@@ -293,6 +396,15 @@ public class Game {
         }
     }
 
+    public void cSharp20() { //Johanna
+        System.out.println("You are in a classroom. There is currently nothing interesting in this room.");
+        System.out.println("1: Go back to the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+            hallway14b();
+        }
+    }
+
     public void beanbags21(){ //Jouni
         System.out.println("There are a few large and colourful beanbag chairs omn the floors." +
                 "They look very inviting. On the south wall there is a large monitor where you see fortnite" +
@@ -300,10 +412,10 @@ public class Game {
                 "What do you want to do?");
         System.out.println("1: Go to the north to a large open hallway.");
         String choice = sc.nextLine();
-        if (choice.equalsIgnoreCase("1")) {
+        if (choice.equalsIgnoreCase("1")){
             hallway14b();
         }
-    }
+
 
     public void exit22(){
         if (passKey) {
