@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Game {
     Scanner sc = new Scanner(System.in);
     boolean avain;
+    // Jouni kommentoi ja kokeilee
 
     public static void main( String[] args ) {
         Game game = new Game();
