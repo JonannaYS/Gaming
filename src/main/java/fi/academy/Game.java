@@ -1,14 +1,14 @@
 package fi.academy;
 
 import java.sql.SQLOutput;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Hello world!
  */
 public class Game {
     Scanner sc = new Scanner(System.in);
-    boolean passKey;
+    boolean passKey = false;
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -426,21 +426,37 @@ public class Game {
     }
 
     public void beanbags21() { //Jouni
+
         System.out.println("There are a few large and colourful beanbag chairs omn the floors.\n" +
                 "They look very inviting. On the south wall there is a large monitor \n" +
                 "where you see Fortnite running and waiting on a Playstation. \n" +
                 "It appears even more inviting." +
                 "What do you want to do?");
         System.out.println("1: Go to the north to a large open hallway.");
+        System.out.println("2: Pick up a Playstation controller.");
         String choice = sc.nextLine();
         if (choice.equalsIgnoreCase("1")) {
             hallway14b();
+        }
+
+        if (choice.equals("2")) {
+            if (!passKey){
+                System.out.println("The controller does not work, but you see a passkey. You take it with you. " +
+                        "\nPerhaps it could be used to open some doors?");
+                passKey = true;
+                beanbags21();
+            }
+
+            if (passKey) {
+                System.out.println("The controller does not work.");
+                beanbags21();
+            }
         }
     }
 
     public void exit22(){
         if (passKey) {
-            System.out.println("Gongratulations! You have succesfully exited the building.");
+            System.out.println("Congratulations! You have succesfully exited the building.");
         }
 
         else {
@@ -451,7 +467,7 @@ public class Game {
 
     public void exit23(){
         if (passKey) {
-            System.out.println("Gongratulations! You have succesfully exited the building.");
+            System.out.println("Congratulations! You have succesfully exited the building.");
         }
 
         else {
