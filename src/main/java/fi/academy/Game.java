@@ -67,6 +67,77 @@ public class Game {
         System.out.println("Joonaksen editti");
     }
 
+    public void couch7() { //Johanna
+        System.out.println("You are in the livingroom. There are large couches and chairs around you.");
+        System.out.println("1: Go back to the hallway.");
+        System.out.println("2: Go to the dining room.");
+        System.out.println("3. Examine room. You might die.");
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            hallway6();
+        }
+        if (choice.equals("2")) {
+            diningRoom8();
+        }
+        if (choice.equals("3")) {
+            System.out.println("You find nothing here.");
+            couch7();
+        }
+    }
+
+    public void toilet10 () { //Johanna
+        System.out.println("You can't enter the loo, you fool!");
+        hallway9();
+    }
+
+    public void maintenance11 () {
+        System.out.println("The door is locked. You hear hushed sounds coming from the maintenance room!");
+        hallway9();
+    }
+
+    public void toilet12 () { //Johanna
+        System.out.println("You can't enter the loo, you fool!");
+        hallway9();
+    }
+
+    public void kitchen13 () { //Johanna
+        System.out.println("You enter the kitchen. What do you do?");
+        System.out.println("1. Make yourself some coffee. ");
+        System.out.println("2. Have a sandwich.");
+        System.out.println("3. Leave the room.");
+        String choice = sc.nextLine();
+
+        if (choice.equals("1")) {
+            System.out.println("You drink your coffee and feel refreshed.");
+            kitchen13();
+        }
+        if (choice.equals("2.")) {
+            System.out.println("You devour someones sandwich from the fridge... Seriously?!");
+        }
+        if (choice.equals("3.")) {
+            System.out.println("You decide to leave the kitchen. Where do you want to go?");
+            System.out.println("1. North");
+            System.out.println("2. Southwest.");
+            System.out.println("3. South.");
+
+            choice = sc.nextLine();
+
+            if (choice.equals("1")) {
+                hallway14a();
+            }
+            if (choice.equals("2")) {
+                hallway9();
+            }
+            if (choice.equals("3")) {
+                diningRoom8();
+            } else {
+                System.out.println("A troll eats you and you die. mwahaha.");
+            }
+        } else {
+            kitchen13();
+        }
+    }
+
     public void conference17() { //JOONAS
         System.out.println("You are in a room. There is currently nothing interesting in this room.");
         System.out.println("1: Go back to the hallway.");
@@ -91,6 +162,7 @@ public class Game {
 
     public void toilet24() { //Johanna
         System.out.println("You can't enter the loo, you fool!");
+        office3();
     }
 
     public void toilet25() { //Johanna
@@ -112,6 +184,8 @@ public class Game {
             System.out.println("2. Check the wash basin.");
             System.out.println("3. Check under the wash basin.");
 
+            choice = sc.nextLine();
+
             if (choice.equals("1")) {
                 office3();
             }
@@ -124,7 +198,7 @@ public class Game {
                 System.out.println("A troll eats you and you die. mwahaha.");
             }
         } else {
-            System.out.println("A troll eats you and you die. mwahaha.");
+            office3();
         }
     }
 }
