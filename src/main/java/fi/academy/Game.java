@@ -94,6 +94,26 @@ public class Game {
         }
     }
 
+    public void diningRoom8(){ //Joonas
+        System.out.println("You are in a hall. In the north there appears to be a kitchen. In the south there are some couches.");
+        System.out.println("1: Go north.");
+        System.out.println("2: Go south.");
+        String choice = sc.nextLine();
+
+        switch (choice) {
+            case "1":
+                kitchen13();
+                break;
+            case "2":
+                couch7();
+                break;
+            default:
+                System.out.println("That is not an option.");
+                diningRoom8();
+                break;
+        }
+    }
+
     public void toilet10 () { //Johanna
         System.out.println("You can't enter the loo, you fool!");
         hallway9();
@@ -147,6 +167,61 @@ public class Game {
         }
     }
 
+    public void hallway14a(){
+        System.out.println("You are in a hallway. Hallway continues to the west. There are two doors: one to the north and another to the east. In the south there is a kitchen.");
+        System.out.println("1: Go west.");
+        System.out.println("2: Go north.");
+        System.out.println("3: Go east.");
+        System.out.println("4: Go south.");
+        String choice = sc.nextLine();
+
+        switch (choice) {
+            case "1":
+                hallway14b();
+                break;
+            case "2":
+                accenture16();
+                break;
+            case "3":
+                conference15();
+                break;
+            case "4":
+                kitchen13();
+                break;
+            default:
+                System.out.println("Not possible.");
+                hallway14a();
+
+        }
+    }
+
+    public void hallway14b(){
+        System.out.println("You are in a hallway. Hallway continues to the north and to the east. There is a door to the west. In the south there is a corner with a TV.");
+        System.out.println("1: Go west.");
+        System.out.println("2: Go north.");
+        System.out.println("3: Go east.");
+        System.out.println("4: Go south.");
+        String choice = sc.nextLine();
+
+        switch (choice) {
+            case "1":
+                cSharp20();
+                break;
+            case "2":
+                hallway18();
+                break;
+            case "3":
+                hallway14a();
+                break;
+            case "4":
+                beanbags21();
+                break;
+            default:
+                System.out.println("Not possible.");
+                hallway14b();
+        }
+    }
+
     public void conference17() { //JOONAS
         System.out.println("You are in a room. There is currently nothing interesting in this room.");
         System.out.println("1: Go back to the hallway.");
@@ -165,7 +240,7 @@ public class Game {
         String choice = sc.nextLine();
 
         if (choice.equals("1")) {
-            exit();
+            exit22();
         }
 
         if (choice.equals("2")) {
@@ -177,7 +252,7 @@ public class Game {
         }
 
         if (choice.equals("4")) {
-            hallway14();
+            hallway14b();
         }
 
         else {
