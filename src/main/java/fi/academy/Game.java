@@ -68,9 +68,9 @@ public class Game {
 
     public void office3() { //Jouni
         System.out.println("You arrived in the office. " +
-                "You see some desks and chairs, one laptop on the nearest desk. " +
+                "You see some desks and chairs, one laptop on the nearest desk.\n " +
                 "There are some papers with coffee cup stains on the papers scattered on the floor." +
-                "\nThere is a printer in the corner." +
+                "\nThere is a printer in the corner.\n" +
                 "What would you like to do now?");
         System.out.println("1: Go west, there is a door opening to a smaller room by a glass wall.");
         System.out.println("2: Go to north, there is a door between two glass walls opening to a large room.");
@@ -85,10 +85,19 @@ public class Game {
             leasegreen5();
         }
         if (choice.equals("3")) {
-            toilet24();
-        }
-        if (choice.equals("4")) {
-            hallway2();
+            System.out.println("Which toilet would you like to enter?");
+            System.out.println("1: The toilet near to you.");
+            System.out.println("2: the toilet further to northeast from you.");
+            choice = sc.nextLine();
+            if (choice.equalsIgnoreCase("1")) {
+                toilet24();
+            }
+            if (choice.equalsIgnoreCase("2")) {
+                toilet25();
+            }
+            if (choice.equals("4")) {
+                hallway2();
+            }
         }
     }
 
@@ -187,10 +196,12 @@ public class Game {
 
     public void hallway9() { //Jouni
         System.out.println("You are in a hallway to the south there is a " +
-                "hallway leading to west around the wall to the east you see a thick grey woollen felt" +
-                "wall hanging from the roof. It looks sturdy. To the northwest there is a door to a toilet and " +
-                "to west there is a door to a maintenance room.  To southwest there is door to another toilet." +
-                "To north there is a large open kitchen, you can smell a nice aroma of coffee from the kitchen." +
+                "hallway leading to west around the wall to the east you see a \n " +
+                "thick grey woollen felt wall hanging from the roof. It looks \n " +
+                "sturdy. To the northwest there is a door to a toilet and  \n " +
+                "to west there is a door to a maintenance room.  To southwest \n " +
+                "there is door to another toilet. To north there is a large open \n" +
+                " kitchen, you can smell a nice aroma of coffee from the kitchen. \n" +
                 "What do you want to do?");
         System.out.println("1: Go northwest to the toilet.");
         System.out.println("2: Go west to the maintenance room.");
