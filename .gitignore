@@ -1,4 +1,8 @@
 *.iml
 .idea
 */out
+<<<<<<< HEAD
 .class
+=======
+.class
+>>>>>>> e9e6b65e5439a46b7766b03bb793c63a95114c04
