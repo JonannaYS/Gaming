@@ -5,48 +5,93 @@ import java.util.Scanner;
 
 /**
  * Hello world!
- *
  */
 public class Game {
     Scanner sc = new Scanner(System.in);
     boolean avain;
     // Jouni kommentoi ja kokeilee
 
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         Game game = new Game();
-        game.elevator();
+        game.elevator1();
     }
 
-    public void elevator(){
+
+    public void elevator1() { //JOONAS
         if (!avain) {
             System.out.println("You are in an elevator. What do you want to do?");
             System.out.println("1: Go right");
             System.out.println("2: Go left");
-            int choice = sc.nextInt();
+            String choice = sc.nextLine();
 
-            if (choice==1) {
+
+            if (choice.equalsIgnoreCase("1")) {
                 hallway6();
             }
 
-            if (choice==2) {
-                office();
+            if (choice.equalsIgnoreCase("2")) {
+                office3();
+            } else {
+                System.out.println("lol");
+                elevator1();
             }
         }
+    }
 
+    public void office3() { //Jouni
+        System.out.println("You arrived in the office. " +
+                "You see some desks and chairs, one laptop on the nearest desk. " +
+                "There are some papers with coffee cup stains on the papers scattered on the floor." +
+                "There is a printer in the corner." +
+                "What would you like to do now?");
+        System.out.println("1: Go west, there is a door opening to a smaller room by a glass wall.");
+        System.out.println("2: Go to north, there is a door between two glass walls opening to a large room.");
+        System.out.println("3: Go to north east, there are two toilets.");
+        System.out.println("4: Go to east to a hallway in front of the elevators.");
 
-
+        String choice = sc.nextLine();
+        if (choice.equals("1")) {
+            conference4();
+        }
+        if (choice.equals("2")) {
+            leasegreen5();
+        }
+        if (choice.equals("3")) {
+            toilet24();
+        }
+        if (choice.equals("4")) {
+            hallway2();
+        }
 
     }
 
-    private void office() {
-        System.out.println("You arrived in the office. What would you like to do now?");
+    public void conference17() { //JOONAS
+        System.out.println("You are in a room. There is currently nothing interesting in this room.");
+        System.out.println("1: Go back to the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+            hallway18();
+        }
     }
 
-    private void hallway6() {
+    public void hallway18() { //JOONAS
+        System.out.println("You are in a hallway of some sort.");
+    }
+
+    public void conference19() { //JOONAS
+        System.out.println("You are in a room. There is currently nothing interesting in this room.");
+        System.out.println("1: Go back to the hallway.");
+        String choice = sc.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+            hallway18();
+        }
+    }
+
+    public void hallway6() { //JOONAS
         System.out.println("Joonaksen editti");
     }
 
-    private void toilet24() { //Johanna
+    public void toilet24() { //Johanna
         System.out.println("You can't enter the loo, you fool!");
     }
 
@@ -58,10 +103,10 @@ public class Game {
         String choice = sc.nextLine();
 
         if (choice.equals("1")) {
-            office();
+            office3();
         }
         if (choice.equals("2.")) {
-            office();
+            office3();
         }
         if (choice.equals("3.")) {
             System.out.println("You flush the toilet. You hear a strange crackling sound coming from the wash basin.");
@@ -70,11 +115,13 @@ public class Game {
             System.out.println("3. Check under the wash basin.");
 
             if (choice.equals("1")) {
-              office();
-            }  if (choice.equals("2")) {
-                office();
-            } if (choice.equals("3")) {
-                office();
+                office3();
+            }
+            if (choice.equals("2")) {
+                office3();
+            }
+            if (choice.equals("3")) {
+                office3();
             } else {
                 System.out.println("A troll eats you and you die. mwahaha.");
             }
@@ -82,6 +129,4 @@ public class Game {
             System.out.println("A troll eats you and you die. mwahaha.");
         }
     }
-
-
 }
