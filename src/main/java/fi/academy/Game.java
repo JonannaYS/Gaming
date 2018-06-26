@@ -106,11 +106,12 @@ public class Game {
                     toilet24();
                 } else if (choice.equalsIgnoreCase("2")) {
                     toilet25();
-                } else if (choice.equals("4")) {
-                    hallway2();
                 } else { //Joonas
                     System.out.println("You went back to the office.");
                 }
+                break;
+            case "4":
+                hallway2();
                 break;
             default:
                 office3();
