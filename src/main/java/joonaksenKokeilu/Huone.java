@@ -1,13 +1,16 @@
 package joonaksenKokeilu;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Huone {
     private String nimi;
     private String kuvaus;
     private List<Esine> irtaimisto = new ArrayList<>();
-    private List<Huone> uloskaynnit = new ArrayList<>();
+//    private List<Huone> uloskaynnit = new ArrayList<>();
+    private Map<Integer, Huone> uloskaynnit = new HashMap<>();
     private boolean lukossa = false;
 
     public Huone(){
@@ -42,12 +45,16 @@ public class Huone {
         return irtaimisto;
     }
 
-    public List<Huone> getUloskaynnit() {
+    public Map<Integer, Huone> getUloskaynnit() {
         return uloskaynnit;
     }
 
-    public void lisaaUloskaynti(Huone uloskaynti){
-        uloskaynnit.add(uloskaynti);
+//    public void lisaaUloskaynti(Huone uloskaynti){
+//        uloskaynnit.add(uloskaynti);
+//    }
+
+    public void lisaaUloskaynti(int suunta, Huone uloskaynti) {
+        uloskaynnit.put(suunta,uloskaynti);
     }
 
     public void lisaaEsine(Esine esine){

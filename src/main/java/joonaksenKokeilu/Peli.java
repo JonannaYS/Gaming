@@ -23,22 +23,25 @@ public class Peli {
         Huone rappu = new Huone("Rappukäytävä", "Rappukäytävä",true);
 
         //lisätään uloskäynnit
-        eteinen.lisaaUloskaynti(olohuone);
-        eteinen.lisaaUloskaynti(kylpyhuone);
-        eteinen.lisaaUloskaynti(rappu);
 
-        olohuone.lisaaUloskaynti(eteinen);
-        olohuone.lisaaUloskaynti(makuuhuone);
-        olohuone.lisaaUloskaynti(parveke);
+        eteinen.lisaaUloskaynti(8,olohuone);
 
-        makuuhuone.lisaaUloskaynti(olohuone);
-
-        kylpyhuone.lisaaUloskaynti(eteinen);
-        kylpyhuone.lisaaUloskaynti(sauna);
-
-        sauna.lisaaUloskaynti(kylpyhuone);
-
-        parveke.lisaaUloskaynti(olohuone);
+//        eteinen.lisaaUloskaynti(olohuone);
+//        eteinen.lisaaUloskaynti(kylpyhuone);
+//        eteinen.lisaaUloskaynti(rappu);
+//
+//        olohuone.lisaaUloskaynti(eteinen);
+//        olohuone.lisaaUloskaynti(makuuhuone);
+//        olohuone.lisaaUloskaynti(parveke);
+//
+//        makuuhuone.lisaaUloskaynti(olohuone);
+//
+//        kylpyhuone.lisaaUloskaynti(eteinen);
+//        kylpyhuone.lisaaUloskaynti(sauna);
+//
+//        sauna.lisaaUloskaynti(kylpyhuone);
+//
+//        parveke.lisaaUloskaynti(olohuone);
 
         //luodaan esineet
         Esine kengat = new Esine("Kengät", "Vanhat likaiset kengät.", 1);
@@ -61,7 +64,7 @@ public class Peli {
         Reppu reppu = new Reppu(25);
 
         //asetetaan pelin aloituspaikka
-        nykyinenHuone = parveke;
+        nykyinenHuone = eteinen;
 
         //varsinainen luuppi, jonka sisällä peli pyörii
         while (true) {
@@ -74,20 +77,38 @@ public class Peli {
             System.out.println("### " + nykyinenHuone.getKuvaus() + " ###");
             System.out.println("\nMitä haluaisit tehdä?");
 
-            int komentoNro = 1;
+            int komentoNro = 10;
 
             //tulostetaan uloskäynnit
-            for (int i = 0; i<nykyinenHuone.getUloskaynnit().size(); i++){
-                System.out.println("\t>"+ (komentoNro++) + " - siirry huoneeseen " + nykyinenHuone.getUloskaynnit().get(i).getNimi());
+//            for (int i = 0; i<nykyinenHuone.uloskayntienMaara(); i++){
+//                System.out.println("\t>"+ (komentoNro++) + " - siirry huoneeseen " + nykyinenHuone.getUloskaynnit().get(i).getNimi());
+//            }
+            for (Integer suuntaIndeksi: eteinen.getUloskaynnit().keySet()) {
+                String suunta = "lol";
+                switch (suuntaIndeksi) {
+                    case 8:
+                        suunta = "pohjoinen";
+                        break;
+                    case 6:
+                        suunta = "itä";
+                        break;
+                    case 2:
+                        suunta = "etelä";
+                        break;
+                    case 4:
+                        suunta = "länsi";
+                }
+                System.out.println("\t>"+ suuntaIndeksi + " - siirry suuntaan " + suunta + " huoneeseen " + eteinen.getUloskaynnit().get(suuntaIndeksi).getNimi());
             }
 
+
             //tulostetaan mukaan otettavat esineet
-            for (int i = 0; i<nykyinenHuone.getIrtaimisto().size(); i++){
+            for (int i = 0; i<nykyinenHuone.esineidenMaara(); i++){
                 System.out.println("\t>"+ (komentoNro++) + " - ota huoneesta " + nykyinenHuone.getIrtaimisto().get(i).getNimi() + " ja laita reppuun.");
             }
 
             //tulostetaan repun sisältö
-            for (int i = 0; i<reppu.getSisalto().size(); i++) {
+            for (int i = 0; i<reppu.koko(); i++) {
                 System.out.println("\t>"+ (komentoNro++) + " - jätä " + reppu.getSisalto().get(i).getNimi() + " huoneeseen " + nykyinenHuone.getNimi());
             }
 
@@ -149,7 +170,7 @@ public class Peli {
                 else if (komento <= komentoNro) {
                     int indeksi = komento-nykyinenHuone.esineidenMaara()-nykyinenHuone.uloskayntienMaara()-1;
                     Esine esine = reppu.getSisalto().get(indeksi);
-                    nykyinenHuone.lisaaEsine(reppu.getSisalto().get(indeksi));
+                    nykyinenHuone.lisaaEsine(esine);
                     reppu.getSisalto().remove(indeksi);
                     System.out.println("Jätit esineen " + esine.getNimi() + " huoneeseen " + nykyinenHuone.getNimi());
                 }
