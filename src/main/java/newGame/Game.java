@@ -21,6 +21,7 @@ public class Game {
         while (true) {
 
             //print description of current locations
+            System.out.println(currentLocation.getDescription());
             System.out.println("What would you like to do?");
 
             //print options for the player
@@ -28,7 +29,7 @@ public class Game {
 
             int command = sc.nextInt();
             if (command == 999) break;
-            if (command == 22) 
+            if (command == 22) break;
 
 
         }

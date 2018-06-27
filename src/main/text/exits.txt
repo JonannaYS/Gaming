@@ -1,0 +1,13 @@
+elevator1
+8 hallway2
+
+hallway2
+6 hallway6
+4 office3
+
+office3
+4 conference4
+8 leasegreen5
+9 toilets26
+6 hallway2
+
