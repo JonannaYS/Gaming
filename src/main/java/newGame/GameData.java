@@ -38,20 +38,44 @@ public class GameData {
                                                             "                \"There is a large whitescreen to the south. The space is airy and \\n\" +\n" +
                                                             "                \"surrounded by windows to the south and east.\\n\" +\n" +
                                                             "                \"What do you want to do?"));
-        locations.put("elevator1", new Location("livingroom","You are in the livingroom. \\n\" +\n" +
+        locations.put("couch7", new Location("livingroom","You are in the livingroom. \\n\" +\n" +
                                                              "                \"There are large couches and chairs around you."));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
-        locations.put("elevator1", new Location("elevator",""));
+        locations.put("diningRoom8", new Location("dining room","You are in a hall. In the north there appears to be a kitchen.\\n\" +\n" +
+                                                            "                \" In the south there are some couches."));
+        locations.put("hallway9", new Location("hallway","You are in a hallway to the south there is a \" +\n" +
+                                                            "                \"hallway leading to west around the wall to the east you see a \\n \" +\n" +
+                                                            "                \"thick grey woollen felt wall hanging from the roof. It looks \\n \" +\n" +
+                                                            "                \"sturdy. To the northwest there is a door to a toilet and  \\n \" +\n" +
+                                                            "                \"to west there is a door to a maintenance room.  To southwest \\n \" +\n" +
+                                                            "                \"there is door to another toilet. To north there is a large open \\n\" +\n" +
+                                                            "                \" kitchen, you can smell a nice aroma of coffee from the kitchen. \\n\" +\n" +
+                                                            "                \"What do you want to do?"));
+        locations.put("toilet10", new Location("toilet","You can't enter the loo, you fool!"));
+        locations.put("maintenance11", new Location("maintenance","The door is locked. You hear hushed sounds coming from the maintenance room!"));
+        locations.put("toilet12", new Location("toilet","You can't enter the loo, you fool!"));
+        locations.put("kitchen13", new Location("kitchen","You enter the kitchen. What do you do?"));
+        locations.put("hallway14a", new Location("hallway","You are in a hallway. Hallway continues to the west. \\n\" +\n" +
+                                                            "                \"There are two doors: one to the north and another to the east. \\n\" +\n" +
+                                                            "                \"In the south there is a kitchen."));
+        locations.put("hallway14b", new Location("hallway","You are in a hallway. Hallway continues to the north and to the east.\\n\" +\n" +
+                                                             "                \" There is a door to the west. In the south there is a corner with a TV."));
+        locations.put("conference15", new Location("conference","You are in a room. There is currently nothing interesting in this room."));
+        locations.put("accenture16", new Location("classroom","It's a classroom. You notice that the air in the room is thick and stale."));
+        locations.put("conference17", new Location("conference","You are in a room. There is currently nothing interesting in this room."));
+        locations.put("hallway18", new Location("hallway","You are in a hallway of some sort. There is an exit in the west. \\n\" +\n" +
+                                                            "                \"There is also two rooms north and north-east. \\n\" +\n" +
+                                                            "                \"The hallway continues southwards."));
+        locations.put("conference19", new Location("conference","You are in a room. There is currently nothing interesting in this room."));
+        locations.put("cSharp20", new Location("classroom","You are in a classroom. There is currently nothing interesting in this room."));
+        locations.put("beanbags21", new Location("the beanbags","There are a few large and colourful beanbag chairs omn the floors.\\n\" +\n" +
+                                                            "                \"They look very inviting. On the south wall there is a large monitor \\n\" +\n" +
+                                                            "                \"where you see Fortnite running and waiting on a Playstation. \\n\" +\n" +
+                                                            "                \"It appears even more inviting.\" +\n" +
+                                                            "                \"What do you want to do?"));
+        locations.put("exit22", new Location("exit"," "));
+        locations.put("exit23", new Location("exit"," "));
+        locations.put("toilet24", new Location("toilet","You can't enter the loo, you fool!"));
+        locations.put("toilet25", new Location("toilet","You enter the toilet. As usual, there's no paper there. What do you do?"));
 
         // add exits to locations
         addExits(locations);
@@ -73,6 +97,7 @@ public class GameData {
     }
 
     private void addExits(Map<String, Location> locations) {
+        locations.get("elevator1")addExit(8, locations.get("hallway2"));
 
     }
 
