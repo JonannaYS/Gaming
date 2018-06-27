@@ -43,8 +43,7 @@ public class UserInterface {
                     break;
             }
 
-            // TODO: if room name starts with a vowel
-            if (vowels.contains(currentLocation.getName().charAt(0))) {
+            if (!vowels.contains(currentLocation.getName().charAt(0))) {
                 System.out.println("\t>" + directionNumber + " - continue " + direction + " to an " + currentLocation.getExits().get(directionNumber));
             }
 
@@ -65,7 +64,28 @@ public class UserInterface {
     }
 
     public void examineRoom(Location currentLocation, Scanner sc) {
-        System.out.println("You see these items: ");
+        if (currentLocation.getItems().isEmpty()) {
+            System.out.println("There is nothing interesting in this " + currentLocation + ".");
+        }
+
+        else {
+            System.out.println("You see these items: ");
+            int commandIndex = 1;
+            List<Item> movableItems = new ArrayList<>();
+
+            for (Item item: currentLocation.getItems()) {
+                System.out.println(item.toString());
+                if (item.isMovable()) {
+                    movableItems.add(item);
+                }
+            }
+
+            System.out.println("What would you like to do?");
+            for (Item movableItem: movableItems) {
+                System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
+            }
+        }
+
 
     }
 

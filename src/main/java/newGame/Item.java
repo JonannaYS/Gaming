@@ -41,5 +41,7 @@ public class Item {
         return name;
     }
 
-
+    public boolean isMovable() {
+        return movable;
+    }
 }

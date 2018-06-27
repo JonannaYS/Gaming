@@ -13,7 +13,7 @@ public class GameData {
         this.random = random;
     }
 
-    public Location initialize(){
+    public Location initializeGame(){
         // create locations and add them to a collection
         initializeLocations();
 

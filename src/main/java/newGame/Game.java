@@ -8,7 +8,7 @@ public class Game {
         Player player = new Player();
         UserInterface ui = new UserInterface();
         GameData gameData = new GameData(random);
-        Location currentLocation = gameData.initialize();
+        Location currentLocation = gameData.initializeGame();
         Map<String, Location> allLocations = gameData.getLocations();
 
 
@@ -19,18 +19,20 @@ public class Game {
         while (true) {
 
             //print description of current locations
+            System.out.println("====================================================");
             System.out.println(currentLocation.getDescription());
             System.out.println("What would you like to do?");
 
             //print options for the player
             ui.printOptions(currentLocation,player);
+            System.out.println("====================================================");
 
             int command = sc.nextInt();
 
             if (command == 999) {
                 break;
             }
-            if (command == 22) {
+            if (command == 11) {
                 ui.examineRoom(currentLocation,sc);
             }
             if (command > 0 && command < 10) {
