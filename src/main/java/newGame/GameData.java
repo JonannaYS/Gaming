@@ -33,13 +33,13 @@ public class GameData {
 
     private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
 
-//        ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
-        ArrayList<String> locationsOrdered = new ArrayList<>();
-        locationsOrdered.add("elevator1");
+        ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
 
         for (Item item: items.values()) {
             String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));
-            locations.get(randomLocation).addItem(item);
+            if (item.isMovable()) {
+                locations.get(randomLocation).addItem(item);
+            }
         }
     }
 
