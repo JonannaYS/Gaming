@@ -15,7 +15,7 @@ public class Game {
 
 
         // welcome player
-        System.out.println("Welcome to the game.");
+        ui.welcome();
 
         while (true) {
 

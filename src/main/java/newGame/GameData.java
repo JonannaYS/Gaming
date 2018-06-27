@@ -1,23 +1,19 @@
 package newGame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class GameData {
-    private List<Location> locations;
-    private List<Item> items;
+    private Map<String, Location> locations;
+    private Map<String, Item> items;
 
     public Location initialize(){
-        // create locations
-        Location currentLocation;
-        Location elevator1 = new Location();
-        Location hallway2 = new Location();
-        Location office3 = new Location();
+        // create locations and add them to a collection
+        locations.put("elevator1", new Location("elevator","You are in an elevator"));
+        locations.put("hallway2", new Location("Hallway (south)",))
 
-        // add locations to a list
-        locations.add(elevator1);
-        locations.add(hallway2);
-        locations.add(office3);
 
         // add exits to locations
         addExits(locations);
@@ -37,15 +33,15 @@ public class GameData {
 
     }
 
-    private void addExits(List<Location> locations) {
+    private void addExits(Map<String, Location> locations) {
 
     }
 
-    public List<Location> getLocations() {
+    public Map<String, Location> getLocations() {
         return locations;
     }
 
-    public List<Item> getItems() {
+    public Map<String, Item> getItems() {
         return items;
     }
 }
