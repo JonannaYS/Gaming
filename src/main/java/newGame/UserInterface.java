@@ -42,7 +42,7 @@ public class UserInterface {
                     break;
             }
 
-            // if room name starts with a vowel
+            // TODO: if room name starts with a vowel
             if (vowels.contains(currentLocation.getName().charAt(0))) {
                 System.out.println("\t>" + directionNumber + " - continue " + direction + " to an " + currentLocation.getExits().get(directionNumber));
             }

@@ -12,17 +12,19 @@ public class Location {
     private List<Item> items = new ArrayList<>();
     private boolean locked = false;
     private boolean lockedWithPasscode = false;
+    private int passcode = 1234;
 
     public Location(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Location(String name, String description, boolean locked, boolean lockedWithPasscode) {
+    public Location(String name, String description, boolean locked, boolean lockedWithPasscode, int passcode) {
         this.name = name;
         this.description = description;
         this.locked = locked;
         this.lockedWithPasscode = lockedWithPasscode;
+        this.passcode = passcode;
     }
 
     public void addExit (int directionNumber, Location exitFromPresent)   {
@@ -49,14 +51,20 @@ public class Location {
         return locked;
     }
 
-    public void openLock(Boolean locked) {
-        if (this.locked == true) {
-            this.locked = false;
-        }
+    public void openLock() {
+        this.locked = false;
+    }
+
+    public void openWithPasscode(){
+        this.lockedWithPasscode = false;
     }
 
     public boolean isLockedWithPasscode() {
         return lockedWithPasscode;
+    }
+
+    public int getPasscode() {
+        return passcode;
     }
 
     @Override

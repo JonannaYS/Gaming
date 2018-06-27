@@ -1,6 +1,7 @@
 package newGame;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class GameData {
@@ -14,15 +15,28 @@ public class GameData {
         // add exits to locations
         addExits(locations);
 
-        // create items and add them to a list
-        List<Item> items = new ArrayList<>();
+        // create items from a text file and add them to a map
+        initializeItems();
 
         // add items to locations
-        addItems(items);
+        addItemsToLocations(locations,items);
 
         //set starting location
-        Location currentLocation = locations.get("hallway2");
+        Location currentLocation = locations.get("elevator1");
         return currentLocation;
+    }
+
+    private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
+        Random random = new Random();
+        ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
+
+        for (Item item: items.values()) {
+            String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));
+            locations.get(randomLocation).addItem(item);
+        }
+    }
+
+    private void initializeItems() {
     }
 
     public void createLocation (String key, Location location ) {
@@ -92,16 +106,11 @@ public class GameData {
                 "                \"where you see Fortnite running and waiting on a Playstation. \\n\" +\n" +
                 "                \"It appears even more inviting.\" +\n" +
                 "                \"What do you want to do?"));
-        createLocation("exit22", new Location("exit"," "));
-        createLocation("exit23", new Location("exit"," "));
+        createLocation("exit22", new Location("exit"," ",false,true,1234));
+        createLocation("exit23", new Location("exit"," ",false,true,1234));
         createLocation("toilet24", new Location("toilet","You can't enter the loo, you fool!"));
         createLocation("toilet25", new Location("toilet","You enter the toilet. As usual, there's no paper there. What do you do?"));
         createLocation("toilets26",new Location("toilets", "You are at toilets."));
-    }
-
-
-    private void addItems(List<Item> items) {
-
     }
 
     private void addExits(Map<String, Location> locations) {
