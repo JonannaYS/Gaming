@@ -6,7 +6,7 @@ public class UserInterface {
         // 11) examine room (reveals a list of items in the room)
         // 12) check your inventory
         // 999) quit game
-        String direction;
+        String direction = null;
         for (Integer directionNumber: currentLocation.getExits().keySet()) {
             switch (directionNumber) {
                 case 1:
@@ -37,6 +37,8 @@ public class UserInterface {
 
             System.out.println("\t>" + directionNumber + " - continue " + direction + " to " + currentLocation.getExits().get(directionNumber));
         }
+
+        System.out.println("\t");
 
 
     }
