@@ -7,6 +7,11 @@ import java.util.*;
 public class GameData {
     private Map<String, Location> locations = new HashMap<>();
     private Map<String, Item> items = new HashMap<>();
+    private Random random;
+
+    public GameData(Random random) {
+        this.random = random;
+    }
 
     public Location initialize(){
         // create locations and add them to a collection
@@ -27,7 +32,7 @@ public class GameData {
     }
 
     private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
-        Random random = new Random();
+
         ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
 
         for (Item item: items.values()) {
