@@ -12,7 +12,7 @@ public class GameData {
     public Location initialize(){
         // create locations and add them to a collection
         locations.put("elevator1", new Location("elevator","You are in an elevator"));
-        locations.put("hallway2", new Location("Hallway (south)",))
+        locations.put("hallway2", new Location("hallway", "You are in a hallway."));
 
 
         // add exits to locations
