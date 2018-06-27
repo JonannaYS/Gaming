@@ -42,6 +42,18 @@ public class GameData {
     }
 
     private void initializeItems() {
+        try (Scanner fileReader = new Scanner(new File("src/main/text/items.txt"))){
+
+            outer:
+            while (fileReader.hasNextLine()) {
+
+                }
+            }
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void createLocation (String key, Location location ) {
