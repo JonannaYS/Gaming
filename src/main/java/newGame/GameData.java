@@ -73,6 +73,7 @@ public class GameData {
     }
 
     private void addExits(Map<String, Location> locations) {
+        locations.get("elevator1")addExit(8, locations.get("hallway2"));
 
     }
 

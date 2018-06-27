@@ -26,6 +26,10 @@ public class Game {
             //print options for the player
             ui.printOptions(currentLocation,player);
 
+            int command = sc.nextInt();
+            if (command == 999) break;
+            if (command == 22) 
+
 
         }
 
