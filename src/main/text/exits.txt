@@ -6,8 +6,93 @@ hallway2
 4 office3
 
 office3
-4 conference4
 8 leasegreen5
 9 toilets26
+7 conference4
 6 hallway2
 
+conference4
+3 office3
+
+leasegreen5
+2 office
+
+hallway6
+8 hallway9
+6 couch7
+2 exit23
+4 hallway2
+
+couch7
+4 hallway6
+8 diningRoom8
+
+diningRoom8
+8 kitchen13
+2 couch7
+
+hallway9
+1 toilet10
+4 maintenance11
+7 toilet12
+9 kitchen13
+2 hallway6
+
+toilet10
+9 hallway6
+
+maintenance11
+6 hallway9
+
+toilet12
+3 hallway9
+
+kitchen13
+1 hallway9
+2 diningRoom8
+7 hallway14a
+
+hallway14a
+3 kitchen13
+6 conference15
+8 accenture16
+4 hallway14b
+
+hallway14b
+6 hallway14a
+2 beanbags21
+4 cSharp20
+8 hallway18
+
+conference15
+4 hallway14a
+
+accenture16
+2 hallway14a
+
+conference17
+2 hallway18
+
+hallway18
+8 conference17
+7 conference19
+4 exit22
+
+conference19
+3 hallway18
+
+cSharp20
+6 hallway14b
+
+beanbags21
+8 hallway14b
+
+toilet24
+4 toilets26
+
+toilet25
+1 toilets26
+
+toilets26
+6 toilet24
+9 toilet25
