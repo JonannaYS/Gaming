@@ -87,7 +87,7 @@ public class GameData {
         addItems(items);
 
         //set starting location
-        Location currentLocation = locations.get("office3");
+        Location currentLocation = locations.get("hallway2");
         return currentLocation;
 
     }

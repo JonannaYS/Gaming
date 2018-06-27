@@ -50,8 +50,6 @@ public class UserInterface {
             else {
                 System.out.println("\t>" + directionNumber + " - continue " + direction + " to a " + currentLocation.getExits().get(directionNumber));
             }
-
-
         }
 
         System.out.println("\t>11 - examine the " + currentLocation);
