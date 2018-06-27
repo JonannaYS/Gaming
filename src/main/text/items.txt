@@ -1,15 +1,52 @@
-kenkä
-tämä on kenkä
-4
-codeNumber1
-1
-0
-codeNumber2
+A shoe.
+There's a lonely shoe lying on the floor.
 2
+true
+A note.
+On the wall there's a small piece of paper with some writing on it. Is it a number 1?
 0
-codeNumber3
+true
+Large letters.
+There's huge number 2 written on the wall.
+0
+false
+A computer.
+On the computer you see number 3 blinking.
+0
+false
+A clock.
+You find a clock that's stopped at 4 o'clock.
+0
+true
+A hammer.
+There's a heavy-looking hammer leaning on the wall.
+10
+true
+Beautiful painting.
+There's a small painting on the wall.
 3
+true
+A jar of paint.
+In the corner of your eye you spot a small jar of paint.
+3
+true
+A box of chocolate.
+You find a delicious looking chocolates.
+2
+true
+A key.
+There's a suspicious-looking key hanging from a rope.
+1
+true
+A piece of paper.
+There's a piece of paper with the word "horror" written on it.
 0
-codeNumber4
-4
+true
+An air conditioning.
+You spot a thermostat far end of the room.
 0
+false
+An axe.
+There's a axe laying on the floor.
+40
+true
