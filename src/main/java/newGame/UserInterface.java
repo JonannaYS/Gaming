@@ -38,7 +38,7 @@ public class UserInterface {
             System.out.println("\t>" + directionNumber + " - continue " + direction + " to " + currentLocation.getExits().get(directionNumber));
         }
 
-        System.out.println("\t");
+        System.out.println("\t>999 - quit game");
 
 
     }

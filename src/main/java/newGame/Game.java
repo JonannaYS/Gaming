@@ -2,6 +2,7 @@ package newGame;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Game {
@@ -11,7 +12,7 @@ public class Game {
         Player player = new Player();
         UserInterface ui = new UserInterface();
         Location currentLocation = gameData.initialize();
-        List<Location> allLocations = gameData.getLocations();
+        Map<String, Location> allLocations = gameData.getLocations();
 
 
         // welcome player

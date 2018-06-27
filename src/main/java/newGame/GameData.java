@@ -25,6 +25,7 @@ public class GameData {
         addItems(items);
 
         //set starting location
+        Location currentLocation = locations.get("elevator1");
         return currentLocation;
 
     }
