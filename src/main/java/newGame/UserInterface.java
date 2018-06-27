@@ -70,11 +70,13 @@ public class UserInterface {
 
         else {
             System.out.println("You see these items: ");
+            for (Item item: currentLocation.getItems()) {
+                System.out.println(item);
+            }
             int commandIndex = 1;
             List<Item> movableItems = new ArrayList<>();
 
             for (Item item: currentLocation.getItems()) {
-                System.out.println(item.toString());
                 if (item.isMovable()) {
                     movableItems.add(item);
                 }
@@ -83,6 +85,7 @@ public class UserInterface {
             System.out.println("What would you like to do?");
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
+                commandIndex++;
             }
         }
 

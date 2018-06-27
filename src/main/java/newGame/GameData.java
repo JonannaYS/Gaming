@@ -33,7 +33,9 @@ public class GameData {
 
     private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
 
-        ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
+//        ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
+        ArrayList<String> locationsOrdered = new ArrayList<>();
+        locationsOrdered.add("elevator1");
 
         for (Item item: items.values()) {
             String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));
@@ -46,8 +48,10 @@ public class GameData {
 
             outer:
             while (fileReader.hasNextLine()) {
-
-                }
+                String name = fileReader.nextLine();
+                String description = fileReader.nextLine();
+                int weight = Integer.parseInt(fileReader.nextLine());
+                items.put(name,new Item(name,description,weight));
             }
         }
 
