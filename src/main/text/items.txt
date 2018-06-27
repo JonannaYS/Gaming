@@ -1,15 +1,15 @@
+kenkä
+tämä on kenkä
+4
 codeNumber1
 1
 0
-
 codeNumber2
 2
 0
-
 codeNumber3
 3
 0
-
 codeNumber4
 4
 0

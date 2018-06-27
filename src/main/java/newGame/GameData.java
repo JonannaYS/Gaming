@@ -13,7 +13,7 @@ public class GameData {
         this.random = random;
     }
 
-    public Location initialize(){
+    public Location initializeGame(){
         // create locations and add them to a collection
         initializeLocations();
 
@@ -37,11 +37,27 @@ public class GameData {
 
         for (Item item: items.values()) {
             String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));
-            locations.get(randomLocation).addItem(item);
+            if (item.isMovable()) {
+                locations.get(randomLocation).addItem(item);
+            }
         }
     }
 
     private void initializeItems() {
+        try (Scanner fileReader = new Scanner(new File("src/main/text/items.txt"))){
+
+            outer:
+            while (fileReader.hasNextLine()) {
+                String name = fileReader.nextLine();
+                String description = fileReader.nextLine();
+                int weight = Integer.parseInt(fileReader.nextLine());
+                items.put(name,new Item(name,description,weight));
+            }
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void createLocation (String key, Location location ) {
