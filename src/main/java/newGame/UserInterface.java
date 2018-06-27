@@ -1,11 +1,18 @@
 package newGame;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class UserInterface {
     public void printOptions(Location currentLocation, Player player){
         // 1-9) possible exits and their directions
         // 11) examine room (reveals a list of items in the room)
         // 12) check your inventory
         // 999) quit game
+        Character [] vowelArray = {'a','e','i','o','u','y','ä','ö'};
+        List<Character> vowels = new ArrayList<>(Arrays.asList(vowelArray));
+
         String direction = null;
         for (Integer directionNumber: currentLocation.getExits().keySet()) {
             switch (directionNumber) {
@@ -35,7 +42,14 @@ public class UserInterface {
                     break;
             }
 
-            System.out.println("\t>" + directionNumber + " - continue " + direction + " to " + currentLocation.getExits().get(directionNumber));
+            // if room name starts with a vowel
+            if (vowels.contains(currentLocation.getName().charAt(0))) {
+                System.out.println("\t>" + directionNumber + " - continue " + direction + " to an " + currentLocation.getExits().get(directionNumber));
+            }
+
+            else {
+                System.out.println("\t>" + directionNumber + " - continue " + direction + " to a " + currentLocation.getExits().get(directionNumber));
+            }
 
 
         }
