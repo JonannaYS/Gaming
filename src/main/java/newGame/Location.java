@@ -8,7 +8,7 @@ import java.util.Map;
 public class Location {
     private String name;
     private String description;
-    private Map<Integer, String> exits = new HashMap<>();
+    private Map<Integer, Location> exits = new HashMap<>();
     private List<Item> items = new ArrayList<>();
     private boolean locked = false;
     private boolean lockedWithPasscode = false;
@@ -25,6 +25,10 @@ public class Location {
         this.lockedWithPasscode = lockedWithPasscode;
     }
 
+    public void addExit (int directionNumber, Location exitFromPresent)   {
+        exits.put(directionNumber,exitFromPresent);
+    }
+
     public String getName() {
         return name;
     }
@@ -33,7 +37,7 @@ public class Location {
         return description;
     }
 
-    public Map<Integer, String> getExits() {
+    public Map<Integer, Location> getExits() {
         return exits;
     }
 
@@ -45,7 +49,18 @@ public class Location {
         return locked;
     }
 
+    public void openLock(Boolean locked) {
+        if (this.locked == true) {
+            this.locked = false;
+        }
+    }
+
     public boolean isLockedWithPasscode() {
         return lockedWithPasscode;
+    }
+
+    @Override
+    public String toString() {
+        return name ;
     }
 }
