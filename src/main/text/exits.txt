@@ -6,7 +6,6 @@ hallway2
 4 office3
 
 office3
-8 leasegreen5
 9 toilets26
 7 conference4
 6 hallway2
@@ -15,7 +14,7 @@ conference4
 3 office3
 
 leasegreen5
-2 office
+2 toilets26
 
 hallway6
 8 hallway9
@@ -95,4 +94,6 @@ toilet25
 
 toilets26
 6 toilet24
+8 leasegreen5
 9 toilet25
+1 office3

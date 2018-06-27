@@ -54,24 +54,25 @@ public class GameData {
                 "There is an open office to the west and " +
                 "the hallway continues to the east."));
         createLocation("office3", new Location("office","You arrived in the office. " +
-                "You see some desks and chairs, one laptop on the nearest desk.\n" +
-                "There are some papers with coffee cup stains on the papers scattered on the floor." +
-                "\nThere is a printer in the corner.\n"));
+                "You see some desks and chairs, \n" +
+                "one laptop on the nearest desk. There are some papers with \n"+
+                "coffee cup stains on the papers scattered on the floor.\n" +
+                "There is a printer in the corner.\n"));
 
-        createLocation("conference4", new Location("conference room","You are in a mid-size negotiating room. " +
-                "There is a table with six chairs around it and a large monitor on the \n" +
-                "north wall above the table. There is a window to the east, \n" +
-                "the orange window shades are pulled open and some office buildings \n" +
-                "can be seen from the window.\n" +
-                "You see a door to the east.\n"));
+        createLocation("conference4", new Location("conference room","You are in a mid-size negotiating room. \n" +
+                "There is a table with six chairs around it and a \n" +
+                "large monitor on the north wall above the table. \n" +
+                "There is a window to the east, the orange window shades \n" +
+                "are pulled open and some office buildings can be seen from \n" +
+                "the window. You see a door to the southeast leading to an office.\n"));
 
-        createLocation("leasegreen5", new Location("classroom","You are in a semi large classroom. \\n\" +\n" +
-                "                \"There is a U-shaped table in the middle\\n\" +\n" +
-                "                \"and some tables also by the east side of the wall. \\n\" +\n" +
-                "                \"The windows open to the west and you can see some office \\n\" +\n" +
-                "                \"buildings with white walls from the window across the street. \\n\" +\n" +
-                "                \"The room may be leased; it has a greenish feeling... \\n\" +\n" +
-                "                \"What do you want to do?"));
+        createLocation("leasegreen5", new Location("classroom","You are in a semi large classroom. \n" +
+                                "There is a U-shaped table in the middle \n" +
+                                "and some tables also by the east side of the wall. \n" +
+                                "The windows open to the west and you can see some office\n" +
+                                "buildings with white walls from the window across the street.\n" +
+                                "The room may be leased; it has a greenish feeling...\n"));
+
         createLocation("hallway6", new Location("hallway","You are in a hallway. There are elevators to the west.\\n\" +\n" +
                 "                \"To the east is a large open space surrounded by very cozy couches.\\n\" +\n" +
                 "                \"There is a large whitescreen to the south. The space is airy and \\n\" +\n" +
@@ -79,7 +80,7 @@ public class GameData {
                 "                \"What do you want to do?"));
         createLocation("couch7", new Location("living room","You are in the livingroom. \\n\" +\n" +
                 "                \"There are large couches and chairs around you."));
-        createLocation("diningRoom8", new Location("dining room","You are in a hall. In the north there appears to be a kitchen.\\n\" +\n" +
+        createLocation("diningRoom8", new Location("dining room","You are in a dining room. In the north there appears to be a kitchen.\\n\" +\n" +
                 "                \" In the south there are some couches."));
         createLocation("hallway9", new Location("hallway","You are in a hallway to the south there is a \" +\n" +
                 "                \"hallway leading to west around the wall to the east you see a \\n \" +\n" +
@@ -113,9 +114,10 @@ public class GameData {
                 "                \"What do you want to do?"));
         createLocation("exit22", new Location("exit"," ",false,true,1234));
         createLocation("exit23", new Location("exit"," ",false,true,1234));
-        createLocation("toilet24", new Location("toilet","You can't enter the loo, you fool!"));
-        createLocation("toilet25", new Location("toilet","You enter the toilet. As usual, there's no paper there. What do you do?"));
-        createLocation("toilets26",new Location("toilets", "You are at toilets."));
+        createLocation("toilet24", new Location("toilet","You are in front of the toilet. \n" +
+                "quite to your surprise the toilet seems to be occupied... "));
+        createLocation("toilet25", new Location("toilet","You enter the toilet. This appears to be a very tidy toilet."));
+        createLocation("toilets26",new Location("space in front of toilets", "You are in a space in front of the toilets."));
     }
 
     private void addExits(Map<String, Location> locations) {
