@@ -46,17 +46,17 @@ public class GameData {
         try (Scanner fileReader = new Scanner(new File("src/main/text/items.txt"))){
 
             while (fileReader.hasNextLine()) {
-                String name = fileReader.nextLine();
+                String name = fileReader.nextLine().toLowerCase();
                 String description = fileReader.nextLine();
                 int weight = Integer.parseInt(fileReader.nextLine());
                 String attributes = fileReader.nextLine();
                 Item item = new Item(name,description,weight);
                 items.put(name, item);
 
-                if (attributes.contains("movable")) item.setMovable(true);
-                if (attributes.contains("consumable")) item.setConsumable(true);
-                if (attributes.contains("usable")) item.setUsable(true);
-                if (attributes.contains("actionable")) item.setActionable(true);
+                if (attributes.contains("move")) item.setMovable(true);
+                if (attributes.contains("eat")) item.setConsumable(true);
+                if (attributes.contains("use")) item.setUsable(true);
+                if (attributes.contains("act")) item.setActionable(true);
 
 
 
