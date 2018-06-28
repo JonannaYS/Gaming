@@ -1,0 +1,43 @@
+elevator1
+elevator
+You are in an elevator and the doors are shut.
+
+hallway2
+hallway
+You are in a hallway in front of elevators.
+There is an open office to the west and
+the hallway continues to the east.
+
+office3
+office
+You arrived in the office.
+You see some desks and chairs,
+one laptop on the nearest desk. There are some papers with
+coffee cup stains on the papers scattered on the floor.
+There is a printer in the corner.
+
+leasegreen5
+classroom
+You are in a semi large classroom.
+There is a U-shaped table in the middle
+and some tables also by the east side of the wall.
+The windows open to the west and you can see some office
+buildings with white walls from the window across the street.
+The room may be leased; it has a greenish feeling...
+
+toilet24
+toilet
+You are in front of the toilet.
+quite much to your surprise the toilet seems to be occupied...
+
+toilet25
+toilet
+You enter the toilet.
+This appears to be a very tidy toilet.
+There are some air fresheners in the baskets by the wash basin.
+
+toilets26
+space in front of toilets
+You are in a corner of a larger open space
+standing in front of the toilets.
+
