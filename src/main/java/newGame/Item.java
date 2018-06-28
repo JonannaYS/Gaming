@@ -16,6 +16,12 @@ public class Item {
         this.weight = weight;
     }
 
+    public Item(String name, String description, boolean consumable) {
+        this.name = name;
+        this.description = description;
+        this.consumable = consumable;
+    }
+
     public Item(String name, String description, int weight, boolean movable, boolean usable, boolean actionable) {
         this.name = name;
         this.description = description;

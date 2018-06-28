@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class CowSay {
 
     public static void callTheCow(String sentence) {
-        //String sentence = requestInput();
         printTheBalloon(sentence);
         printTheCow(sentence);
     }
@@ -35,7 +34,6 @@ public class CowSay {
 
     private static String requestInput() {
         Scanner reader = new Scanner(System.in);
-//        System.out.println("Give input for the cow");
         String lause = reader.nextLine();
         return lause;
     }
@@ -61,7 +59,6 @@ public class CowSay {
         for (int i = 0; i < (lengthOfSentence + 1); i++) {
             System.out.printf(" ");
         }
-        ;
         System.out.printf("\\");
     }
 }

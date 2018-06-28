@@ -197,6 +197,7 @@ public class UserInterface {
                     player.increaseHungerLevel();
                     System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
+
                     nextLocation.openWithPasscode();
                     break;
                 }

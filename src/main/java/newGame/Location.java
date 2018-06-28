@@ -12,7 +12,7 @@ public class Location {
     private List<Item> items = new ArrayList<>();
     private boolean locked = false;
     private boolean lockedWithPasscode = false;
-    private int passcode = 2613;
+    private int passcode = 2613; // The default passcode for e.g. the exits.
 
     public Location(String name, String description) {
         this.name = name;
@@ -76,6 +76,10 @@ public class Location {
 
     public int getPasscode() {
         return passcode;
+    }
+
+    public void setPasscode(int passcode) {
+        this.passcode = passcode;
     }
 
     @Override

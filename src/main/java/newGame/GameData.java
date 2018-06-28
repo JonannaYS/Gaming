@@ -1,7 +1,6 @@
 package newGame;
 
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class GameData {
@@ -33,13 +32,21 @@ public class GameData {
     private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
 
         ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
-
+        // The item locations are randomized
         for (Item item: items.values()) {
             String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));
             if (item.isMovable()) {
                 locations.get(randomLocation).addItem(item);
             }
         }
+        // One fixed item is added to the elevator: The code to exit the elevator
+        locations.get("elevator1").addItem(new Item("A paper note","There are numbers 9372 written on the note",0,true,true,true));
+        locations.get("kitchen13").addItem(new Item("A banana","A delightfully fresh banana", true));
+        locations.get("kitchen13").addItem(new Item("A slice of pizza","Pizza left from a kickoff evening", true));
+        locations.get("kitchen13").addItem(new Item("Fresh coffee","A nice cup of fresh coffee of your choice. Cappuccino, perhaps?", true));
+
+
+
     }
 
     private void initializeItems() {
@@ -81,7 +88,6 @@ public class GameData {
     }
 
     private void initializeTheLocations() {
-//        try (Scanner fileReader = new Scanner(new File("src/main/text/Locations.txt"))){
         try (Scanner fileReader = new Scanner(new File("src/main/text/Locations2.txt"))){
 
             while (fileReader.hasNextLine()) {
@@ -94,11 +100,17 @@ public class GameData {
                     sb.append(partialDescription).append("\n");
                 }
                 String description = sb.toString();
-                locations.put(key,new Location(name,description));
+                locations.put(key,new Location(name, description));
+                if (key.equals("hallway2")) {
+                    lockWithPasscodeAtBeginning(key, name);
+
+                }
                 if (key.equals("exit22") || key.equals("exit23")) {
-                    lockTheExitsAtBeginning(key,name);
+                    lockWithPasscodeAtBeginning(key, name);
                 }
             }
+            // The passcode to exit to hallway2 from the elevator is set.
+            locations.get("hallway2").setPasscode(9372);
         }
 
         catch (Exception e) {
@@ -106,7 +118,7 @@ public class GameData {
         }
     }
 
-    private void lockTheExitsAtBeginning(String key, String exitPointName){
+    private void lockWithPasscodeAtBeginning(String key, String exitPointName){
         locations.put(key, locations.get(key)).lockWithPasscode();
     }
 
@@ -115,7 +127,6 @@ public class GameData {
     }
 
     private void addExits(Map<String, Location> locations) {
-//        try (Scanner fileReader = new Scanner(new File("src/main/text/exits.txt"))){
         try (Scanner fileReader = new Scanner(new File("src/main/text/exits2.txt"))){
 
             outer:
