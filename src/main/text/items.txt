@@ -23,7 +23,7 @@ false
 false
 false
 clock
-An old clock that's stopped at 4 o'clock.
+An old clock that's stopped at 6 o'clock.
 0
 true
 false
@@ -59,7 +59,7 @@ true
 true
 false
 piece of paper
-A piece of npaper with the text "code gets you to places..."
+A piece of paper with the text "code gets you to places..."
 0
 true
 false
@@ -77,7 +77,7 @@ true
 true
 true
 phone
-Looks like an old cell phone, it doesn't show any signal.
+An old cell phone with a text message: "Wall, clock, paper, computer."
 2
 true
 true

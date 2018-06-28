@@ -45,20 +45,33 @@ public class GameData {
     private void initializeItems() {
         try (Scanner fileReader = new Scanner(new File("src/main/text/items.txt"))){
 
-            outer:
             while (fileReader.hasNextLine()) {
                 String name = fileReader.nextLine();
                 String description = fileReader.nextLine();
                 int weight = Integer.parseInt(fileReader.nextLine());
-                boolean movable = fileReader.nextBoolean();
-                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
-                boolean usable = fileReader.nextBoolean();
-                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
-                boolean actionable = fileReader.nextBoolean();
-                if (fileReader.hasNextLine()) {
-                    fileReader.nextLine();
-                }
-                items.put(name,new Item(name,description,weight,movable,usable,actionable));
+                String attributes = fileReader.nextLine();
+                Item item = new Item(name,description,weight);
+                items.put(name, item);
+
+                if (attributes.contains("movable")) item.setMovable(true);
+                if (attributes.contains("consumable")) item.setConsumable(true);
+                if (attributes.contains("usable")) item.setUsable(true);
+                if (attributes.contains("actionable")) item.setActionable(true);
+
+
+
+
+
+//                boolean movable = fileReader.nextBoolean();
+//                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
+//                boolean usable = fileReader.nextBoolean();
+//                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
+//                boolean actionable = fileReader.nextBoolean();
+//                if (fileReader.hasNextLine()) {
+//                    fileReader.nextLine();
+//                }
+//                items.put(name,new Item(name,description,weight,movable,usable,actionable));
+
             }
         }
 

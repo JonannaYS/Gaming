@@ -1,6 +1,5 @@
 package newGame;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -61,13 +60,12 @@ public class UserInterface {
     }
 
     public void welcome(Player player, Scanner sc) {
+        System.out.println("==============< ESCAPE FROM ACADEMY >===============");
         System.out.print("Please enter your name: ");
         player.setName(sc.nextLine());
         System.out.println("Hello " + player + "!");
         System.out.println("====================================================");
     }
-
-
 
     public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
         checkHungerlevel(sc, player, currentLocation, ui);
@@ -92,7 +90,7 @@ public class UserInterface {
                 }
             }
             System.out.println("....................................................");
-            System.out.println("What would you like to do?");
+            System.out.println("<COMMANDS>");
 
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
@@ -136,7 +134,7 @@ public class UserInterface {
 
     public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command) {
         Location nextLocation = currentLocation.getExits().get(command);
-        
+
         if (nextLocation.isLocked()) {
             System.out.println(nextLocation + " is locked.");
             return currentLocation;
@@ -154,6 +152,7 @@ public class UserInterface {
                     player.increaseHungerLevel();
                     System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
+                    winGame(player);
                     nextLocation.openWithPasscode();
                     break;
                 }
@@ -177,18 +176,14 @@ public class UserInterface {
     }
 
     public void winGame(Player player) {
-        String cowCall = "Pop the champagne! "+ player + "! You made it! You got succesfully out of the building and won the game!";
-        System.exit(0);
-        CowSay.callTheCow();
+        System.out.println();
+        String congratulations = "Pop the champagne "+ player + "!!! You got succesfully out of the building and won the game!";
+        CowSay.callTheCow(congratulations);
         // System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
         System.exit(0);
     }
 
     public void checkInventory(Scanner sc, Player player, Location currentLocation) {
-
-//        player.addItemToInventory(new Item("vasara","vasara",1,true));
-//        player.addItemToInventory(new Item("kengät","nämä ovat kengät",1,true));
-//        player.addItemToInventory(new Item("sukat","nämä ovat sukat",1,true));
 
         if (player.getInventory().size() == 0) {
             System.out.println("You don't have any items with you.");
@@ -247,13 +242,14 @@ public class UserInterface {
                 }
 
                 //print description of current location
+                System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
                 System.out.println();
                 System.out.println(currentLocation.getDescription());
 
                 System.out.println("....................................................");
-                System.out.println("What would you like to do?");
 
                 //print options for the player
+                System.out.println("<COMMANDS>");
                 printOptions(currentLocation, player);
                 System.out.println("====================================================");
 
@@ -279,11 +275,9 @@ public class UserInterface {
 
                     currentLocation = moveToLocation(player, currentLocation, sc, command);
                 }
-            } catch (NullPointerException n) {
+            } catch (Exception e) {
                 continue;
             }
         }
-
     }
-
 }
