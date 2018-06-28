@@ -58,3 +58,7 @@ SATCHEL
 A well patinated leathery satchel. It is too small to carry anything.
 0
 move
+BAG
+An old brown bag.
+5
+move

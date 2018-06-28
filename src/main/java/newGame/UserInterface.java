@@ -70,7 +70,7 @@ public class UserInterface {
     public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
         checkHungerlevel(sc, player, currentLocation, ui);
 
-        System.out.println(currentLocation.getDescription());
+        System.out.print(currentLocation.getDescription());
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
             System.out.println("....................................................");
@@ -79,7 +79,7 @@ public class UserInterface {
         else {
             System.out.println("The " + currentLocation + " seems to contain these items: ");
             for (Item item: currentLocation.getItems()) {
-                System.out.println(item);
+                System.out.println("- " + item);
             }
             int commandIndex = 1;
             List<Item> movableItems = new ArrayList<>();
@@ -93,30 +93,54 @@ public class UserInterface {
             System.out.println("<COMMANDS>");
 
             for (Item movableItem: movableItems) {
-                System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
+                System.out.println("\t>" + commandIndex + " - examine the " + movableItem + ".");
                 commandIndex++;
             }
             System.out.println("\t>" + commandIndex + " - do nothing.");
             System.out.println("====================================================");
 
             int command = sc.nextInt();
+            int index = command-1;
+            Item item = movableItems.get(index);
 
             if (command <= movableItems.size()) {
-                int index = command-1;
-                Item item = movableItems.get(index);
-                if (player.addItemToInventory(item)) {
-                    checkHungerlevel(sc, player, currentLocation, ui);
-                    currentLocation.getItems().remove(item);
-                    System.out.println("You take the " + item + " with you.");
-                    System.out.println("....................................................");
-                }
-                else {
-                    checkHungerlevel(sc, player, currentLocation, ui);
-                    System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
-                    System.out.println("====================================================");
-                }
+                examineItem(command,item,player,sc,currentLocation,ui);
             }
         }
+    }
+
+    private void examineItem(int command,Item item, Player player, Scanner sc, Location currentLocation, UserInterface ui) {
+        checkHungerlevel(sc, player, currentLocation, ui);
+
+
+        System.out.println(item.getDescription());
+        System.out.println("....................................................");
+        System.out.println("<COMMANDS>");
+        System.out.println("\t>1 - take the " + item + " with you.");
+        System.out.println("\t>2 - do nothing.");
+        System.out.println("====================================================");
+
+        command = sc.nextInt();
+        if (command == 1) {
+            takeItem(item,player,sc,currentLocation,ui);
+        }
+
+    }
+
+    private void takeItem(Item item, Player player, Scanner sc, Location currentLocation, UserInterface ui) {
+
+            if (player.addItemToInventory(item)) {
+                checkHungerlevel(sc, player, currentLocation, ui);
+                currentLocation.getItems().remove(item);
+                System.out.println("You take the " + item + " with you.");
+                System.out.println("....................................................");
+            }
+            else {
+                checkHungerlevel(sc, player, currentLocation, ui);
+                System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
+                System.out.println("====================================================");
+            }
+
     }
 
     private void checkHungerlevel(Scanner sc, Player player, Location currentLocation, UserInterface ui) {
@@ -152,7 +176,6 @@ public class UserInterface {
                     player.increaseHungerLevel();
                     System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
-                    winGame(player);
                     nextLocation.openWithPasscode();
                     break;
                 }
@@ -244,7 +267,7 @@ public class UserInterface {
                 //print description of current location
                 System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
                 System.out.println();
-                System.out.println("You are currently in the " + currentLocation);
+                System.out.println("You are currently in the " + currentLocation + ".");
 
                 System.out.println("....................................................");
 
