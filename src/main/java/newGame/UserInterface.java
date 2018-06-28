@@ -63,7 +63,6 @@ public class UserInterface {
         System.out.print("Please enter your name: ");
         player.setName(sc.nextLine());
         System.out.println("Hello " + player + "!");
-
     }
 
     public void examineRoom(Location currentLocation, Scanner sc) {
@@ -127,5 +126,10 @@ public class UserInterface {
         }
 
         return nextLocation;
+    }
+
+    public void winGame() {
+        System.out.println("voitto");
+        System.exit(0);
     }
 }
