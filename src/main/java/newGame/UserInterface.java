@@ -298,6 +298,7 @@ public class UserInterface {
         if (command == foodCommand) {
             player.getInventory().remove(item);
             player.setHungerLevel(1);
+            System.out.println("You consumed the " + item + ". Your hunger level is now back to " + player.getHungerLevel() + ".");
         }
     }
 
