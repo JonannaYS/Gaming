@@ -6,7 +6,7 @@ NOTE
 A piece of paper with barely readable handwriting on it. Is it a number one?
 1
 move
-LETTERS
+LETTERS WRITTEN ON THE WALL
 There's huge number 2 written on the wall.
 0
 null
