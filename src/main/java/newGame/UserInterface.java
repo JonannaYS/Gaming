@@ -152,7 +152,10 @@ public class UserInterface {
     }
 
     public void winGame(Player player) {
-        System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
+        String cowCall = "Pop the champagne! "+ player + "! You made it! You got succesfully out of the building and won the game!";
+        System.exit(0);
+        CowSay.callTheCow();
+        // System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
         System.exit(0);
     }
 
