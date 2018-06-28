@@ -36,8 +36,9 @@ public class Game {
                 break;
             }
             if (command == 11) {
-                ui.examineRoom(currentLocation,sc);
+                ui.examineRoom(currentLocation,sc,player);
             }
+
             if (command > 0 && command < 10) {
                 currentLocation = ui.moveToLocation(currentLocation,sc,command);
             }

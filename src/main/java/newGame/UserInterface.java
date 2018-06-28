@@ -65,7 +65,7 @@ public class UserInterface {
         System.out.println("Hello " + player + "!");
     }
 
-    public void examineRoom(Location currentLocation, Scanner sc) {
+    public void examineRoom(Location currentLocation, Scanner sc, Player player) {
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
         }
@@ -88,6 +88,16 @@ public class UserInterface {
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
                 commandIndex++;
+            }
+            System.out.println("\t>" + commandIndex + " - do nothing.");
+
+            int command = sc.nextInt();
+            if (command <= movableItems.size()) {
+                int index = command-1;
+                Item item = movableItems.get(index);
+                player.addItemToInventory(item);
+                currentLocation.getItems().remove(item);
+                System.out.println("You take the " + item + " with you.");
             }
         }
 

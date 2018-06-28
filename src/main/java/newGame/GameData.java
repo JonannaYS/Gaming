@@ -80,6 +80,9 @@ public class GameData {
                     sb.append(partialDescription).append("\n");
                 }
                 String description = sb.toString();
+                if (key.equals("exit22") || key.equals("exit23")) {
+                    lockTheExitsAtBeginning(key,name);
+                }
                 locations.put(key,new Location(name,description));
             }
         }
@@ -87,6 +90,10 @@ public class GameData {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void lockTheExitsAtBeginning(String key, String exitPointName){
+        locations.put(key, locations.get(key)).lockWithPasscode();
     }
 
     public void createLocation (String key, Location location ) {
