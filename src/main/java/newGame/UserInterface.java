@@ -265,6 +265,7 @@ public class UserInterface {
                 currentLocation.addItem(item);
                 player.getInventory().remove(index);
                 System.out.println("You left the " + item + " in the " + currentLocation);
+                System.out.println("....................................................");
             }
 
         }
@@ -289,7 +290,7 @@ public class UserInterface {
                 printOptions(currentLocation, player);
                 System.out.println("====================================================");
 
-                int command = sc.nextInt();
+                int command = Integer.parseInt(sc.nextLine());
 
                 if (command == 999) {
                     System.out.println("....................................................");
@@ -299,20 +300,22 @@ public class UserInterface {
                 }
                 if (command == 11) {
                     System.out.println("....................................................");
-                    examineRoom(currentLocation, sc, player,ui);
+                    examineRoom(currentLocation, sc, player, ui);
                 }
 
                 if (command == 22) {
                     System.out.println("....................................................");
-                    checkInventory(sc, player, currentLocation,ui);
+                    checkInventory(sc, player, currentLocation, ui);
                 }
 
                 if (command > 0 && command < 10) {
 
                     currentLocation = moveToLocation(player, currentLocation, sc, command, ui);
                 }
+
             } catch (Exception e) {
-                continue;
+                System.out.println("Only numbers, please!");
+                System.out.println("====================================================");
             }
         }
     }
