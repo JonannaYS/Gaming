@@ -117,14 +117,25 @@ public class UserInterface {
 
         System.out.println(item.getDescription());
         System.out.println("....................................................");
+        int commandIndex = 1;
+        int foodCommand = 99999;
         System.out.println("<COMMANDS>");
-        System.out.println("\t>1 - take the " + item + " with you.");
-        System.out.println("\t>2 - do nothing.");
+        System.out.println("\t>" + (commandIndex++) + " - take the " + item + " with you.");
+        if (item.isConsumable()) {
+            foodCommand = commandIndex;
+            System.out.println("\t>" + (commandIndex++) + " - consume the " + item);
+        }
+        System.out.println("\t>" + (commandIndex) + " - do nothing.");
         System.out.println("====================================================");
 
         command = sc.nextInt();
         if (command == 1) {
             takeItem(item,player,sc,currentLocation,ui);
+        }
+
+        if (command == foodCommand) {
+            player.getInventory().remove(item);
+            player.setHungerLevel(1);
         }
 
     }
