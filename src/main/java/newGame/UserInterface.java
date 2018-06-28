@@ -311,7 +311,7 @@ public class UserInterface {
                     currentLocation = moveToLocation(player, currentLocation, sc, command);
                 }
             } catch (Exception e) {
-                System.out.println("Only numbers, please!");
+                System.out.println("Invalid command.");
                 System.out.println("====================================================");
             }
 
