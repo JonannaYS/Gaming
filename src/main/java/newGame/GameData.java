@@ -63,27 +63,32 @@ public class GameData {
             e.printStackTrace();
         }
     }
-    private void initializeTheLocations() {
+    private Location initializeTheLocations() {
         try (Scanner fileReader = new Scanner(new File("src/main/text/Locations.txt"))){
 
             outer:
-            while (fileReader.hasNextLine()) {
-                //Location currentLocation = locations.get(fileReader.nextLine());
                 while (fileReader.hasNextLine()) {
                     String key = fileReader.nextLine();
 //                    System.out.println(key);
                     String name = fileReader.nextLine();
-//                    System.out.println(name);
-                    String description = fileReader.nextLine();
+                         String wholeDescription = null;
+//                         System.out.println(name);
+                    while (!fileReader.nextLine().isEmpty()) {
+                        String description = fileReader.nextLine();
 //                    System.out.println(description);
-                    locations.put(key,new Location(name,description));
+                        wholeDescription = wholeDescription + description;
+                    }
+
+                    locations.put(key,new Location(name,wholeDescription));
                 }
-            }
+
         }
 
         catch (Exception e) {
             e.printStackTrace();
         }
+
+        return locations.get("elevator1");
 
     }
     public void createLocation (String key, Location location ) {
