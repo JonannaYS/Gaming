@@ -28,11 +28,10 @@ The room may be leased; it has a greenish feeling...
 toilet24
 toilet
 You are in front of the toilet.
-quite much to your surprise the toilet seems to be occupied...
+Quite much to your surprise the toilet seems to be occupied...
 
 toilet25
 toilet
-You enter the toilet.
 This appears to be a very tidy toilet.
 There are some air fresheners in the baskets by the wash basin.
 

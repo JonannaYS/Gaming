@@ -100,7 +100,6 @@ public class GameData {
         locations.put(key, location);
     }
 
-
     private void addExits(Map<String, Location> locations) {
         try (Scanner fileReader = new Scanner(new File("src/main/text/exits.txt"))){
 
