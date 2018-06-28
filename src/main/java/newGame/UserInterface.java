@@ -61,6 +61,7 @@ public class UserInterface {
     }
 
     public void welcome(Player player, Scanner sc) {
+        System.out.println("==============< ESCAPE FROM ACADEMY >===============");
         System.out.print("Please enter your name: ");
         player.setName(sc.nextLine());
         System.out.println("Hello " + player + "!");
@@ -87,7 +88,7 @@ public class UserInterface {
                 }
             }
             System.out.println("....................................................");
-            System.out.println("What would you like to do?");
+            System.out.println("<COMMANDS>");
 
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
@@ -116,7 +117,7 @@ public class UserInterface {
 
     public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command) {
         Location nextLocation = currentLocation.getExits().get(command);
-        
+
         if (nextLocation.isLocked()) {
             System.out.println(nextLocation + " is locked.");
             return currentLocation;
@@ -221,13 +222,14 @@ public class UserInterface {
                 }
 
                 //print description of current location
+                System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
                 System.out.println();
                 System.out.println(currentLocation.getDescription());
 
                 System.out.println("....................................................");
-                System.out.println("What would you like to do?");
 
                 //print options for the player
+                System.out.println("<COMMANDS>");
                 printOptions(currentLocation, player);
                 System.out.println("====================================================");
 
@@ -253,7 +255,7 @@ public class UserInterface {
 
                     currentLocation = moveToLocation(player, currentLocation, sc, command);
                 }
-            } catch (NullPointerException n) {
+            } catch (Exception e) {
                 continue;
             }
         }
