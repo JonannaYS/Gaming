@@ -1,6 +1,6 @@
 elevator1
 elevator
-The elevators doors are currently locked.
+The elevator's doors are currently locked.
 
 hallway2
 hallway
@@ -9,8 +9,8 @@ There is an open office to the west and
 the hallway continues to the east.
 
 office3
-office
-The office hasn't been used in a long time.
+open office
+This office hasn't been used in a long time.
 
 leasegreen5
 classroom

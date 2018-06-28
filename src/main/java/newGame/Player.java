@@ -11,6 +11,7 @@ public class Player {
     private int relaxationLevel;
     private List<Item> inventory = new ArrayList<>();
     private int maxInventorySize = 2;
+    private int maxHungerLevel = 15;
 
     public Player (String name) {
         this.name = name;
@@ -63,14 +64,8 @@ public class Player {
         }
     }
 
-    public void decreaseHungerLevel () {
-        if (this.hungerLevel >= 1) {
-            this.hungerLevel --;
-        }
-    }
-
-    public boolean tooHungry () {
-        if (this.hungerLevel >=15) {
+    public boolean isTooHungry() {
+        if (this.hungerLevel >= maxHungerLevel) {
             return true;
         } else {
             return false;
@@ -145,17 +140,14 @@ public class Player {
     }
 
     public void checkHungerLevel() {
-        if (this.tooHungry()) {
-            System.out.println("You're too hungry to do anything. Maybe you should eat something?");
+        if (this.getHungerLevel()==maxHungerLevel-4) {
+            System.out.println("\nYou're starting to feel light headed... You feel your stomach growling.\n");
             System.out.println("....................................................");
-//            ui.startTheUserInterface(sc, player, currentLocation, ui);
-        }
-        if (this.getHungerLevel()==11) {
-            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
+        } else if (this.getHungerLevel()==maxHungerLevel-2) {
+            System.out.println("\nYou should really eat or drink something before you pass out.\n");
             System.out.println("....................................................");
-        }
-        if (this.getHungerLevel()==13) {
-            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
+        } else if (this.isTooHungry()) {
+            System.out.println("\nYou're too hungry to do anything!\n");
             System.out.println("....................................................");
         }
     }

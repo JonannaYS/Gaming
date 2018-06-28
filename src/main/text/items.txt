@@ -23,7 +23,7 @@ A heavy hammer with a beaten yellow handle leaning on the wall.
 10
 use move
 PAINTING
-There's a small painting on the wall.
+A small but rather good-looking portrait of Tommi the Teacher.
 3
 move
 JAR OF PAINT
