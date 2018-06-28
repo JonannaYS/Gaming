@@ -69,6 +69,13 @@ public class Player {
         }
     }
 
+    public boolean tooHungry () {
+        if (this.hungerLevel >=20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public int getCoffeeLevel() {
         return coffeeLevel;
     }

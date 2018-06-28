@@ -67,13 +67,23 @@ public class UserInterface {
         System.out.println("====================================================");
     }
 
-    public void examineRoom(Location currentLocation, Scanner sc, Player player) {
+
+
+    public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
+        player.increaseHungerLevel();
+
+        if (player.tooHungry()) {
+            System.out.println("too hungery");
+            ui.startTheUserInterface(sc, player, currentLocation, ui);
+        }
+
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
             System.out.println("....................................................");
         }
 
         else {
+
             System.out.println("The " + currentLocation + " seems to contain these items: ");
             for (Item item: currentLocation.getItems()) {
                 System.out.println(item);
@@ -102,11 +112,13 @@ public class UserInterface {
                 int index = command-1;
                 Item item = movableItems.get(index);
                 if (player.addItemToInventory(item)) {
+                    player.increaseHungerLevel();
                     currentLocation.getItems().remove(item);
                     System.out.println("You take the " + item + " with you.");
                     System.out.println("....................................................");
                 }
                 else {
+                    player.increaseHungerLevel();
                     System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
                     System.out.println("====================================================");
                 }
@@ -211,7 +223,7 @@ public class UserInterface {
         }
     }
 
-    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation){
+    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation, UserInterface ui){
         while (true) {
             try {
                 if (currentLocation.getName().substring(0, 4).equals("exit")) {
@@ -238,7 +250,7 @@ public class UserInterface {
                 }
                 if (command == 11) {
                     System.out.println("....................................................");
-                    examineRoom(currentLocation, sc, player);
+                    examineRoom(currentLocation, sc, player,ui);
                 }
 
                 if (command == 22) {
