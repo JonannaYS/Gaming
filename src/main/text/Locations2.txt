@@ -1,6 +1,6 @@
 elevator1
 elevator
-The elevators doors are shut.
+The elevators doors are currently locked.
 
 hallway2
 hallway

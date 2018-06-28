@@ -12,6 +12,6 @@ public class Game {
         Map<String, Location> allLocations = gameData.getLocations();
 
         //Start the UI
-        ui.startTheUserInterface(sc, player, currentLocation);
+        ui.startTheUserInterface(sc, player, currentLocation, gameData);
     }
 }

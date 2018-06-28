@@ -116,8 +116,8 @@ public class Player {
         this.inventory = inventory;
     }
 
-    public void increaseInventorySize() {
-        if (this.inventory.contains("bag")) {
+    public void increaseInventorySize(Item bag) {
+        if (this.inventory.contains(bag)) {
             this.maxInventorySize = 10;
         }
         else {

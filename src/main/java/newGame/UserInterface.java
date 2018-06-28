@@ -9,7 +9,7 @@ public class UserInterface {
     final Character [] VOWEL_ARRAY = {'a','e','i','o','u','y','ä','ö'};
     final List<Character> vowels = new ArrayList<>(Arrays.asList(VOWEL_ARRAY));
 
-    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation){
+    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation, GameData gameData){
 
         //welcome player
         welcome(player, sc);
@@ -21,7 +21,7 @@ public class UserInterface {
 
                 printCurrentLocation(currentLocation);
                 printOptions(currentLocation, player);
-                player.increaseInventorySize(); //if they have a bag, their inventory-size is increased
+                player.increaseInventorySize(gameData.getItems().get("bag")); //if they have a bag, their inventory-size is increased
 
                 int command = Integer.parseInt(sc.nextLine());
 
@@ -64,8 +64,7 @@ public class UserInterface {
     }
 
     private void printCurrentLocation(Location currentLocation) {
-        System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
-        System.out.println();
+        System.out.println("<LOCATION>\n");
         System.out.println("You are currently in the " + currentLocation + ".");
         System.out.println("....................................................");
     }
@@ -164,7 +163,7 @@ public class UserInterface {
         }
 
         System.out.println("You left the " + currentLocation + " and moved to the " + nextLocation + ".");
-        System.out.println("....................................................");
+        System.out.println("====================================================");
         return nextLocation;
     }
 
@@ -174,6 +173,7 @@ public class UserInterface {
         player.checkHungerLevel();
         if (player.tooHungry()) return;
 
+        System.out.println("<" + currentLocation.getName().toUpperCase() + ">\n");
         List<Item> roomItems = currentLocation.getItems();
         System.out.print(currentLocation.getDescription());
         if (roomItems.isEmpty()) {
@@ -225,6 +225,7 @@ public class UserInterface {
         if (player.tooHungry()) return;
         player.increaseHungerLevel();
 
+        System.out.println("<INVENTORY>\n");
         if (player.getInventory().size() == 0) {
             System.out.println("You don't have any items with you.");
             System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
@@ -236,7 +237,7 @@ public class UserInterface {
                 System.out.println(item);
             }
 
-            System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+            System.out.println("\nYou can carry a maximum of " + player.getMaxInventorySize() + " items.");
             System.out.println("....................................................");
             System.out.println("What would you like to do?");
             int commandIndex = 1;
@@ -282,8 +283,13 @@ public class UserInterface {
         System.out.println("....................................................");
         int commandIndex = 1;
         int foodCommand = 99999;
+        int moveCommand = 99999;
         System.out.println("<COMMANDS>");
-        System.out.println("\t>" + (commandIndex++) + " - take the " + item + " with you.");
+        if (item.isMovable()) {
+            moveCommand = commandIndex;
+            System.out.println("\t>" + (commandIndex++) + " - take the " + item + " with you.");
+        }
+
         if (item.isConsumable()) {
             foodCommand = commandIndex;
             System.out.println("\t>" + (commandIndex++) + " - consume the " + item);
@@ -292,7 +298,7 @@ public class UserInterface {
         System.out.println("====================================================");
 
         command = Integer.parseInt(sc.nextLine());
-        if (command == 1) {
+        if (command == moveCommand) {
             takeItem(item,player,currentLocation);
         }
         if (command == foodCommand) {
@@ -314,7 +320,9 @@ public class UserInterface {
             System.out.println("....................................................");
         }
         else {
-            System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
+            System.out.println("Sorry, you can't carry more than "  + player.getMaxInventorySize() + " items.");
+            System.out.println("....................................................");
+
         }
 
     }
