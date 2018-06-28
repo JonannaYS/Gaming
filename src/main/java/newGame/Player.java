@@ -70,7 +70,7 @@ public class Player {
     }
 
     public boolean tooHungry () {
-        if (this.hungerLevel >=20) {
+        if (this.hungerLevel >=10) {
             return true;
         } else {
             return false;
