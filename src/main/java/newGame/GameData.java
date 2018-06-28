@@ -32,12 +32,12 @@ public class GameData {
     private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
 
         ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
+        locationsOrdered.remove("elevator1");
         // The item locations are randomized
         for (Item item: items.values()) {
             String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));
-            if (item.isMovable()) {
-                locations.get(randomLocation).addItem(item);
-            }
+            locations.get(randomLocation).addItem(item);
+
         }
         // One fixed item is added to the elevator: The code to exit the elevator
         locations.get("elevator1").addItem(new Item("paper note","There are numbers 9372 written on the note",0,true,true,true));

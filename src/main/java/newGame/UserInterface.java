@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+    final Character [] VOWELARRAY = {'a','e','i','o','u','y','ä','ö'};
+    final List<Character> vowels = new ArrayList<>(Arrays.asList(VOWELARRAY));
+
     public void startTheUserInterface(Scanner sc, Player player, Location currentLocation){
 
         //welcome player
@@ -13,53 +16,50 @@ public class UserInterface {
 
         while (true) {
             try {
-                if (currentLocation.getName().substring(0, 4).equals("exit")) {
+                if (currentLocation.getName().substring(0, 4).equals("exit"))
                     winGame(player);
-                }
 
-                //print the current location
                 printCurrentLocation(currentLocation);
-
-                //print options for the player
                 printOptions(currentLocation, player);
 
                 int command = Integer.parseInt(sc.nextLine());
 
-                if (command > 0 && command < 10) {
+                if (command > 0 && command < 10)
                     currentLocation = moveToLocation(player, currentLocation, sc, command);
-                }
 
-                if (command == 11) { // examine room
-                    System.out.println("....................................................");
+                if (command == 11)
                     examineRoom(currentLocation, sc, player);
 
-                }
-
-                if (command == 22) { // check inventory
-                    System.out.println("....................................................");
+                if (command == 22)
                     checkInventory(sc, player, currentLocation);
-                }
 
-                if (command == 999) { //quit game
-                    System.out.println("....................................................");
-                    System.out.println("====================================================");
-                    System.out.println("Thanks for playing!");
-                    break;
-                }
+                if (command == 999)
+                    quitGame();
 
             } catch (Exception e) {
                 System.out.println("Only numbers, please!");
                 System.out.println("====================================================");
+                e.printStackTrace();
             }
 
         }
     }
 
+    private void quitGame() {
+        System.out.println("====================================================");
+        System.out.println("Thanks for playing!");
+        System.exit(0);
+    }
+
     public void welcome(Player player, Scanner sc) {
         System.out.println("==============< ESCAPE FROM ACADEMY >===============");
-        System.out.print("Please enter your name: ");
+        System.out.print("Welcome to *Escape From Academy*! Please enter your name: ");
         player.setName(sc.nextLine());
-        System.out.println("Hello " + player + "!");
+        System.out.println("Ok " + player + ", let's start this game!");
+
+        for (int i = 0; i<10; i++) {
+            System.out.println(".");
+        }
         System.out.println("====================================================");
     }
 
@@ -75,8 +75,7 @@ public class UserInterface {
         // 11) examine room (reveals a list of items in the room)
         // 12) check your inventory
         // 999) quit game
-        Character [] vowelArray = {'a','e','i','o','u','y','ä','ö'};
-        List<Character> vowels = new ArrayList<>(Arrays.asList(vowelArray));
+
 
         String direction = null;
         System.out.println("<COMMANDS>");
@@ -107,7 +106,7 @@ public class UserInterface {
                     direction = "northeast";
                     break;
             }
-            // getting the right article in front of items: a or an depending on the first vowel
+            // getting the right article in front of items: a or an depending on the first letter
             if (vowels.contains(currentLocation.getExits().get(directionNumber).getName().charAt(0))) {
                 System.out.println("\t>" + directionNumber + " - continue " + direction + " to an " + currentLocation.getExits().get(directionNumber));
             }
@@ -170,12 +169,14 @@ public class UserInterface {
     }
 
     public void examineRoom(Location currentLocation, Scanner sc, Player player) {
+        System.out.println("....................................................");
         // if too hungry, can't do anything
         player.checkHungerLevel();
         if (player.tooHungry()) return;
 
+        List<Item> roomItems = currentLocation.getItems();
         System.out.print(currentLocation.getDescription());
-        if (currentLocation.getItems().isEmpty()) {
+        if (roomItems.isEmpty()) {
             player.increaseHungerLevel();
             player.checkHungerLevel();
             if (player.tooHungry()) return;
@@ -185,22 +186,24 @@ public class UserInterface {
 
         else {
             System.out.println("The " + currentLocation + " seems to contain these items: ");
-            for (Item item: currentLocation.getItems()) {
-                System.out.println("- " + item);
+            for (Item item: roomItems) {
+                String name = null;
+                if (vowels.contains(item.getName().charAt(0))) {
+                    name = "an " + item.getName();
+                }
+
+                else {
+                    name = "a " + item.getName();
+                }
+                System.out.println("- " + name);
             }
             int commandIndex = 1;
-            List<Item> movableItems = new ArrayList<>();
 
-            for (Item item: currentLocation.getItems()) {
-                if (item.isMovable()) {
-                    movableItems.add(item);
-                }
-            }
             System.out.println("....................................................");
             System.out.println("<COMMANDS>");
 
-            for (Item movableItem: movableItems) {
-                System.out.println("\t>" + commandIndex + " - examine the " + movableItem + ".");
+            for (Item item: roomItems) {
+                System.out.println("\t>" + commandIndex + " - examine the " + item + ".");
                 commandIndex++;
             }
             System.out.println("\t>" + commandIndex + " - do nothing.");
@@ -208,15 +211,16 @@ public class UserInterface {
 
             int command = Integer.parseInt(sc.nextLine());
             int index = command-1;
-            Item item = movableItems.get(index);
 
-            if (command <= movableItems.size()) {
+            if (command <= roomItems.size()) {
+                Item item = roomItems.get(index);
                 examineItem(command,item,player,sc,currentLocation);
             }
         }
     }
 
     public void checkInventory(Scanner sc, Player player, Location currentLocation) {
+        System.out.println("....................................................");
         player.checkHungerLevel();
         if (player.tooHungry()) return;
         player.increaseHungerLevel();
