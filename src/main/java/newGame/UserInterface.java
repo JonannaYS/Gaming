@@ -70,12 +70,7 @@ public class UserInterface {
 
 
     public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
-        player.increaseHungerLevel();
-
-        if (player.tooHungry()) {
-            System.out.println("too hungery");
-            ui.startTheUserInterface(sc, player, currentLocation, ui);
-        }
+        checkHungerlevel(sc, player, currentLocation, ui);
 
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
@@ -112,17 +107,30 @@ public class UserInterface {
                 int index = command-1;
                 Item item = movableItems.get(index);
                 if (player.addItemToInventory(item)) {
-                    player.increaseHungerLevel();
+                    checkHungerlevel(sc, player, currentLocation, ui);
                     currentLocation.getItems().remove(item);
                     System.out.println("You take the " + item + " with you.");
                     System.out.println("....................................................");
                 }
                 else {
-                    player.increaseHungerLevel();
+                    checkHungerlevel(sc, player, currentLocation, ui);
                     System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
                     System.out.println("====================================================");
                 }
             }
+        }
+    }
+
+    private void checkHungerlevel(Scanner sc, Player player, Location currentLocation, UserInterface ui) {
+        player.increaseHungerLevel();
+        if (player.tooHungry()) {
+            System.out.println("You're too hungry to do anything. Maybe you should eat something?");
+            System.out.println("....................................................");
+            ui.startTheUserInterface(sc, player, currentLocation, ui);
+        }
+        if (player.getHungerLevel()>5) {
+            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
+            System.out.println("....................................................");
         }
     }
 
@@ -137,17 +145,20 @@ public class UserInterface {
         else if (nextLocation.isLockedWithPasscode()) {
             System.out.println("This room is locked with a passcode.");
             while (true) {
+                player.increaseHungerLevel();
                 System.out.println("....................................................");
                 System.out.print("Passcode: ");
                 int passcode = sc.nextInt();
 
                 if (passcode == nextLocation.getPasscode()) {
+                    player.increaseHungerLevel();
                     System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
                     nextLocation.openWithPasscode();
                     break;
                 }
                 else {
+                    player.increaseHungerLevel();
                     System.out.println("....................................................");
                     System.out.println("Wrong passcode! Try again?");
                     System.out.println("\t>1 - Yes");
