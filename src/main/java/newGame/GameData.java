@@ -51,10 +51,14 @@ public class GameData {
                 String description = fileReader.nextLine();
                 int weight = Integer.parseInt(fileReader.nextLine());
                 boolean movable = fileReader.nextBoolean();
+                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
+                boolean usable = fileReader.nextBoolean();
+                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
+                boolean actionable = fileReader.nextBoolean();
                 if (fileReader.hasNextLine()) {
                     fileReader.nextLine();
                 }
-                items.put(name,new Item(name,description,weight,movable));
+                items.put(name,new Item(name,description,weight,movable,usable,actionable));
             }
         }
 
