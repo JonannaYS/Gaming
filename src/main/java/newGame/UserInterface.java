@@ -83,7 +83,7 @@ public class UserInterface {
                     movableItems.add(item);
                 }
             }
-
+            System.out.println("");
             System.out.println("What would you like to do?");
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
@@ -99,9 +99,11 @@ public class UserInterface {
                 if (player.addItemToInventory(item)) {
                     currentLocation.getItems().remove(item);
                     System.out.println("You take the " + item + " with you.");
+                    System.out.println("====================================================");
                 }
                 else {
                     System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
+                    System.out.println("====================================================");
                 }
             }
         }
