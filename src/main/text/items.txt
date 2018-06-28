@@ -61,4 +61,4 @@ move
 BAG
 An old brown bag.
 5
-move
+act use move
