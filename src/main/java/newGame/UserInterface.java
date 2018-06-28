@@ -126,6 +126,7 @@ public class UserInterface {
 
             passcode:
             while (true) {
+                System.out.println("....................................................");
                 System.out.println("What's the passcode?");
                 int passcode = sc.nextInt();
 
@@ -185,14 +186,18 @@ public class UserInterface {
                 System.out.println("\t>" + commandIndex + " - leave the " + item + " in the " + currentLocation.getName());
                 commandIndex++;
             }
+            System.out.println("\t>" + commandIndex + " - do nothing.");
+            System.out.println("====================================================");
 
             int command = sc.nextInt();
             int index = command-1;
 
             if (command <= player.getInventory().size()) {
                 System.out.println(player.getInventory().get(index).getDescription());
+                System.out.println("....................................................");
                 checkInventory(sc,player,currentLocation);
             }
+
 
             else if (command <= player.getInventory().size()*2) {
                 index -= player.getInventory().size();
@@ -201,6 +206,7 @@ public class UserInterface {
                 player.getInventory().remove(index);
                 System.out.println("You left the " + item + " in the " + currentLocation);
             }
+
         }
     }
 
