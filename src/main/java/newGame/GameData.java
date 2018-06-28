@@ -53,10 +53,10 @@ public class GameData {
                 Item item = new Item(name,description,weight);
                 items.put(name, item);
 
-                if (attributes.contains("movable")) item.setMovable(true);
-                if (attributes.contains("consumable")) item.setConsumable(true);
-                if (attributes.contains("usable")) item.setUsable(true);
-                if (attributes.contains("actionable")) item.setActionable(true);
+                if (attributes.contains("move")) item.setMovable(true);
+                if (attributes.contains("eat")) item.setConsumable(true);
+                if (attributes.contains("use")) item.setUsable(true);
+                if (attributes.contains("act")) item.setActionable(true);
 
 
 
