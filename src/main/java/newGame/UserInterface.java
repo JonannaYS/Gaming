@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-    final Character [] VOWELARRAY = {'a','e','i','o','u','y','ä','ö'};
-    final List<Character> vowels = new ArrayList<>(Arrays.asList(VOWELARRAY));
+    final Character [] VOWEL_ARRAY = {'a','e','i','o','u','y','ä','ö'};
+    final List<Character> vowels = new ArrayList<>(Arrays.asList(VOWEL_ARRAY));
 
     public void startTheUserInterface(Scanner sc, Player player, Location currentLocation){
 
@@ -21,6 +21,7 @@ public class UserInterface {
 
                 printCurrentLocation(currentLocation);
                 printOptions(currentLocation, player);
+                player.increaseInventorySize(); //if they have a bag, their inventory-size is increased
 
                 int command = Integer.parseInt(sc.nextLine());
 
@@ -41,7 +42,6 @@ public class UserInterface {
                 System.out.println("====================================================");
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -271,7 +271,6 @@ public class UserInterface {
                 System.out.println("You left the " + item + " in the " + currentLocation);
                 System.out.println("....................................................");
             }
-
         }
     }
 
@@ -296,30 +295,26 @@ public class UserInterface {
         if (command == 1) {
             takeItem(item,player,currentLocation);
         }
-
         if (command == foodCommand) {
             player.getInventory().remove(item);
             player.setHungerLevel(1);
         }
-
     }
 
     private void takeItem(Item item, Player player, Location currentLocation) {
 
-            if (player.addItemToInventory(item)) {
-                player.checkHungerLevel();
-                if (player.tooHungry()) return;
-                player.increaseHungerLevel();
-                currentLocation.getItems().remove(item);
-                System.out.println("You take the " + item + " with you.");
-                System.out.println("....................................................");
-            }
-            else {
-                player.checkHungerLevel();
-                if (player.tooHungry()) return;
-                player.increaseHungerLevel();
-                System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
-            }
+        player.checkHungerLevel();
+        if (player.tooHungry()) return;
+        player.increaseHungerLevel();
+
+        if (player.addItemToInventory(item)) {
+            currentLocation.getItems().remove(item);
+            System.out.println("You take the " + item + " with you.");
+            System.out.println("....................................................");
+        }
+        else {
+            System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
+        }
 
     }
 

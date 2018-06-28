@@ -120,6 +120,9 @@ public class Player {
         if (this.inventory.contains("bag")) {
             this.maxInventorySize = 10;
         }
+        else {
+            this.maxInventorySize = 2;
+        }
     }
 
     public boolean addItemToInventory(Item item){
