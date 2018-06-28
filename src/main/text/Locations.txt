@@ -1,0 +1,186 @@
+elevator1
+elevator
+You are in an elevator and the doors are shut.
+
+hallway2
+hallway
+You are in a hallway in front of elevators.
+There is an open office to the west and
+the hallway continues to the east.
+
+office3
+office
+You arrived in the office.
+You see some desks and chairs,
+one laptop on the nearest desk. There are some papers with
+coffee cup stains on the papers scattered on the floor.
+There is a printer in the corner.
+
+conference4
+conference room
+You are in a mid-size negotiating room.
+There is a table with six chairs around it and a
+large monitor on the north wall above the table.
+There is a window to the east, the orange window shades
+are pulled open and some office buildings can be seen from
+the window. You see a door to the southeast leading to an office.
+
+leasegreen5
+classroom
+You are in a semi large classroom.
+There is a U-shaped table in the middle
+and some tables also by the east side of the wall.
+The windows open to the west and you can see some office
+buildings with white walls from the window across the street.
+The room may be leased; it has a greenish feeling...
+
+hallway6
+hallway
+You are in a shortish hallway.
+There are elevators to the west.
+To the east is a large open space
+surrounded by very cozy looking couches.
+The space is airy and surrounded by
+windows to the south and east.
+
+couch7
+living room
+You are in a large livingroom.
+There are large couches and chairs around you.
+There is a large whitescreen on the wall to the south.
+
+diningRoom8
+dining room
+You are in a dining room.
+There are rows of tables with chairs on both sides of the tables.
+The tables are empty and clean.
+In the north there appears to be a kitchen.
+In the south there are some couches.
+
+hallway9
+hallway
+You are in a hallway leading to north and south.
+To the south there is a corner turning to west.
+On the east side of the hallway there you see a
+thick grey woollen felt wall hanging from the roof.
+There are some openings on the felt wall and you can see
+the dining room behind the felt wall. The wall looks soft
+yet sturdy.
+To the northwest there is a door to a toilet and
+to the west there is a door to a maintenance room.
+To southwest there is door to another toilet.
+To north there is a large open kitchen,
+you can smell a nice aroma of coffee lingering
+from the kitchen.
+
+toilet10
+toilet
+The toilet appears to be taken by your surprise.
+
+maintenance11
+maintenance
+The door is locked.
+You hear hushed sounds coming from the maintenance room!
+
+toilet12
+toilet
+The toilet appears to be also taken.
+
+kitchen13
+kitchen
+You enter the kitchen. There is a large double coffee machine
+and fresh coffee beans appear to be ready in the machines.
+There are some bowls with fresh fruits on the tables.
+
+hallway14a
+hallway
+You are in a hallway. Hallway continues to the west.
+There are two doors: one to the north
+and another to the east.
+In the south there is a kitchen.
+
+hallway14b
+hallway
+
+You are in a hallway.
+Hallway continues to the north and to the east.
+There is a door to the west.
+In the south there is a small corner room with a TV on the wall.
+
+conference15
+conference room
+You are in a room.
+There is currently nothing interesting in this room.
+
+accenture16
+classroom
+It's a classroom.
+You notice that the air in the room is thick and stale.
+The air smells like hard work and possibly some java...
+There are whiteboards with some gibberish and symbols
+written on them. A couple of flip charts in the corners.
+A laptop is hooked to a projector.
+There appears to be some code stuck to an infinite loop.
+
+conference17
+conference room
+You are in a room.
+There seems to be nothing interesting in this room.
+
+hallway18
+hallway
+You are in a largish hallway of some sort.
+There is an exit in the west.
+There is also two conference rooms north and north-east.
+The hallway continues southwards.
+
+conference19
+conference room
+You are in a smallish conference room.
+There is a noteblock on the table and 1:1 written on it.
+
+cSharp20
+classroom
+You are in a largish classroom.
+You see some empty grey laptop bags on the tables.
+The bags appear to be bright orange from the inside.
+
+beanbags21
+room with beanbags
+There are a few large and colourful beanbag
+chairs omn the floors. They look very inviting.
+On the south wall there is a large monitor
+where you see a game of Fortnite running and
+waiting on a Playstation.
+It appears even more inviting.
+
+exit22
+exit
+You see an exit.
+There is a pad for to enter a code
+on the side of the door.
+The door seems locked.
+
+exit23
+exit
+You see an exit.
+There is a pad for to enter a code
+on the side of the door.
+The door seems locked.
+
+toilet24
+toilet
+You are in front of the toilet.
+quite much to your surprise the toilet seems to be occupied...
+
+toilet25
+toilet
+You enter the toilet.
+This appears to be a very tidy toilet.
+There are some air fresheners in the baskets by the wash basin.
+
+toilets26
+space in front of toilets
+You are in a corner of a larger open space
+standing in front of the toilets.
+

@@ -15,7 +15,7 @@ public class GameData {
 
     public Location initializeGame(){
         // create locations and add them to a collection
-        initializeLocations();
+        initializeTheLocations();
 
         // add exits to locations
         addExits(locations);
@@ -59,11 +59,33 @@ public class GameData {
             e.printStackTrace();
         }
     }
+    private void initializeTheLocations() {
+        try (Scanner fileReader = new Scanner(new File("src/main/text/Locations.txt"))){
 
+            outer:
+            while (fileReader.hasNextLine()) {
+                //Location currentLocation = locations.get(fileReader.nextLine());
+                while (fileReader.hasNextLine()) {
+                    String key = fileReader.nextLine();
+//                    System.out.println(key);
+                    String name = fileReader.nextLine();
+//                    System.out.println(name);
+                    String description = fileReader.nextLine();
+//                    System.out.println(description);
+                    locations.put(key,new Location(name,description));
+                }
+            }
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
     public void createLocation (String key, Location location ) {
         locations.put(key, location);
     }
-
+/*
     public void initializeLocations() {
         createLocation("elevator1", new Location("elevator","You are in an elevator and the doors are shut."));
         createLocation("hallway2", new Location("hallway", "You are in a hallway in front of elevators. " +
@@ -135,6 +157,7 @@ public class GameData {
         createLocation("toilet25", new Location("toilet","You enter the toilet. This appears to be a very tidy toilet."));
         createLocation("toilets26",new Location("space in front of toilets", "You are in a space in front of the toilets."));
     }
+    */
 
     private void addExits(Map<String, Location> locations) {
         try (Scanner fileReader = new Scanner(new File("src/main/text/exits.txt"))){
