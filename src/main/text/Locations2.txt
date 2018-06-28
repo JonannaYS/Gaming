@@ -1,20 +1,16 @@
 elevator1
 elevator
-You are in an elevator and the doors are shut.
+The elevators doors are shut.
 
 hallway2
 hallway
-You are in a hallway in front of elevators.
+This hallway is in front of the elevator.
 There is an open office to the west and
 the hallway continues to the east.
 
 office3
 office
-You arrived in the office.
-You see some desks and chairs,
-one laptop on the nearest desk. There are some papers with
-coffee cup stains on the papers scattered on the floor.
-There is a printer in the corner.
+The office hasn't been used in a long time.
 
 leasegreen5
 classroom
@@ -27,9 +23,8 @@ The room may be leased; it has a greenish feeling...
 
 kitchen13
 kitchen
-You enter the kitchen. There is a large double coffee machine
+There is a large double coffee machine
 and fresh coffee beans appear to be ready in the machines.
-There are some bowls with fresh fruits on the tables.
 
 exit23
 exit
@@ -37,7 +32,6 @@ null
 
 toilet24
 toilet
-You are in front of the toilet.
 Quite much to your surprise the toilet seems to be occupied...
 
 toilet25
