@@ -27,8 +27,7 @@ public class GameData {
         addItemsToLocations(locations,items);
 
         //set starting location
-        Location currentLocation = locations.get("elevator1");
-        return currentLocation;
+        return locations.get("elevator1");
     }
 
     private void addItemsToLocations(Map<String,Location> locations, Map<String,Item> items) {
@@ -63,33 +62,26 @@ public class GameData {
             e.printStackTrace();
         }
     }
-    private Location initializeTheLocations() {
+    private void initializeTheLocations() {
         try (Scanner fileReader = new Scanner(new File("src/main/text/Locations.txt"))){
 
-            outer:
+            while (fileReader.hasNextLine()) {
+                String key = fileReader.nextLine();
+                String name = fileReader.nextLine();
+                StringBuilder sb = new StringBuilder();
                 while (fileReader.hasNextLine()) {
-                    String key = fileReader.nextLine();
-//                    System.out.println(key);
-                    String name = fileReader.nextLine();
-                         String wholeDescription = null;
-//                         System.out.println(name);
-                    while (!fileReader.nextLine().isEmpty()) {
-                        String description = fileReader.nextLine();
-//                    System.out.println(description);
-                        wholeDescription = wholeDescription + description;
-                    }
-
-                    locations.put(key,new Location(name,wholeDescription));
+                    String partialDescription = fileReader.nextLine();
+                    if (partialDescription.isEmpty()) break;
+                    sb.append(partialDescription).append("\n");
                 }
-
+                String description = sb.toString();
+                locations.put(key,new Location(name,description));
+            }
         }
 
         catch (Exception e) {
             e.printStackTrace();
         }
-
-        return locations.get("elevator1");
-
     }
     public void createLocation (String key, Location location ) {
         locations.put(key, location);
