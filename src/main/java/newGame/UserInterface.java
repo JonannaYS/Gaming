@@ -63,6 +63,7 @@ public class UserInterface {
         System.out.print("Please enter your name: ");
         player.setName(sc.nextLine());
         System.out.println("Hello " + player + "!");
+        System.out.println("====================================================");
     }
 
     public void examineRoom(Location currentLocation, Scanner sc, Player player) {
@@ -83,8 +84,9 @@ public class UserInterface {
                     movableItems.add(item);
                 }
             }
-            System.out.println("");
+            System.out.println("====================================================");
             System.out.println("What would you like to do?");
+
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
                 commandIndex++;

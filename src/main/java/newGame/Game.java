@@ -17,7 +17,5 @@ public class Game {
 
         //Start the UI
         ui.startTheUserInterface(sc, player, currentLocation);
-
-
     }
 }
