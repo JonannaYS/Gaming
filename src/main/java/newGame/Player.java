@@ -134,4 +134,20 @@ public class Player {
     public String toString() {
         return name;
     }
+
+    public void checkHungerLevel() {
+        if (this.tooHungry()) {
+            System.out.println("You're too hungry to do anything. Maybe you should eat something?");
+            System.out.println("....................................................");
+//            ui.startTheUserInterface(sc, player, currentLocation, ui);
+        }
+        if (this.getHungerLevel()==11) {
+            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
+            System.out.println("....................................................");
+        }
+        if (this.getHungerLevel()==13) {
+            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
+            System.out.println("....................................................");
+        }
+    }
 }

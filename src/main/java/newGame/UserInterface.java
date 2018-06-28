@@ -67,13 +67,16 @@ public class UserInterface {
         System.out.println("====================================================");
     }
 
-    public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
-        checkHungerlevel(sc, player, currentLocation, ui);
+    public void examineRoom(Location currentLocation, Scanner sc, Player player) {
+        // if too hungry, can't do anything
+        player.checkHungerLevel();
+        if (player.tooHungry()) return;
 
         System.out.print(currentLocation.getDescription());
         if (currentLocation.getItems().isEmpty()) {
             player.increaseHungerLevel();
-            checkHungerlevel(sc, player, currentLocation, ui);
+            player.checkHungerLevel();
+            if (player.tooHungry()) return;
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
             System.out.println("....................................................");
         }
@@ -106,14 +109,14 @@ public class UserInterface {
             Item item = movableItems.get(index);
 
             if (command <= movableItems.size()) {
-                examineItem(command,item,player,sc,currentLocation,ui);
+                examineItem(command,item,player,sc,currentLocation);
             }
         }
     }
 
-    private void examineItem(int command,Item item, Player player, Scanner sc, Location currentLocation, UserInterface ui) {
-        checkHungerlevel(sc, player, currentLocation, ui);
-
+    private void examineItem(int command,Item item, Player player, Scanner sc, Location currentLocation) {
+        player.checkHungerLevel();
+        if (player.tooHungry()) return;
 
         System.out.println(item.getDescription());
         System.out.println("....................................................");
@@ -130,7 +133,7 @@ public class UserInterface {
 
         command = sc.nextInt();
         if (command == 1) {
-            takeItem(item,player,sc,currentLocation,ui);
+            takeItem(item,player,currentLocation);
         }
 
         if (command == foodCommand) {
@@ -140,17 +143,19 @@ public class UserInterface {
 
     }
 
-    private void takeItem(Item item, Player player, Scanner sc, Location currentLocation, UserInterface ui) {
+    private void takeItem(Item item, Player player, Location currentLocation) {
 
             if (player.addItemToInventory(item)) {
-                checkHungerlevel(sc, player, currentLocation, ui);
+                player.checkHungerLevel();
+                if (player.tooHungry()) return;
                 player.increaseHungerLevel();
                 currentLocation.getItems().remove(item);
                 System.out.println("You take the " + item + " with you.");
                 System.out.println("....................................................");
             }
             else {
-                checkHungerlevel(sc, player, currentLocation, ui);
+                player.checkHungerLevel();
+                if (player.tooHungry()) return;
                 player.increaseHungerLevel();
                 System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
                 System.out.println("====================================================");
@@ -163,7 +168,6 @@ public class UserInterface {
         if (player.tooHungry()) {
             System.out.println("You're too hungry to do anything. Maybe you should eat something?");
             System.out.println("....................................................");
-            ui.startTheUserInterface(sc, player, currentLocation, ui);
         }
         if (player.getHungerLevel()==11) {
             System.out.println("You're starting to feel light headed... You feel your stomach growling.");
@@ -184,11 +188,12 @@ public class UserInterface {
         }
 
         else if (nextLocation.isLockedWithPasscode()) {
-            System.out.println("This room is locked with a passcode.");
+            System.out.println("This door is locked with a passcode.");
             while (true) {
+                player.checkHungerLevel();
+                if (player.tooHungry()) return currentLocation;
                 player.increaseHungerLevel();
-                player.increaseHungerLevel();
-                checkHungerlevel(sc, player, currentLocation, ui);
+//                checkHungerlevel(sc, player, currentLocation, ui);
                 System.out.println("....................................................");
                 System.out.print("Passcode: ");
                 int passcode = sc.nextInt();
@@ -224,13 +229,14 @@ public class UserInterface {
         System.out.println();
         String congratulations = "Pop the champagne "+ player + "!!! You got succesfully out of the building and won the game!";
         CowSay.callTheCow(congratulations);
-        // System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
         System.exit(0);
     }
 
     public void checkInventory(Scanner sc, Player player, Location currentLocation, UserInterface ui) {
-            checkHungerlevel(sc, player, currentLocation, ui);
-            player.increaseHungerLevel();
+//            checkHungerlevel(sc, player, currentLocation, ui);
+        player.checkHungerLevel();
+        if (player.tooHungry()) return;
+        player.increaseHungerLevel();
 
         if (player.getInventory().size() == 0) {
             System.out.println("You don't have any items with you.");
@@ -288,11 +294,10 @@ public class UserInterface {
                     winGame(player);
                 }
 
-                //print description of current location
+                //print the current location
                 System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
                 System.out.println();
                 System.out.println("You are currently in the " + currentLocation + ".");
-
                 System.out.println("....................................................");
 
                 //print options for the player
@@ -302,29 +307,30 @@ public class UserInterface {
 
                 int command = sc.nextInt();
 
-                if (command == 999) {
+                if (command == 999) { //quit game
                     System.out.println("....................................................");
                     System.out.println("====================================================");
                     System.out.println("Thanks for playing!");
                     break;
                 }
-                if (command == 11) {
+                if (command == 11) { // examine room
                     System.out.println("....................................................");
-                    examineRoom(currentLocation, sc, player,ui);
+                    examineRoom(currentLocation, sc, player);
                 }
 
-                if (command == 22) {
+                if (command == 22) { // check inventory
                     System.out.println("....................................................");
                     checkInventory(sc, player, currentLocation,ui);
                 }
 
-                if (command > 0 && command < 10) {
+                if (command > 0 && command < 10) { // move to another location
 
                     currentLocation = moveToLocation(player, currentLocation, sc, command, ui);
                 }
             } catch (Exception e) {
-                continue;
+                e.printStackTrace();
             }
+
         }
     }
 }

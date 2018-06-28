@@ -64,21 +64,6 @@ public class GameData {
                 if (attributes.contains("eat")) item.setConsumable(true);
                 if (attributes.contains("use")) item.setUsable(true);
                 if (attributes.contains("act")) item.setActionable(true);
-
-
-
-
-
-//                boolean movable = fileReader.nextBoolean();
-//                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
-//                boolean usable = fileReader.nextBoolean();
-//                if (fileReader.hasNextLine()) { fileReader.nextLine(); }
-//                boolean actionable = fileReader.nextBoolean();
-//                if (fileReader.hasNextLine()) {
-//                    fileReader.nextLine();
-//                }
-//                items.put(name,new Item(name,description,weight,movable,usable,actionable));
-
             }
         }
 
