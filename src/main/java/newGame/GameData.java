@@ -46,7 +46,7 @@ public class GameData {
         try (Scanner fileReader = new Scanner(new File("src/main/text/items.txt"))){
 
             while (fileReader.hasNextLine()) {
-                String name = fileReader.nextLine();
+                String name = fileReader.nextLine().toLowerCase();
                 String description = fileReader.nextLine();
                 int weight = Integer.parseInt(fileReader.nextLine());
                 String attributes = fileReader.nextLine();

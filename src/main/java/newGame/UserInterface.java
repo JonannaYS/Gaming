@@ -70,13 +70,13 @@ public class UserInterface {
     public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
         checkHungerlevel(sc, player, currentLocation, ui);
 
+        System.out.println(currentLocation.getDescription());
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
             System.out.println("....................................................");
         }
 
         else {
-
             System.out.println("The " + currentLocation + " seems to contain these items: ");
             for (Item item: currentLocation.getItems()) {
                 System.out.println(item);
@@ -244,7 +244,7 @@ public class UserInterface {
                 //print description of current location
                 System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
                 System.out.println();
-                System.out.println(currentLocation.getDescription());
+                System.out.println("You are currently in the " + currentLocation);
 
                 System.out.println("....................................................");
 

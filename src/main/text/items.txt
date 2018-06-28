@@ -1,90 +1,60 @@
-shoe
+SHOE
 A well trodden shoe without a pair.
 2
-true
-true
-true
-note
+act use move
+NOTE
 A piece of paper with barely readable handwriting on it. Is it a number one?
 1
-true
-false
-false
-letters
+move
+LETTERS
 There's huge number 2 written on the wall.
 0
-false
-false
-false
-computer
+null
+COMPUTER
 On the computer you see number 3 blinking.
 0
-false
-false
-false
-clock
+act use
+CLOCK
 An old clock that's stopped at 6 o'clock.
 0
-true
-false
-false
-hammer
+move
+HAMMER
 A heavy hammer with a beaten yellow handle leaning on the wall.
 10
-true
-true
-true
-painting
+use move
+PAINTING
 There's a small painting on the wall.
 3
-true
-false
-false
-jar of paint
+move
+JAR OF PAINT
 A small jar of paint with green paint stains on it.
 3
-true
-true
-false
-box of chocolate
+move
+BOX OF CHOCOLATES
 A box of delicious looking dark chocolate.
 2
-true
-true
-true
-key
+eat move
+KEY
 A key hanging intriguingly from a shortish keychain.
 1
-true
-true
-false
-piece of paper
+use move
+PIECE OF PAPER
 A piece of paper with the text "code gets you to places..."
 0
-true
-false
-false
-air conditioning
+move
+AIR CONDITIONING
 You spot a thermostat with a temperature dial at the far end of the room.
 0
-false
-true
-false
-axe
+act
+AXE
 An impressive size axe. This is no deodorant...
 40
-true
-true
-true
-phone
+move
+PHONE
 An old cell phone with a text message: "Wall, clock, paper, computer."
 2
-true
-true
-true
-satchel
+move
+SATCHEL
 A well patinated leathery satchel. It is too small to carry anything.
 0
-true
-false
-false
+move
