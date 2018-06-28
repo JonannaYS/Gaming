@@ -1,5 +1,6 @@
 package newGame;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,6 +70,7 @@ public class UserInterface {
     public void examineRoom(Location currentLocation, Scanner sc, Player player) {
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
+            System.out.println("....................................................");
         }
 
         else {
@@ -84,7 +86,7 @@ public class UserInterface {
                     movableItems.add(item);
                 }
             }
-            System.out.println("====================================================");
+            System.out.println("....................................................");
             System.out.println("What would you like to do?");
 
             for (Item movableItem: movableItems) {
@@ -92,6 +94,7 @@ public class UserInterface {
                 commandIndex++;
             }
             System.out.println("\t>" + commandIndex + " - do nothing.");
+            System.out.println("====================================================");
 
             int command = sc.nextInt();
 
@@ -101,7 +104,7 @@ public class UserInterface {
                 if (player.addItemToInventory(item)) {
                     currentLocation.getItems().remove(item);
                     System.out.println("You take the " + item + " with you.");
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                 }
                 else {
                     System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
@@ -121,13 +124,15 @@ public class UserInterface {
 
         else if (nextLocation.isLockedWithPasscode()) {
 
-            passcode:
             while (true) {
+                System.out.println("....................................................");
                 System.out.println("What's the passcode?");
                 int passcode = sc.nextInt();
 
                 if (passcode == nextLocation.getPasscode()) {
+                    System.out.println("Correct! The door is now unlocked.");
                     nextLocation.openWithPasscode();
+                    break;
                 }
                 else {
                     System.out.println("Wrong passcode! Try again?");
@@ -135,18 +140,19 @@ public class UserInterface {
                     System.out.println("\t>2 - No");
                     int choice = sc.nextInt();
 
-                    if (choice == 1) continue passcode;
-                    if (choice == 2) break passcode;
+                    if (choice == 1) continue;
+                    if (choice == 2) return currentLocation;
                 }
             }
         }
 
         System.out.println("You left the " + currentLocation + " and moved to the " + nextLocation + ".");
+        System.out.println("....................................................");
         return nextLocation;
     }
 
-    public void winGame() {
-        System.out.println("voitto");
+    public void winGame(Player player) {
+        System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
         System.exit(0);
     }
 
@@ -159,6 +165,7 @@ public class UserInterface {
         if (player.getInventory().size() == 0) {
             System.out.println("You don't have any items with you.");
             System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+            System.out.println("....................................................");
         }
         else {
             System.out.println("You currently carry these items: ");
@@ -167,6 +174,7 @@ public class UserInterface {
             }
 
             System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+            System.out.println("....................................................");
             System.out.println("What would you like to do?");
             int commandIndex = 1;
 
@@ -179,14 +187,18 @@ public class UserInterface {
                 System.out.println("\t>" + commandIndex + " - leave the " + item + " in the " + currentLocation.getName());
                 commandIndex++;
             }
+            System.out.println("\t>" + commandIndex + " - do nothing.");
+            System.out.println("====================================================");
 
             int command = sc.nextInt();
             int index = command-1;
 
             if (command <= player.getInventory().size()) {
                 System.out.println(player.getInventory().get(index).getDescription());
+                System.out.println("....................................................");
                 checkInventory(sc,player,currentLocation);
             }
+
 
             else if (command <= player.getInventory().size()*2) {
                 index -= player.getInventory().size();
@@ -195,6 +207,7 @@ public class UserInterface {
                 player.getInventory().remove(index);
                 System.out.println("You left the " + item + " in the " + currentLocation);
             }
+
         }
     }
 
@@ -202,12 +215,14 @@ public class UserInterface {
         while (true) {
             try {
                 if (currentLocation.getName().substring(0, 4).equals("exit")) {
-                    winGame();
+                    winGame(player);
                 }
 
                 //print description of current location
                 System.out.println();
                 System.out.println(currentLocation.getDescription());
+
+                System.out.println("....................................................");
                 System.out.println("What would you like to do?");
 
                 //print options for the player
@@ -222,12 +237,12 @@ public class UserInterface {
                     break;
                 }
                 if (command == 11) {
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                     examineRoom(currentLocation, sc, player);
                 }
 
                 if (command == 22) {
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                     checkInventory(sc, player, currentLocation);
                 }
 
