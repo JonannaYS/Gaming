@@ -5,11 +5,23 @@ public class Item {
     private String description;
     private int weight = 0;
     private boolean movable;
+    private boolean usable;
+    private boolean actionable;
+
 
     public Item(String name, String description, int weight) {
         this.name = name;
         this.description = description;
         this.weight = weight;
+    }
+
+    public Item(String name, String description, int weight, boolean movable, boolean usable, boolean actionable) {
+        this.name = name;
+        this.description = description;
+        this.weight = weight;
+        this.movable = movable;
+        this.usable = usable;
+        this.actionable = actionable;
     }
 
     public Item(String name, String description, int weight, boolean movable) {
@@ -41,7 +53,9 @@ public class Item {
         return name;
     }
 
-    public boolean isMovable() {
-        return movable;
-    }
+    public boolean isMovable() { return movable; }
+
+    public boolean actionable() { return actionable; }
+
+    public boolean usable() { return usable; }
 }

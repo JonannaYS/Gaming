@@ -10,6 +10,7 @@ public class Player {
     private int coffeeLevel = 100;
     private int relaxationLevel;
     private List<Item> inventory = new ArrayList<>();
+    private int maxInventorySize = 2;
 
     public Player (String name) {
         this.name = name;
@@ -83,6 +84,14 @@ public class Player {
     public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
     }
+
+    public void addItemToInventory(Item item){
+        if (item.isMovable()) {
+            inventory.add(item);
+        }
+    }
+
+
 
     @Override
     public String toString() {
