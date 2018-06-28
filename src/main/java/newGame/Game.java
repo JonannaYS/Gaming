@@ -11,9 +11,6 @@ public class Game {
         Location currentLocation = gameData.initializeGame();
         Map<String, Location> allLocations = gameData.getLocations();
 
-        // welcome player
-        ui.welcome(player, sc);
-
         //Start the UI
         ui.startTheUserInterface(sc, player, currentLocation);
     }

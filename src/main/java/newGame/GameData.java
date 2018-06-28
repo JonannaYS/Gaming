@@ -40,10 +40,10 @@ public class GameData {
             }
         }
         // One fixed item is added to the elevator: The code to exit the elevator
-        locations.get("elevator1").addItem(new Item("A paper note","There are numbers 9372 written on the note",0,true,true,true));
-        locations.get("kitchen13").addItem(new Item("A banana","A delightfully fresh banana", true,true));
-        locations.get("kitchen13").addItem(new Item("A slice of pizza","Pizza left from a kickoff evening", true,true));
-        locations.get("kitchen13").addItem(new Item("Fresh coffee","A nice cup of fresh coffee of your choice. Cappuccino, perhaps?", true,true));
+        locations.get("elevator1").addItem(new Item("paper note","There are numbers 9372 written on the note",0,true,true,true));
+        locations.get("kitchen13").addItem(new Item("banana","A delightfully fresh banana", true,true));
+        locations.get("kitchen13").addItem(new Item("slice of pizza","Pizza left from a kickoff evening", true,true));
+        locations.get("kitchen13").addItem(new Item("fresh coffee","A nice cup of fresh coffee of your choice. Cappuccino, perhaps?", true,true));
 
 
 
