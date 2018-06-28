@@ -1,0 +1,27 @@
+elevator1
+8 hallway2
+
+hallway2
+6 exit23
+4 office3
+
+office3
+8 leasegreen5
+9 toilets26
+6 hallway2
+
+leasegreen5
+3 toilets26
+2 office3
+
+toilet24
+4 toilets26
+
+toilet25
+1 toilets26
+
+toilets26
+6 toilet24
+8 leasegreen5
+9 toilet25
+1 office3
