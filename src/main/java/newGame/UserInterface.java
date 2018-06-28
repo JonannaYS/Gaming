@@ -302,7 +302,6 @@ public class UserInterface {
 
     private void takeItem(Item item, Player player, Location currentLocation) {
 
-<<<<<<< HEAD
             if (player.addItemToInventory(item)) {
                 player.checkHungerLevel();
                 if (player.tooHungry()) return;
@@ -316,14 +315,6 @@ public class UserInterface {
                 if (player.tooHungry()) return;
                 player.increaseHungerLevel();
                 System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
-=======
-                if (command > 0 && command < 10) {
-                    currentLocation = moveToLocation(player, currentLocation, sc, command);
-                }
-            } catch (Exception e) {
-                System.out.println("Invalid command.");
->>>>>>> 80fd3603ce394125f6b6e6e59d423b5c7a6ae104
-                System.out.println("====================================================");
             }
 
     }
