@@ -42,8 +42,8 @@ public class UserInterface {
                     direction = "northeast";
                     break;
             }
-
-            if (!vowels.contains(currentLocation.getName().charAt(0))) {
+            // getting the right article in front of items: a or an depending on the first vowel
+            if (vowels.contains(currentLocation.getExits().get(directionNumber).getName().charAt(0))) {
                 System.out.println("\t>" + directionNumber + " - continue " + direction + " to an " + currentLocation.getExits().get(directionNumber));
             }
 
