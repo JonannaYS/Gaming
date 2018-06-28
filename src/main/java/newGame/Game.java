@@ -17,6 +17,9 @@ public class Game {
 
         game:
         while (true) {
+            if (currentLocation.getName().substring(0,3).equals("exit")) {
+                ui.winGame();
+            }
 
             //print description of current locations
             System.out.println("====================================================");

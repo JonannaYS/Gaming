@@ -64,7 +64,7 @@ public class GameData {
     }
 
     private void initializeTheLocations() {
-        try (Scanner fileReader = new Scanner(new File("src/main/text/Locations2.txt"))){
+        try (Scanner fileReader = new Scanner(new File("src/main/text/Locations.txt"))){
 
             while (fileReader.hasNextLine()) {
                 String key = fileReader.nextLine();
@@ -91,7 +91,7 @@ public class GameData {
 
 
     private void addExits(Map<String, Location> locations) {
-        try (Scanner fileReader = new Scanner(new File("src/main/text/exits2.txt"))){
+        try (Scanner fileReader = new Scanner(new File("src/main/text/exits.txt"))){
 
             outer:
             while (fileReader.hasNextLine()) {
