@@ -142,7 +142,7 @@ public class UserInterface {
                 if (passcode == nextLocation.getPasscode()) {
                     System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
-                    winGame(player);
+                    //winGame(player);
                     nextLocation.openWithPasscode();
                     break;
                 }

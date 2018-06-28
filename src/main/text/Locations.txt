@@ -1,6 +1,7 @@
 elevator1
 elevator
-You are in an elevator and the doors are shut.
+You are in an elevator and the doors are locked.
+The buttons appear not open the elevator.
 
 hallway2
 hallway
