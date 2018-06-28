@@ -81,12 +81,19 @@ public class GameData {
                 }
                 String description = sb.toString();
                 locations.put(key,new Location(name,description));
+                if (key.equals("exit22") || key.equals("exit23")) {
+                    lockTheExitsAtBeginning(key,name);
+                }
             }
         }
 
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void lockTheExitsAtBeginning(String key, String exitPointName){
+        locations.put(key, locations.get(key)).lockWithPasscode();
     }
 
     public void createLocation (String key, Location location ) {

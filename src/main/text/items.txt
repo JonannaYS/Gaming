@@ -82,3 +82,9 @@ There's an old cell phone by the window.
 true
 true
 true
+satchel
+You find a a satchel.
+0
+true
+false
+false

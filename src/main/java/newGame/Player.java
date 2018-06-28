@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int health = 100;
     private int hungerLevel = 1;
-    private int coffeeLevel;
+    private int coffeeLevel = 100;
     private int relaxationLevel;
     private List<Item> inventory = new ArrayList<>();
     private int maxInventorySize = 2;
@@ -57,8 +57,32 @@ public class Player {
         this.hungerLevel = hungerLevel;
     }
 
+    public void increaseHungerLevel() {
+        if (this.hungerLevel <= 100) {
+            this.hungerLevel ++;
+        }
+    }
+
+    public void decreaseHungerLevel () {
+        if (this.hungerLevel >= 1) {
+            this.hungerLevel --;
+        }
+    }
+
     public int getCoffeeLevel() {
         return coffeeLevel;
+    }
+
+    public void increaseCoffeeLevel() {
+        if (this.coffeeLevel <= 100) {
+            this.coffeeLevel --;
+        }
+    }
+
+    public void decreaseCoffeeLevel () {
+        if (this.coffeeLevel >= 1) {
+            this.coffeeLevel -- ;
+        }
     }
 
     public void setCoffeeLevel(int coffeeLevel) {
@@ -67,6 +91,10 @@ public class Player {
 
     public int getRelaxationLevel() {
         return relaxationLevel;
+    }
+
+    public void increaseRelaxationLevel() {
+        this.relaxationLevel ++;
     }
 
     public void setRelaxationLevel(int relaxationLevel) {
