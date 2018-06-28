@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int health = 100;
     private int hungerLevel = 1;
-    private int coffeeLevel;
+    private int coffeeLevel = 100;
     private int relaxationLevel;
     private List<Item> inventory = new ArrayList<>();
 
@@ -54,6 +54,10 @@ public class Player {
 
     public void setHungerLevel(int hungerLevel) {
         this.hungerLevel = hungerLevel;
+    }
+
+    public void increaseHungerLevel() {
+        this.hungerLevel ++;
     }
 
     public int getCoffeeLevel() {

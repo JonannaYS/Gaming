@@ -55,8 +55,15 @@ public class Location {
         return locked;
     }
 
+    public void locked() {
+        this.locked = true;
+    }
     public void openLock() {
         this.locked = false;
+    }
+
+    public void lockWithPasscode(){
+        this.lockedWithPasscode = true;
     }
 
     public void openWithPasscode(){
