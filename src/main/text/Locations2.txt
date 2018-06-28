@@ -40,3 +40,7 @@ space in front of toilets
 You are in a corner of a larger open space
 standing in front of the toilets.
 
+exit23
+exit
+kuvaus
+

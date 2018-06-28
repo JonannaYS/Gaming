@@ -124,13 +124,14 @@ public class UserInterface {
 
         else if (nextLocation.isLockedWithPasscode()) {
 
-            passcode:
             while (true) {
                 System.out.println("What's the passcode?");
                 int passcode = sc.nextInt();
 
                 if (passcode == nextLocation.getPasscode()) {
+                    System.out.println("Correct! The door is now unlocked.");
                     nextLocation.openWithPasscode();
+                    break;
                 }
                 else {
                     System.out.println("Wrong passcode! Try again?");
@@ -138,8 +139,8 @@ public class UserInterface {
                     System.out.println("\t>2 - No");
                     int choice = sc.nextInt();
 
-                    if (choice == 1) continue passcode;
-                    if (choice == 2) break passcode;
+                    if (choice == 1) continue;
+                    if (choice == 2) return currentLocation;
                 }
             }
         }
@@ -149,8 +150,8 @@ public class UserInterface {
         return nextLocation;
     }
 
-    public void winGame() {
-        System.out.println("voitto");
+    public void winGame(Player player) {
+        System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
         System.exit(0);
     }
 
@@ -208,7 +209,7 @@ public class UserInterface {
         while (true) {
             try {
                 if (currentLocation.getName().substring(0, 4).equals("exit")) {
-                    winGame();
+                    winGame(player);
                 }
 
                 //print description of current location
