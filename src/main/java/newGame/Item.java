@@ -37,9 +37,7 @@ public class Item {
         this.weight = weight;
     }
 
-    public String getName () {
-        return name;
-    }
+    public String getName () { return name; }
 
     public String getDescription() {
         return description;
@@ -55,7 +53,7 @@ public class Item {
 
     public boolean isMovable() { return movable; }
 
-    public boolean actionable() { return actionable; }
-
     public boolean usable() { return usable; }
+
+    public boolean actionable() { return actionable; }
 }
