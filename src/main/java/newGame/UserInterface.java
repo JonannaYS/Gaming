@@ -114,27 +114,29 @@ public class UserInterface {
         }
     }
 
-    public Location moveToLocation(Location currentLocation, Scanner sc, int command) {
+    public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command) {
         Location nextLocation = currentLocation.getExits().get(command);
-
+        
         if (nextLocation.isLocked()) {
             System.out.println(nextLocation + " is locked.");
             return currentLocation;
         }
 
         else if (nextLocation.isLockedWithPasscode()) {
-
+            System.out.println("This room is locked with a passcode.");
             while (true) {
                 System.out.println("....................................................");
-                System.out.println("What's the passcode?");
+                System.out.print("Passcode: ");
                 int passcode = sc.nextInt();
 
                 if (passcode == nextLocation.getPasscode()) {
+                    System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
                     nextLocation.openWithPasscode();
                     break;
                 }
                 else {
+                    System.out.println("....................................................");
                     System.out.println("Wrong passcode! Try again?");
                     System.out.println("\t>1 - Yes");
                     System.out.println("\t>2 - No");
@@ -232,6 +234,7 @@ public class UserInterface {
                 int command = sc.nextInt();
 
                 if (command == 999) {
+                    System.out.println("....................................................");
                     System.out.println("====================================================");
                     System.out.println("Thanks for playing!");
                     break;
@@ -248,7 +251,7 @@ public class UserInterface {
 
                 if (command > 0 && command < 10) {
 
-                    currentLocation = moveToLocation(currentLocation, sc, command);
+                    currentLocation = moveToLocation(player, currentLocation, sc, command);
                 }
             } catch (NullPointerException n) {
                 continue;
