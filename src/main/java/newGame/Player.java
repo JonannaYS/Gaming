@@ -81,13 +81,19 @@ public class Player {
         this.inventory = inventory;
     }
 
-    public void addItemToInventory(Item item){
-        if (item.isMovable()) {
+    public boolean addItemToInventory(Item item){
+        if (item.isMovable() && inventory.size() < maxInventorySize) {
             inventory.add(item);
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
-
+    public int getMaxInventorySize() {
+        return maxInventorySize;
+    }
 
     @Override
     public String toString() {
