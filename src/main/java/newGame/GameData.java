@@ -80,10 +80,10 @@ public class GameData {
                     sb.append(partialDescription).append("\n");
                 }
                 String description = sb.toString();
+                locations.put(key,new Location(name,description));
                 if (key.equals("exit22") || key.equals("exit23")) {
                     lockTheExitsAtBeginning(key,name);
                 }
-                locations.put(key,new Location(name,description));
             }
         }
 
