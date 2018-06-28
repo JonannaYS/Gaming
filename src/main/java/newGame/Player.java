@@ -116,6 +116,12 @@ public class Player {
         this.inventory = inventory;
     }
 
+    public void increaseInventorySize() {
+        if (this.inventory.contains("bag")) {
+            this.maxInventorySize = 10;
+        }
+    }
+
     public boolean addItemToInventory(Item item){
         if (item.isMovable() && inventory.size() < maxInventorySize) {
             inventory.add(item);
