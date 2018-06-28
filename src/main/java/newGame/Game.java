@@ -54,20 +54,7 @@ public class Game {
                 }
             } catch (NullPointerException n) {
                 continue;
-
             }
-
-
-
-
-
-
         }
-
-
-
-
-
     }
-
 }
