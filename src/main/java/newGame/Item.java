@@ -16,7 +16,7 @@ public class Item {
         this.weight = weight;
     }
 
-    public Item(String name, String description, boolean consumable) {
+    public Item(String name, String description, boolean consumable, boolean movable) {
         this.name = name;
         this.description = description;
         this.consumable = consumable;
