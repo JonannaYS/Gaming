@@ -1,6 +1,5 @@
 package newGame;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -61,19 +60,28 @@ public class UserInterface {
     }
 
     public void welcome(Player player, Scanner sc) {
+        System.out.println("==============< ESCAPE FROM ACADEMY >===============");
         System.out.print("Please enter your name: ");
         player.setName(sc.nextLine());
         System.out.println("Hello " + player + "!");
         System.out.println("====================================================");
     }
 
-    public void examineRoom(Location currentLocation, Scanner sc, Player player) {
+    public void examineRoom(Location currentLocation, Scanner sc, Player player, UserInterface ui) {
+        player.increaseHungerLevel();
+
+        if (player.tooHungry()) {
+            System.out.println("too hungery");
+            ui.startTheUserInterface(sc, player, currentLocation, ui);
+        }
+
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
             System.out.println("....................................................");
         }
 
         else {
+
             System.out.println("The " + currentLocation + " seems to contain these items: ");
             for (Item item: currentLocation.getItems()) {
                 System.out.println(item);
@@ -87,7 +95,7 @@ public class UserInterface {
                 }
             }
             System.out.println("....................................................");
-            System.out.println("What would you like to do?");
+            System.out.println("<COMMANDS>");
 
             for (Item movableItem: movableItems) {
                 System.out.println("\t>" + commandIndex + " - take the " + movableItem + " with you.");
@@ -102,11 +110,13 @@ public class UserInterface {
                 int index = command-1;
                 Item item = movableItems.get(index);
                 if (player.addItemToInventory(item)) {
+                    player.increaseHungerLevel();
                     currentLocation.getItems().remove(item);
                     System.out.println("You take the " + item + " with you.");
                     System.out.println("....................................................");
                 }
                 else {
+                    player.increaseHungerLevel();
                     System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
                     System.out.println("====================================================");
                 }
@@ -116,7 +126,7 @@ public class UserInterface {
 
     public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command) {
         Location nextLocation = currentLocation.getExits().get(command);
-        
+
         if (nextLocation.isLocked()) {
             System.out.println(nextLocation + " is locked.");
             return currentLocation;
@@ -163,10 +173,6 @@ public class UserInterface {
     }
 
     public void checkInventory(Scanner sc, Player player, Location currentLocation) {
-
-//        player.addItemToInventory(new Item("vasara","vasara",1,true));
-//        player.addItemToInventory(new Item("kengät","nämä ovat kengät",1,true));
-//        player.addItemToInventory(new Item("sukat","nämä ovat sukat",1,true));
 
         if (player.getInventory().size() == 0) {
             System.out.println("You don't have any items with you.");
@@ -217,7 +223,7 @@ public class UserInterface {
         }
     }
 
-    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation){
+    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation, UserInterface ui){
         while (true) {
             try {
                 if (currentLocation.getName().substring(0, 4).equals("exit")) {
@@ -225,13 +231,14 @@ public class UserInterface {
                 }
 
                 //print description of current location
+                System.out.println("-" + currentLocation.getName().toUpperCase() + "-");
                 System.out.println();
                 System.out.println(currentLocation.getDescription());
 
                 System.out.println("....................................................");
-                System.out.println("What would you like to do?");
 
                 //print options for the player
+                System.out.println("<COMMANDS>");
                 printOptions(currentLocation, player);
                 System.out.println("====================================================");
 
@@ -245,7 +252,7 @@ public class UserInterface {
                 }
                 if (command == 11) {
                     System.out.println("....................................................");
-                    examineRoom(currentLocation, sc, player);
+                    examineRoom(currentLocation, sc, player,ui);
                 }
 
                 if (command == 22) {
@@ -257,11 +264,9 @@ public class UserInterface {
 
                     currentLocation = moveToLocation(player, currentLocation, sc, command);
                 }
-            } catch (NullPointerException n) {
+            } catch (Exception e) {
                 continue;
             }
         }
-
     }
-
 }

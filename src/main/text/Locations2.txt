@@ -25,6 +25,16 @@ The windows open to the west and you can see some office
 buildings with white walls from the window across the street.
 The room may be leased; it has a greenish feeling...
 
+kitchen13
+kitchen
+You enter the kitchen. There is a large double coffee machine
+and fresh coffee beans appear to be ready in the machines.
+There are some bowls with fresh fruits on the tables.
+
+exit23
+exit
+null
+
 toilet24
 toilet
 You are in front of the toilet.
@@ -40,7 +50,5 @@ space in front of toilets
 You are in a corner of a larger open space
 standing in front of the toilets.
 
-exit23
-exit
-kuvaus
+
 
