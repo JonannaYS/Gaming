@@ -214,6 +214,8 @@ public class UserInterface {
                 //print description of current location
                 System.out.println();
                 System.out.println(currentLocation.getDescription());
+
+                System.out.println("....................................................");
                 System.out.println("What would you like to do?");
 
                 //print options for the player
@@ -228,12 +230,12 @@ public class UserInterface {
                     break;
                 }
                 if (command == 11) {
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                     examineRoom(currentLocation, sc, player);
                 }
 
                 if (command == 22) {
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                     checkInventory(sc, player, currentLocation);
                 }
 
