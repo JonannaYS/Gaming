@@ -59,8 +59,11 @@ public class UserInterface {
 
     }
 
-    public void welcome() {
-        System.out.println("Welcome");
+    public void welcome(Player player, Scanner sc) {
+        System.out.print("Please enter your name: ");
+        player.setName(sc.nextLine());
+        System.out.println("Hello " + player + "!");
+
     }
 
     public void examineRoom(Location currentLocation, Scanner sc) {

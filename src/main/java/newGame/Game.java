@@ -5,7 +5,7 @@ import java.util.*;
 public class Game {
 
     public void start(Scanner sc, Random random) {
-        Player player = new Player();
+        Player player = new Player("stranger");
         UserInterface ui = new UserInterface();
         GameData gameData = new GameData(random);
         Location currentLocation = gameData.initializeGame();
@@ -13,7 +13,7 @@ public class Game {
 
 
         // welcome player
-        ui.welcome();
+        ui.welcome(player, sc);
 
         game:
         while (true) {
