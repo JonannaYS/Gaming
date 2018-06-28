@@ -17,11 +17,11 @@ public class Game {
 
         game:
         while (true) {
-            if (currentLocation.getName().substring(0,3).equals("exit")) {
+            if (currentLocation.getName().substring(0,4).equals("exit")) {
                 ui.winGame();
             }
 
-            //print description of current locations
+            //print description of current location
             System.out.println("====================================================");
             System.out.println(currentLocation.getDescription());
             System.out.println("What would you like to do?");

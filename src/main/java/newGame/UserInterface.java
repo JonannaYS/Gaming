@@ -129,5 +129,7 @@ public class UserInterface {
     }
 
     public void winGame() {
+        System.out.println("voitto");
+        System.exit(0);
     }
 }
