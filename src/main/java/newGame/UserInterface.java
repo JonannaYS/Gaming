@@ -163,23 +163,7 @@ public class UserInterface {
 
     }
 
-    private void checkHungerlevel(Scanner sc, Player player, Location currentLocation, UserInterface ui) {
-
-        if (player.tooHungry()) {
-            System.out.println("You're too hungry to do anything. Maybe you should eat something?");
-            System.out.println("....................................................");
-        }
-        if (player.getHungerLevel()==11) {
-            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
-            System.out.println("....................................................");
-        }
-        if (player.getHungerLevel()==13) {
-            System.out.println("You're starting to feel light headed... You feel your stomach growling.");
-            System.out.println("....................................................");
-        }
-    }
-
-    public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command, UserInterface ui) {
+    public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command) {
         Location nextLocation = currentLocation.getExits().get(command);
 
         if (nextLocation.isLocked()) {
@@ -193,7 +177,6 @@ public class UserInterface {
                 player.checkHungerLevel();
                 if (player.tooHungry()) return currentLocation;
                 player.increaseHungerLevel();
-//                checkHungerlevel(sc, player, currentLocation, ui);
                 System.out.println("....................................................");
                 System.out.print("Passcode: ");
                 int passcode = sc.nextInt();
@@ -232,8 +215,7 @@ public class UserInterface {
         System.exit(0);
     }
 
-    public void checkInventory(Scanner sc, Player player, Location currentLocation, UserInterface ui) {
-//            checkHungerlevel(sc, player, currentLocation, ui);
+    public void checkInventory(Scanner sc, Player player, Location currentLocation) {
         player.checkHungerLevel();
         if (player.tooHungry()) return;
         player.increaseHungerLevel();
@@ -272,7 +254,7 @@ public class UserInterface {
             if (command <= player.getInventory().size()) {
                 System.out.println(player.getInventory().get(index).getDescription());
                 System.out.println("....................................................");
-                checkInventory(sc,player,currentLocation,ui);
+                checkInventory(sc,player,currentLocation);
             }
 
 
@@ -282,12 +264,13 @@ public class UserInterface {
                 currentLocation.addItem(item);
                 player.getInventory().remove(index);
                 System.out.println("You left the " + item + " in the " + currentLocation);
+                System.out.println("....................................................");
             }
 
         }
     }
 
-    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation, UserInterface ui){
+    public void startTheUserInterface(Scanner sc, Player player, Location currentLocation){
         while (true) {
             try {
                 if (currentLocation.getName().substring(0, 4).equals("exit")) {
@@ -305,7 +288,7 @@ public class UserInterface {
                 printOptions(currentLocation, player);
                 System.out.println("====================================================");
 
-                int command = sc.nextInt();
+                int command = Integer.parseInt(sc.nextLine());
 
                 if (command == 999) { //quit game
                     System.out.println("....................................................");
@@ -316,19 +299,20 @@ public class UserInterface {
                 if (command == 11) { // examine room
                     System.out.println("....................................................");
                     examineRoom(currentLocation, sc, player);
+
                 }
 
                 if (command == 22) { // check inventory
                     System.out.println("....................................................");
-                    checkInventory(sc, player, currentLocation,ui);
+                    checkInventory(sc, player, currentLocation);
                 }
 
-                if (command > 0 && command < 10) { // move to another location
-
-                    currentLocation = moveToLocation(player, currentLocation, sc, command, ui);
+                if (command > 0 && command < 10) {
+                    currentLocation = moveToLocation(player, currentLocation, sc, command);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Only numbers, please!");
+                System.out.println("====================================================");
             }
 
         }
