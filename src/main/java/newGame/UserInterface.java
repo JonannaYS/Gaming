@@ -1,5 +1,6 @@
 package newGame;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,6 +70,7 @@ public class UserInterface {
     public void examineRoom(Location currentLocation, Scanner sc, Player player) {
         if (currentLocation.getItems().isEmpty()) {
             System.out.println("There is nothing interesting in this " + currentLocation + ".");
+            System.out.println("....................................................");
         }
 
         else {
@@ -84,7 +86,7 @@ public class UserInterface {
                     movableItems.add(item);
                 }
             }
-            System.out.println("====================================================");
+            System.out.println("....................................................");
             System.out.println("What would you like to do?");
 
             for (Item movableItem: movableItems) {
@@ -92,6 +94,7 @@ public class UserInterface {
                 commandIndex++;
             }
             System.out.println("\t>" + commandIndex + " - do nothing.");
+            System.out.println("====================================================");
 
             int command = sc.nextInt();
 
@@ -101,7 +104,7 @@ public class UserInterface {
                 if (player.addItemToInventory(item)) {
                     currentLocation.getItems().remove(item);
                     System.out.println("You take the " + item + " with you.");
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                 }
                 else {
                     System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
@@ -142,6 +145,7 @@ public class UserInterface {
         }
 
         System.out.println("You left the " + currentLocation + " and moved to the " + nextLocation + ".");
+        System.out.println("....................................................");
         return nextLocation;
     }
 
@@ -159,6 +163,7 @@ public class UserInterface {
         if (player.getInventory().size() == 0) {
             System.out.println("You don't have any items with you.");
             System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+            System.out.println("....................................................");
         }
         else {
             System.out.println("You currently carry these items: ");
@@ -167,6 +172,7 @@ public class UserInterface {
             }
 
             System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+            System.out.println("....................................................");
             System.out.println("What would you like to do?");
             int commandIndex = 1;
 
@@ -208,6 +214,8 @@ public class UserInterface {
                 //print description of current location
                 System.out.println();
                 System.out.println(currentLocation.getDescription());
+
+                System.out.println("....................................................");
                 System.out.println("What would you like to do?");
 
                 //print options for the player
@@ -222,12 +230,12 @@ public class UserInterface {
                     break;
                 }
                 if (command == 11) {
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                     examineRoom(currentLocation, sc, player);
                 }
 
                 if (command == 22) {
-                    System.out.println("====================================================");
+                    System.out.println("....................................................");
                     checkInventory(sc, player, currentLocation);
                 }
 
