@@ -132,6 +132,7 @@ public class UserInterface {
                 if (passcode == nextLocation.getPasscode()) {
                     System.out.println("....................................................");
                     System.out.println("Correct! The door is now unlocked.");
+                    winGame(player);
                     nextLocation.openWithPasscode();
                     break;
                 }
@@ -154,9 +155,9 @@ public class UserInterface {
     }
 
     public void winGame(Player player) {
-        String cowCall = "Pop the champagne! "+ player + "! You made it! You got succesfully out of the building and won the game!";
-        System.exit(0);
-        CowSay.callTheCow();
+        System.out.println();
+        String congratulations = "Pop the champagne "+ player + "!!! You got succesfully out of the building and won the game!";
+        CowSay.callTheCow(congratulations);
         // System.out.println("Congratulations " + player + "! You made it succesfully out of the building and won the game!" );
         System.exit(0);
     }

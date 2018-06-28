@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class CowSay {
 
-    public static void callTheCow() {
-        String sentence = requestInput();
+    public static void callTheCow(String sentence) {
+        //String sentence = requestInput();
         printTheBalloon(sentence);
         printTheCow(sentence);
     }

@@ -12,7 +12,7 @@ public class Location {
     private List<Item> items = new ArrayList<>();
     private boolean locked = false;
     private boolean lockedWithPasscode = false;
-    private int passcode = 1234;
+    private int passcode = 2613;
 
     public Location(String name, String description) {
         this.name = name;
