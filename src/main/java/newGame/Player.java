@@ -58,11 +58,31 @@ public class Player {
     }
 
     public void increaseHungerLevel() {
-        this.hungerLevel ++;
+        if (this.hungerLevel <= 100) {
+            this.hungerLevel ++;
+        }
+    }
+
+    public void decreaseHungerLevel () {
+        if (this.hungerLevel >= 1) {
+            this.hungerLevel --;
+        }
     }
 
     public int getCoffeeLevel() {
         return coffeeLevel;
+    }
+
+    public void increaseCoffeeLevel() {
+        if (this.coffeeLevel <= 100) {
+            this.coffeeLevel --;
+        }
+    }
+
+    public void decreaseCoffeeLevel () {
+        if (this.coffeeLevel >= 1) {
+            this.coffeeLevel -- ;
+        }
     }
 
     public void setCoffeeLevel(int coffeeLevel) {
@@ -71,6 +91,10 @@ public class Player {
 
     public int getRelaxationLevel() {
         return relaxationLevel;
+    }
+
+    public void increaseRelaxationLevel() {
+        this.relaxationLevel ++;
     }
 
     public void setRelaxationLevel(int relaxationLevel) {
@@ -85,13 +109,19 @@ public class Player {
         this.inventory = inventory;
     }
 
-    public void addItemToInventory(Item item){
-        if (item.isMovable()) {
+    public boolean addItemToInventory(Item item){
+        if (item.isMovable() && inventory.size() < maxInventorySize) {
             inventory.add(item);
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
-
+    public int getMaxInventorySize() {
+        return maxInventorySize;
+    }
 
     @Override
     public String toString() {

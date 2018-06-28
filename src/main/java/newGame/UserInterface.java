@@ -71,7 +71,7 @@ public class UserInterface {
         }
 
         else {
-            System.out.println("You see these items: ");
+            System.out.println("The " + currentLocation + " seems to contain these items: ");
             for (Item item: currentLocation.getItems()) {
                 System.out.println(item);
             }
@@ -92,16 +92,19 @@ public class UserInterface {
             System.out.println("\t>" + commandIndex + " - do nothing.");
 
             int command = sc.nextInt();
+
             if (command <= movableItems.size()) {
                 int index = command-1;
                 Item item = movableItems.get(index);
-                player.addItemToInventory(item);
-                currentLocation.getItems().remove(item);
-                System.out.println("You take the " + item + " with you.");
+                if (player.addItemToInventory(item)) {
+                    currentLocation.getItems().remove(item);
+                    System.out.println("You take the " + item + " with you.");
+                }
+                else {
+                    System.out.println("You can't carry more than "  + player.getMaxInventorySize() + " items.");
+                }
             }
         }
-
-
     }
 
     public Location moveToLocation(Location currentLocation, Scanner sc, int command) {
@@ -132,14 +135,62 @@ public class UserInterface {
                     if (choice == 2) break passcode;
                 }
             }
-
         }
 
+        System.out.println("You left the " + currentLocation + " and moved to the " + nextLocation + ".");
         return nextLocation;
     }
 
     public void winGame() {
         System.out.println("voitto");
         System.exit(0);
+    }
+
+    public void checkInventory(Scanner sc, Player player, Location currentLocation) {
+
+//        player.addItemToInventory(new Item("vasara","vasara",1,true));
+//        player.addItemToInventory(new Item("kengät","nämä ovat kengät",1,true));
+//        player.addItemToInventory(new Item("sukat","nämä ovat sukat",1,true));
+
+        if (player.getInventory().size() == 0) {
+            System.out.println("You don't have any items with you.");
+            System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+        }
+        else {
+            System.out.println("You currently carry these items: ");
+            for (Item item: player.getInventory()) {
+                System.out.println(item);
+            }
+
+            System.out.println("You can carry a maximum of " + player.getMaxInventorySize() + " items.");
+            System.out.println("What would you like to do?");
+            int commandIndex = 1;
+
+            for (Item item: player.getInventory()) {
+                System.out.println("\t>" + commandIndex + " - examine the " + item);
+                commandIndex++;
+            }
+
+            for (Item item: player.getInventory()) {
+                System.out.println("\t>" + commandIndex + " - leave the " + item + " in the " + currentLocation.getName());
+                commandIndex++;
+            }
+
+            int command = sc.nextInt();
+            int index = command-1;
+
+            if (command <= player.getInventory().size()) {
+                System.out.println(player.getInventory().get(index).getDescription());
+                checkInventory(sc,player,currentLocation);
+            }
+
+            else if (command <= player.getInventory().size()*2) {
+                index -= player.getInventory().size();
+                Item item = player.getInventory().get(index);
+                currentLocation.addItem(item);
+                player.getInventory().remove(index);
+                System.out.println("You left the " + item + " in the " + currentLocation);
+            }
+        }
     }
 }
