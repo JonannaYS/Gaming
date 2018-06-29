@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class UserInterface {
     final Character [] VOWEL_ARRAY = {'a','e','i','o','u','y','ä','ö'};
-    final List<Character> vowels = new ArrayList<>(Arrays.asList(VOWEL_ARRAY));
+    final List<Character> VOWELS = new ArrayList<>(Arrays.asList(VOWEL_ARRAY));
 
     public void startTheUserInterface(Scanner sc, Player player, Location currentLocation, GameData gameData){
 
@@ -40,7 +40,6 @@ public class UserInterface {
             } catch (Exception e) {
                 System.out.println("Excuse me, but that is not a valid command. Please use only the options listed under <COMMANDS>.");
                 System.out.println("====================================================");
-                e.printStackTrace();
             }
         }
     }
@@ -65,7 +64,13 @@ public class UserInterface {
 
     private void printCurrentLocation(Location currentLocation) {
         System.out.println("<LOCATION>\n");
-        System.out.println("You are currently in the " + currentLocation + ".");
+        if (VOWELS.contains(currentLocation.getName().charAt(0))){
+            System.out.println("You are currently in an " + currentLocation + ".");
+        }
+
+        else {
+            System.out.println("You are currently in a " + currentLocation);
+        }
         System.out.println("....................................................");
     }
 
@@ -106,7 +111,7 @@ public class UserInterface {
                     break;
             }
             // getting the right article in front of items: a or an depending on the first letter
-            if (vowels.contains(currentLocation.getExits().get(directionNumber).getName().charAt(0))) {
+            if (VOWELS.contains(currentLocation.getExits().get(directionNumber).getName().charAt(0))) {
                 System.out.println("\t>" + directionNumber + " - continue " + direction + " to an " + currentLocation.getExits().get(directionNumber));
             }
 
@@ -187,7 +192,7 @@ public class UserInterface {
             System.out.println("The " + currentLocation + " seems to contain these items: ");
             for (Item item: roomItems) {
                 String name = null;
-                if (vowels.contains(item.getName().charAt(0))) {
+                if (VOWELS.contains(item.getName().charAt(0))) {
                     name = "an " + item.getName();
                 }
 
