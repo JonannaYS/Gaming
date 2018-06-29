@@ -20,6 +20,7 @@ public class Item {
         this.name = name;
         this.description = description;
         this.consumable = consumable;
+        this.movable = movable;
     }
 
     public Item(String name, String description, int weight, boolean movable, boolean usable, boolean actionable) {
@@ -31,45 +32,12 @@ public class Item {
         this.actionable = actionable;
     }
 
-    public Item(String name, String description, int weight, boolean movable) {
-        this.name = name;
-        this.description = description;
-        this.weight = weight;
-        this.movable = movable;
-    }
-
-    //Minimum constructor for an item: Name and weight
-    public Item(String name, int weight) {
-        this.name = name;
-        this.weight = weight;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
     public void setMovable(boolean movable) {
         this.movable = movable;
     }
 
-    public boolean isUsable() {
-        return usable;
-    }
-
     public void setUsable(boolean usable) {
         this.usable = usable;
-    }
-
-    public boolean isActionable() {
-        return actionable;
     }
 
     public void setActionable(boolean actionable) {
@@ -84,7 +52,9 @@ public class Item {
         this.consumable = consumable;
     }
 
-    public String getName () { return name; }
+    public String getName () {
+        return name;
+    }
 
     public String getDescription() {
         return description;
@@ -100,8 +70,4 @@ public class Item {
     }
 
     public boolean isMovable() { return movable; }
-
-    public boolean usable() { return usable; }
-
-    public boolean actionable() { return actionable; }
 }

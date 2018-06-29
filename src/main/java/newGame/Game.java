@@ -9,7 +9,6 @@ public class Game {
         UserInterface ui = new UserInterface();
         GameData gameData = new GameData(random);
         Location currentLocation = gameData.initializeGame();
-        Map<String, Location> allLocations = gameData.getLocations();
 
         //Start the UI
         ui.startTheUserInterface(sc, player, currentLocation, gameData);

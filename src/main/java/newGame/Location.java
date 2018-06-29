@@ -12,19 +12,11 @@ public class Location {
     private List<Item> items = new ArrayList<>();
     private boolean locked = false;
     private boolean lockedWithPasscode = false;
-    private int passcode = 2613; // The default passcode for e.g. the exits.
+    private int passcode = 2613; // Jouni: The default passcode for e.g. the exits.
 
     public Location(String name, String description) {
         this.name = name;
         this.description = description;
-    }
-
-    public Location(String name, String description, boolean locked, boolean lockedWithPasscode, int passcode) {
-        this.name = name;
-        this.description = description;
-        this.locked = locked;
-        this.lockedWithPasscode = lockedWithPasscode;
-        this.passcode = passcode;
     }
 
     public void addExit (int directionNumber, Location exitFromPresent)   {
@@ -53,13 +45,6 @@ public class Location {
 
     public boolean isLocked() {
         return locked;
-    }
-
-    public void locked() {
-        this.locked = true;
-    }
-    public void openLock() {
-        this.locked = false;
     }
 
     public void lockWithPasscode(){

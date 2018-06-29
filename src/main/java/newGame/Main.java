@@ -3,6 +3,7 @@ package newGame;
 import java.util.Random;
 import java.util.Scanner;
 
+//Joonas
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();

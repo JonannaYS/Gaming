@@ -32,12 +32,6 @@ public class CowSay {
         System.out.println("||     ||");
     }
 
-    private static String requestInput() {
-        Scanner reader = new Scanner(System.in);
-        String lause = reader.nextLine();
-        return lause;
-    }
-
     private static void printTheBalloon(String sentence) {
         int lengthOfSentence = sentence.length();
         System.out.printf(" ");
@@ -60,6 +54,12 @@ public class CowSay {
             System.out.printf(" ");
         }
         System.out.printf("\\");
+    }
+
+    private static String requestInput() {
+        Scanner reader = new Scanner(System.in);
+        String lause = reader.nextLine();
+        return lause;
     }
 }
 

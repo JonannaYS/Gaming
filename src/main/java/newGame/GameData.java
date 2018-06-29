@@ -40,7 +40,7 @@ public class GameData {
             locations.get(randomLocation).addItem(item);
 
         }
-        // One fixed item is added to the elevator: The code to exit the elevator
+        // Jouni: One fixed item is added to the elevator: The code to exit the elevator
         locations.get("elevator1").addItem(new Item("paper note","There are numbers 9372 written on the note",0,true,true,true));
         locations.get("kitchen13").addItem(new Item("banana","A delightfully fresh banana", true,true));
         locations.get("kitchen13").addItem(new Item("slice of pizza","Pizza left from a kickoff evening", true,true));
@@ -106,10 +106,6 @@ public class GameData {
 
     private void lockWithPasscodeAtBeginning(String key, String exitPointName){
         locations.put(key, locations.get(key)).lockWithPasscode();
-    }
-
-    public void createLocation (String key, Location location ) {
-        locations.put(key, location);
     }
 
     private void addExits(Map<String, Location> locations) {

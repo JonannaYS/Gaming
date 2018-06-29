@@ -19,7 +19,8 @@ public class UserInterface {
                 if (currentLocation.getName().substring(0, 4).equals("exit"))
                     winGame(player);
                 if (player.isTooHungry()) {
-                    gameOver(player, sc, currentLocation, gameData);
+                    currentLocation = resetGame(gameData,player);
+                    gameOver(player, sc);
                 }
 
                 printCurrentLocation(currentLocation);
@@ -48,7 +49,7 @@ public class UserInterface {
         }
     }
 
-    private void gameOver(Player player, Scanner sc, Location currentLocation, GameData gameData) {
+    private void gameOver(Player player, Scanner sc) {
         System.out.println("==================< GAME OVER >=====================");
         System.out.println(player + ", you passed out because you were too hungry. \nRemember to eat something next time!\n");
         System.out.println("....................................................");
@@ -59,7 +60,6 @@ public class UserInterface {
             System.out.println("....................................................");
             String choice = sc.nextLine();
             if (choice.equals("1")) {
-                resetGame(player, currentLocation, gameData);
                 System.out.println("OK, good luck!");
                 for (int i = 0; i <10; i++) System.out.println(".");
                 System.out.println("====================================================");
@@ -74,10 +74,10 @@ public class UserInterface {
         }
     }
 
-    private void resetGame(Player player, Location currentLocation, GameData gameData) {
+    private Location resetGame(GameData gameData, Player player) {
         player.setHungerLevel(1);
-        currentLocation = gameData.getLocations().get("elevator1");
         gameData.getLocations().get("hallway2").lockWithPasscode();
+        return gameData.getLocations().get("elevator1");
     }
 
     private void quitGame() {
