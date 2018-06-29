@@ -33,6 +33,7 @@ public class GameData {
 
         ArrayList<String> locationsOrdered = new ArrayList<>(locations.keySet());
         locationsOrdered.remove("elevator1");
+        locationsOrdered.remove("exit23");
         // The item locations are randomized
         for (Item item: items.values()) {
             String randomLocation = locationsOrdered.get(random.nextInt(locationsOrdered.size()));

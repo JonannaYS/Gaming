@@ -113,7 +113,7 @@ public class Player {
 
     public void increaseInventorySize(Item bag) {
         if (this.inventory.contains(bag)) {
-            this.maxInventorySize = 10;
+            this.maxInventorySize = 5;
         }
         else {
             this.maxInventorySize = 2;
@@ -140,10 +140,11 @@ public class Player {
     }
 
     public void checkHungerLevel() {
-        if (this.getHungerLevel()==maxHungerLevel-4) {
+        if (this.getHungerLevel()==maxHungerLevel-6) {
             System.out.println("\nYou're starting to feel light headed... You feel your stomach growling.\n");
             System.out.println("....................................................");
-        } else if (this.getHungerLevel()==maxHungerLevel-2) {
+        } else if (this.getHungerLevel()==maxHungerLevel-3) {
+            System.out.println("<WARNING>");
             System.out.println("\nYou should really eat or drink something before you pass out.\n");
             System.out.println("....................................................");
         } else if (this.isTooHungry()) {

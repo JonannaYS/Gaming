@@ -6,10 +6,6 @@ NOTE
 A piece of paper with barely readable handwriting on it. Is it a number one?
 1
 move
-PIECE OF TEXT WRITTEN ON THE WALL
-There's huge number 2 written on the wall.
-0
-null
 COMPUTER
 On the computer you see number 3 blinking.
 0
@@ -62,3 +58,11 @@ BAG
 An old brown bag.
 5
 act use move
+BANANA
+Looks like a couple days old banana. Maybe it's still edible?
+1
+eat move
+CANDY BAR
+It's a Twix!
+1
+eat move

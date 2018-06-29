@@ -18,6 +18,9 @@ public class UserInterface {
             try {
                 if (currentLocation.getName().substring(0, 4).equals("exit"))
                     winGame(player);
+                if (player.isTooHungry()) {
+                    gameOver(player, sc, currentLocation, gameData);
+                }
 
                 printCurrentLocation(currentLocation);
                 printOptions(currentLocation, player);
@@ -40,8 +43,41 @@ public class UserInterface {
             } catch (Exception e) {
                 System.out.println("Excuse me, but that is not a valid command. Please use only the options listed under <COMMANDS>.");
                 System.out.println("====================================================");
+
             }
         }
+    }
+
+    private void gameOver(Player player, Scanner sc, Location currentLocation, GameData gameData) {
+        System.out.println("==================< GAME OVER >=====================");
+        System.out.println(player + ", you passed out because you were too hungry. \nRemember to eat something next time!\n");
+        System.out.println("....................................................");
+        System.out.println("Would you like to try again?");
+        while (true) {
+            System.out.println("\t>1 - Yes");
+            System.out.println("\t>2 - No");
+            System.out.println("....................................................");
+            String choice = sc.nextLine();
+            if (choice.equals("1")) {
+                resetGame(player, currentLocation, gameData);
+                System.out.println("OK, good luck!");
+                for (int i = 0; i <10; i++) System.out.println(".");
+                System.out.println("====================================================");
+                return;
+            }
+            if (choice.equals("2")) { ;
+                quitGame();
+            }
+            else {
+                System.out.println("Sorry, not a valid command at this time. Would you like to restart the game or not?");
+            }
+        }
+    }
+
+    private void resetGame(Player player, Location currentLocation, GameData gameData) {
+        player.setHungerLevel(1);
+        currentLocation = gameData.getLocations().get("elevator1");
+        gameData.getLocations().get("hallway2").lockWithPasscode();
     }
 
     private void quitGame() {
@@ -129,6 +165,8 @@ public class UserInterface {
 
     public Location moveToLocation(Player player, Location currentLocation, Scanner sc, int command) {
         Location nextLocation = currentLocation.getExits().get(command);
+        player.increaseHungerLevel();
+        player.checkHungerLevel();
 
         if (nextLocation.isLocked()) {
             System.out.println(nextLocation + " is locked.");
@@ -309,7 +347,7 @@ public class UserInterface {
         if (command == foodCommand) {
             player.getInventory().remove(item);
             player.setHungerLevel(1);
-            System.out.println("You consumed the " + item + ". Your hunger level is now back to " + player.getHungerLevel() + ".");
+            System.out.println("You consumed the " + item + ".");
         }
 
         examineLocation(currentLocation,sc,player);
@@ -323,7 +361,7 @@ public class UserInterface {
 
         if (player.addItemToInventory(item)) {
             currentLocation.getItems().remove(item);
-            System.out.println("You take the " + item + " with you.");
+            System.out.println("You took the " + item + " with you.");
         }
         else {
             System.out.println("Sorry, you can't carry more than "  + player.getMaxInventorySize() + " items.");

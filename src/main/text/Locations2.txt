@@ -14,17 +14,18 @@ This office hasn't been used in a long time.
 
 leasegreen5
 classroom
-You are in a semi large classroom.
-There is a U-shaped table in the middle
-and some tables also by the east side of the wall.
-The windows open to the west and you can see some office
-buildings with white walls from the window across the street.
-The room may be leased; it has a greenish feeling...
+You are in a semi large classroom. There is a
+U-shaped table in the middle and some tables also
+by the east side of the wall. There's also a huge
+number 2 written on the wall. The windows open to
+the west and you can see some office buildings with
+white walls from the window across the street. The
+room may be leased; it has a greenish feeling...
 
 kitchen13
 kitchen
-There is a large double coffee machine
-and fresh coffee beans appear to be ready in the machines.
+There is a large double coffee machine and fresh
+coffee beans appear to be ready in the machines.
 
 exit23
 exit
@@ -36,8 +37,8 @@ Quite much to your surprise the toilet seems to be occupied...
 
 toilet25
 toilet
-This appears to be a very tidy toilet.
-There are some air fresheners in the baskets by the wash basin.
+This appears to be a very tidy toilet. There are
+some air fresheners in the baskets by the wash basin.
 
 toilets26
 space in front of toilets
