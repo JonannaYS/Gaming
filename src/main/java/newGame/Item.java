@@ -1,5 +1,12 @@
 package newGame;
 
+// Esineiden määrittelyt:
+
+// Siirrettävissä oleva. movable
+// Käytettävissä oleva. usable
+// Syötävissä oleva. consumable
+// Tai esineen kanssa voi tehdä jotain. actionable
+
 public class Item {
     private String name;
     private String description = "This item is not interesting at all.";

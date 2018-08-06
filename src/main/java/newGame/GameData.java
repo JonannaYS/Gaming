@@ -45,9 +45,6 @@ public class GameData {
         locations.get("kitchen13").addItem(new Item("banana","A delightfully fresh banana", true,true));
         locations.get("kitchen13").addItem(new Item("slice of pizza","Pizza left from a kickoff evening", true,true));
         locations.get("kitchen13").addItem(new Item("fresh coffee","A nice cup of fresh coffee of your choice. Cappuccino, perhaps?", true,true));
-
-
-
     }
 
     private void initializeItems() {
