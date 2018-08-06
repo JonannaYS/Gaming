@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+// Täällä määritellään lokaatiot, joissa pelaaja voi liikkua
 public class Location {
     private String name;
     private String description;
